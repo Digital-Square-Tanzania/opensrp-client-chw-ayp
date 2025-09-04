@@ -255,7 +255,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "cse-relevance-rules.yml"
+              "rules-file": "ayp_in-school_cse-relevance-rules.yml"
             }
           }
         }

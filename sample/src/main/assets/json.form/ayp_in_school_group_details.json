@@ -135,7 +135,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "group-details-relevance-rules.yml"
+              "rules-file": "ayp_in-school_group-details-relevance-rules.yml"
             }
           }
         },

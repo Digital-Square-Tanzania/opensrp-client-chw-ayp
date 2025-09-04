@@ -114,7 +114,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "client-status-relevance-rules.yml"
+              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
             }
           }
         },
@@ -133,7 +133,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "client-status-relevance-rules.yml"
+              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
             }
           }
         },

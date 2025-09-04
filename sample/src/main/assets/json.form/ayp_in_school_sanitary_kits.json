@@ -127,7 +127,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         }
@@ -138,11 +138,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sanitary_pads_count",
         "type": "edit_text",
-        "hint": "Count of sanitary pads",
+        "hint": "Number of sanitary pads",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -161,11 +161,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "underwear_count",
         "type": "edit_text",
-        "hint": "Count of underwear",
+        "hint": "Number of underwear",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -184,11 +184,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sanitary_cloth_bag_count",
         "type": "edit_text",
-        "hint": "Count of sanitary cloth bags",
+        "hint": "Number of sanitary cloth bags",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -207,11 +207,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "user_guide_manual_count",
         "type": "edit_text",
-        "hint": "Count of user guides (manuals)",
+        "hint": "Number of user guides (manuals)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -234,7 +234,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -253,7 +253,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -272,7 +272,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },
@@ -295,7 +295,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "sanitary-kits-relevance-rules.yml"
+              "rules-file": "ayp_in-school_sanitary-kits-relevance-rules.yml"
             }
           }
         },

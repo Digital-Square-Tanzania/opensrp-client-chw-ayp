@@ -10,6 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
+import org.smartregister.chw.ayp.R;
+import org.smartregister.chw.ayp.actionhelper.AypInSchoolFinancialLiteracyActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
@@ -60,13 +62,14 @@ public class BaseAypVisitInteractor implements BaseAypVisitContract.Interactor {
     public BaseAypVisitInteractor() {
         this(new AppExecutors(), AypLibrary.getInstance().getEcSyncHelper());
     }
+
     public BaseAypVisitInteractor(String visitType) {
         this(new AppExecutors(), AypLibrary.getInstance().getEcSyncHelper());
         this.visitType = visitType;
     }
 
     protected String getCurrentVisitType() {
-        if(StringUtils.isNotBlank(visitType)){
+        if (StringUtils.isNotBlank(visitType)) {
             return visitType;
         }
         return Constants.EVENT_TYPE.ayp_ENROLLMENT;
@@ -103,6 +106,7 @@ public class BaseAypVisitInteractor implements BaseAypVisitContract.Interactor {
     @Override
     public void calculateActions(final BaseAypVisitContract.View view, MemberObject memberObject, final BaseAypVisitContract.InteractorCallBack callBack) {
         context = view.getContext();
+        this.memberObject = memberObject;
         getDetailsOnEdit(view, memberObject);
 
         populateActionList(callBack);
@@ -168,8 +172,7 @@ public class BaseAypVisitInteractor implements BaseAypVisitContract.Interactor {
 
     protected String submitVisit(final boolean editMode,
                                  final String memberID,
-                                 final Map<String,
-                                 BaseAypVisitAction> map,
+                                 final Map<String, BaseAypVisitAction> map,
                                  String parentEventType) throws Exception {
         // create a map of the different types
 

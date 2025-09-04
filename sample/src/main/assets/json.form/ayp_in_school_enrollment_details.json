@@ -191,7 +191,7 @@
           {"key": "std_7", "text": "Std 7", "openmrs_entity_parent": "", "openmrs_entity": "concept", "openmrs_entity_id": "std_7"}
         ],
         "relevance": {
-          "rules-engine": {"ex-rules": {"rules-file": "enrollment-details-relevance-rules.yml"}}
+          "rules-engine": {"ex-rules": {"rules-file": "ayp_in-school_enrollment-details-relevance-rules.yml"}}
         },
         "v_required": {"value": true, "err": "Please select the primary class"}
       },
@@ -209,7 +209,7 @@
           {"key": "form_iv", "text": "Form IV", "openmrs_entity_parent": "", "openmrs_entity": "concept", "openmrs_entity_id": "form_iv"}
         ],
         "relevance": {
-          "rules-engine": {"ex-rules": {"rules-file": "enrollment-details-relevance-rules.yml"}}
+          "rules-engine": {"ex-rules": {"rules-file": "ayp_in-school_enrollment-details-relevance-rules.yml"}}
         },
         "v_required": {"value": true, "err": "Please select the secondary class"}
       },
@@ -243,7 +243,7 @@
           {"key": "std_7", "text": "Std 7", "openmrs_entity_parent": "", "openmrs_entity": "concept", "openmrs_entity_id": "std_7"}
         ],
         "relevance": {
-          "rules-engine": {"ex-rules": {"rules-file": "enrollment-details-relevance-rules.yml"}}
+          "rules-engine": {"ex-rules": {"rules-file": "ayp_in-school_enrollment-details-relevance-rules.yml"}}
         },
         "v_required": {"value": true, "err": "Please select the previous primary class"}
       },
@@ -261,7 +261,7 @@
           {"key": "form_iv", "text": "Form IV", "openmrs_entity_parent": "", "openmrs_entity": "concept", "openmrs_entity_id": "form_iv"}
         ],
         "relevance": {
-          "rules-engine": {"ex-rules": {"rules-file": "enrollment-details-relevance-rules.yml"}}
+          "rules-engine": {"ex-rules": {"rules-file": "ayp_in-school_enrollment-details-relevance-rules.yml"}}
         },
         "v_required": {"value": true, "err": "Please select the previous secondary class"}
       },
@@ -290,7 +290,7 @@
         "type": "edit_text",
         "hint": "Mention other project",
         "relevance": {
-          "rules-engine": {"ex-rules": {"rules-file": "enrollment-details-relevance-rules.yml"}}
+          "rules-engine": {"ex-rules": {"rules-file": "ayp_in-school_enrollment-details-relevance-rules.yml"}}
         },
         "v_required": {"value": true, "err": "Please mention the project"}
       }

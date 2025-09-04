@@ -135,7 +135,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "other-services-referrals-relevance-rules.yml"
+              "rules-file": "ayp_in-school_other-services-referrals-relevance-rules.yml"
             }
           }
         }
@@ -150,7 +150,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "other-services-referrals-relevance-rules.yml"
+              "rules-file": "ayp_in-school_other-services-referrals-relevance-rules.yml"
             }
           }
         },

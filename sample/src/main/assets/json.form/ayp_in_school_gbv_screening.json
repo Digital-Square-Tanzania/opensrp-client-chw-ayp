@@ -126,7 +126,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "gbv-relevance-rules.yml"
+              "rules-file": "ayp_in-school_gbv-relevance-rules.yml"
             }
           }
         }
@@ -141,7 +141,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "gbv-relevance-rules.yml"
+              "rules-file": "ayp_in-school_gbv-relevance-rules.yml"
             }
           }
         }
@@ -182,7 +182,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "gbv-relevance-rules.yml"
+              "rules-file": "ayp_in-school_gbv-relevance-rules.yml"
             }
           }
         }

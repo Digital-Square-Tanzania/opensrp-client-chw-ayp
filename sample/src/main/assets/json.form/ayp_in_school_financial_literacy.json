@@ -159,7 +159,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "financial-literacy-relevance-rules.yml"
+              "rules-file": "ayp_in-school_financial-literacy-relevance-rules.yml"
             }
           }
         }

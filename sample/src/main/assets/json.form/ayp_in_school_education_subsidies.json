@@ -151,7 +151,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         }
@@ -162,11 +162,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "number_of_exercise_books_count",
         "type": "edit_text",
-        "hint": "Count of exercise books",
+        "hint": "Number of exercise books",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -185,11 +185,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "number_of_pens_count",
         "type": "edit_text",
-        "hint": "Count of pens",
+        "hint": "Number of pens",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -208,11 +208,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "number_of_pencils_count",
         "type": "edit_text",
-        "hint": "Count of pencils",
+        "hint": "Number of pencils",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -231,11 +231,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "school_bag_count",
         "type": "edit_text",
-        "hint": "Count of school bags",
+        "hint": "Number of school bags",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -254,11 +254,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "school_uniform_count",
         "type": "edit_text",
-        "hint": "Count of school uniforms",
+        "hint": "Number of school uniforms",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -277,11 +277,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "school_shoes_count",
         "type": "edit_text",
-        "hint": "Count of school shoes",
+        "hint": "Number of school shoes",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },
@@ -300,11 +300,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "others_count",
         "type": "edit_text",
-        "hint": "Count of other items",
+        "hint": "Number of other items",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "education-subsidies-relevance-rules.yml"
+              "rules-file": "ayp_in-school_education-subsidies-relevance-rules.yml"
             }
           }
         },

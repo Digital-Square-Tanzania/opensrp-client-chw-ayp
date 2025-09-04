@@ -78,5 +78,27 @@
     <string name="ayp_transferred">Transferred</string>
     <string name="ayp_dropped_from_school">Dropped from school</string>
     <string name="ayp_opt_out">Parent or Guardian/Student requested to opt out of service</string>
+    <string name="ayp_inschool_cse_service">Comprehensive Sexuality Education</string>
 
+    <string name="ayp_comprehensive_sexual_education">Comprehensive Sexual Education</string>
+    <string name="ayp_cse_conducted_subtitle_with_topics">CSE Conducted (%d topics)</string>
+    <string name="ayp_cse_conducted_yes">CSE Conducted: Yes</string>
+    <string name="ayp_cse_conducted_no">CSE Conducted: No</string>
+
+    <string name="ayp_financial_literacy_education_title">Financial Literacy Education</string>
+    <string name="ayp_financial_literacy_conducted_prefix">Conducted: </string>
+    <string name="ayp_yes">Yes</string>
+    <string name="ayp_no">No</string>
+
+    <string name="ayp_education_subsidies_title">Education Subsidies</string>
+    <string name="ayp_education_subsidies_provided_prefix">Provided: </string>
+
+    <string name="ayp_sanitary_kits_title">Sanitary Kits</string>
+    <string name="ayp_sanitary_kits_provided_prefix">Provided: </string>
+
+    <string name="ayp_gbv_screening_title">Screening for GBV</string>
+    <string name="ayp_gbv_screening_outcome_prefix">Screening Outcome: </string>
+    <string name="ayp_gbv_encountered">Encountered GBV</string>
+    <string name="ayp_gbv_not_encountered">Did not encounter GBV</string>
+    <string name="ayp_gbv_not_screened">Not Screened</string>
 </resources>
