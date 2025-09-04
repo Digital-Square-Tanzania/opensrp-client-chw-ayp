@@ -19,6 +19,7 @@ public interface Constants {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String ayp_SERVICES = "Ayp Services";
         String ayp_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
+        String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
 
@@ -27,6 +28,7 @@ public interface Constants {
     interface FORMS {
         String ayp_REGISTRATION = "ayp_enrollment";
         String ayp_FOLLOW_UP_VISIT = "ayp_followup_visit";
+        String AYP_IN_SCHOOL_CLIENT_STATUS = "ayp_in_school_client_status";
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -37,6 +39,7 @@ public interface Constants {
 
     interface TABLES {
         String ayp_ENROLLMENT = "ec_ayp_enrollment";
+        String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
         String ayp_SERVICE = "ec_ayp_services";
     }
 

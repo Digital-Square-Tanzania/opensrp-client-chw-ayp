@@ -47,11 +47,11 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.ayp_sample.activity.aypMemberProfileActivity"
+            android:name="org.smartregister.chw.ayp_sample.activity.AypInSchoolClientMemberProfileActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.ayp_sample.activity.aypServiceActivity"
+            android:name="org.smartregister.chw.ayp_sample.activity.AypInSchoolClientServiceVisitActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

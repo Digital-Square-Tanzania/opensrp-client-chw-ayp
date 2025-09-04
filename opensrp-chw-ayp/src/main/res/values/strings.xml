@@ -71,5 +71,12 @@
     <string name="female">Female</string>
     <string name="return_to_ayp_clients">Return to AYP Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
+    <string name="ayp_inschool_services_client_status">Client Status</string>
+    <string name="ayp_client_status_subtitle">Client Status: %s</string>
+    <string name="ayp_continuing">Continuing with Services</string>
+    <string name="ayp_dead">Dead</string>
+    <string name="ayp_transferred">Transferred</string>
+    <string name="ayp_dropped_from_school">Dropped from school</string>
+    <string name="ayp_opt_out">Parent or Guardian/Student requested to opt out of service</string>
 
 </resources>
