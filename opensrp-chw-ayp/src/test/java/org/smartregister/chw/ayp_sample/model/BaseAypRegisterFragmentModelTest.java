@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.smartregister.chw.ayp.model.BaseaypRegisterFragmentModel;
+import org.smartregister.chw.ayp.model.BaseAypRegisterFragmentModel;
 import org.smartregister.configurableviews.model.RegisterConfiguration;
 import org.smartregister.configurableviews.model.View;
 import org.smartregister.configurableviews.model.ViewConfiguration;
@@ -17,7 +17,7 @@ import java.util.Set;
 public class BaseAypRegisterFragmentModelTest {
 
     @Mock
-    private BaseaypRegisterFragmentModel baseTestRegisterFragmentModel;
+    private BaseAypRegisterFragmentModel baseTestRegisterFragmentModel;
 
     @Before
     public void setUp() {
