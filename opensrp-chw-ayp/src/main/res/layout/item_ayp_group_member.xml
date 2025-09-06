@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/list_item_background_selctor">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_member"
+        android:layout_centerVertical="true"/>
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/tv_name"
+        style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:layout_toLeftOf="@id/iv_chevron"
+        android:layout_marginLeft="12dp"
+        android:text="Member Name"
+        android:textColor="@android:color/black"/>
+
+    <org.smartregister.view.customcontrols.CustomFontTextView
+        android:id="@+id/tv_sub"
+        style="@style/CustomFontTextViewStyle.ClientList.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name"
+        android:layout_toRightOf="@id/iv_avatar"
+        android:layout_toLeftOf="@id/iv_chevron"
+        android:layout_marginLeft="12dp"
+        android:text="Subtext"/>
+
+    <ImageView
+        android:id="@+id/iv_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/row_goto" />
+
+</RelativeLayout>
+
