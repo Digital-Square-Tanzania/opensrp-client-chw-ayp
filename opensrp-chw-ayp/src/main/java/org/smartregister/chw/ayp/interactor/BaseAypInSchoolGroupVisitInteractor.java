@@ -30,6 +30,7 @@ public class BaseAypInSchoolGroupVisitInteractor extends BaseAypVisitInteractor 
     protected Map<String, List<VisitDetail>> details = null;
     protected String visitType;
     protected MemberObject memberObject;
+    protected String groupId;
 
     @VisibleForTesting
     public BaseAypInSchoolGroupVisitInteractor(AppExecutors appExecutors, ECSyncHelper syncHelper) {
@@ -67,7 +68,7 @@ public class BaseAypInSchoolGroupVisitInteractor extends BaseAypVisitInteractor 
     }
 
     private void evaluateGroupAttendance(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
-        AypGroupAttendanceActionHelper actionHelper = new AypGroupAttendanceActionHelper(context, memberObject);
+        AypGroupAttendanceActionHelper actionHelper = createGroupAttendanceHelper();
 
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_group_attendance))
                 .withOptional(false)
@@ -76,6 +77,14 @@ public class BaseAypInSchoolGroupVisitInteractor extends BaseAypVisitInteractor 
                 .withFormName(Constants.FORMS.AYP_GROUP_ATTENDANCE)
                 .build();
         actionList.put(context.getString(R.string.ayp_group_attendance), action);
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    protected AypGroupAttendanceActionHelper createGroupAttendanceHelper() {
+        return new AypGroupAttendanceActionHelper(context, memberObject, groupId);
     }
 
     private void evaluateCse(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
@@ -112,4 +121,3 @@ public class BaseAypInSchoolGroupVisitInteractor extends BaseAypVisitInteractor 
         return Constants.TABLES.ayp_SERVICE;
     }
 }
-
