@@ -7,12 +7,12 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.smartregister.chw.ayp.model.BaseaypRegisterModel;
+import org.smartregister.chw.ayp.model.BaseAypRegisterModel;
 
 public class BaseAypRegisterModelTest {
 
     @Mock
-    private BaseaypRegisterModel baseTestRegisterModel;
+    private BaseAypRegisterModel baseTestRegisterModel;
 
     @Before
     public void setUp() {

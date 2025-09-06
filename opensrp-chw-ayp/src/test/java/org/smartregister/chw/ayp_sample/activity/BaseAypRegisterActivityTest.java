@@ -7,13 +7,13 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.powermock.reflect.Whitebox;
-import org.smartregister.chw.ayp.activity.BaseaypRegisterActivity;
+import org.smartregister.chw.ayp.activity.BaseAypRegisterActivity;
 
 public class BaseAypRegisterActivityTest {
     @Mock
     public Intent data;
     @Mock
-    private BaseaypRegisterActivity baseTestRegisterActivity = new BaseaypRegisterActivity();
+    private BaseAypRegisterActivity baseTestRegisterActivity = new BaseAypRegisterActivity();
 
     @Test
     public void assertNotNull() {

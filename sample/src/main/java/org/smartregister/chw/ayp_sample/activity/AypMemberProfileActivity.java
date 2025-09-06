@@ -15,7 +15,6 @@ import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.Visit;
 import org.smartregister.chw.ayp.util.Constants;
-import org.smartregister.chw.ayp.util.AypJsonFormUtils;
 
 
 import timber.log.Timber;
@@ -78,7 +77,7 @@ public class AypMemberProfileActivity extends BaseAypProfileActivity {
 
     @Override
     public void startServiceForm() {
-        AypServiceActivity.startaypVisitActivity(this, memberObject.getBaseEntityId(), false);
+        AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 

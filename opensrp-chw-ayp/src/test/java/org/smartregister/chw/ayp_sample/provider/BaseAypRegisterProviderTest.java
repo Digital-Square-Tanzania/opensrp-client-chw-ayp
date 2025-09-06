@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.reflect.Whitebox;
-import org.smartregister.chw.ayp.provider.aypRegisterProvider;
+import org.smartregister.chw.ayp.provider.AypRegisterProvider;
 import org.smartregister.chw.ayp.util.DBConstants;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.chw.ayp.R;
@@ -30,9 +30,9 @@ public class BaseAypRegisterProviderTest {
     @Mock
     public View.OnClickListener listener;
     @Mock
-    public aypRegisterProvider.RegisterViewHolder viewHolder;
+    public AypRegisterProvider.RegisterViewHolder viewHolder;
     @Mock
-    private aypRegisterProvider testRegisterProvider;
+    private AypRegisterProvider testRegisterProvider;
 
     @Before
     public void setUp() {
@@ -78,7 +78,7 @@ public class BaseAypRegisterProviderTest {
     public void isAncClosed() throws Exception {
         Resources resources = Mockito.mock(Resources.class);
         Activity activity = Mockito.mock(Activity.class);
-        aypRegisterProvider provider = Mockito.spy(new aypRegisterProvider(activity, listener, listener, null));
+        AypRegisterProvider provider = Mockito.spy(new AypRegisterProvider(activity, listener, listener, null));
         Map<String, String> map = new HashMap<>();
         map.put("is_anc_closed", "0");
         Mockito.when(activity.getResources()).thenReturn(resources);
@@ -90,7 +90,7 @@ public class BaseAypRegisterProviderTest {
     public void isPncClosed() throws Exception {
         Resources resources = Mockito.mock(Resources.class);
         Activity activity = Mockito.mock(Activity.class);
-        aypRegisterProvider provider = Mockito.spy(new aypRegisterProvider(activity, listener, listener, null));
+        AypRegisterProvider provider = Mockito.spy(new AypRegisterProvider(activity, listener, listener, null));
         Map<String, String> map = new HashMap<>();
         map.put("is_pnc_closed", "0");
         Mockito.when(activity.getResources()).thenReturn(resources);
@@ -102,7 +102,7 @@ public class BaseAypRegisterProviderTest {
     public void updateMemberGender() throws Exception {
         Activity activity = Mockito.mock(Activity.class);
         Resources resources = Mockito.mock(Resources.class);
-        aypRegisterProvider provider = new aypRegisterProvider(activity, listener, listener, null);
+        AypRegisterProvider provider = new AypRegisterProvider(activity, listener, listener, null);
         Map<String, String> map = new HashMap<>();
         map.put(DBConstants.KEY.GENDER, "Male");
 

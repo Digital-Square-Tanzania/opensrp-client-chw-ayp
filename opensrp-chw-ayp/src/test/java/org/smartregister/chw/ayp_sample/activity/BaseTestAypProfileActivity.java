@@ -1,8 +1,8 @@
 package org.smartregister.chw.ayp_sample.activity;
 
-import org.smartregister.chw.ayp.activity.BaseaypProfileActivity;
+import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
 
-public class BaseTestAypProfileActivity extends BaseaypProfileActivity {
+public class BaseTestAypProfileActivity extends BaseAypProfileActivity {
 
     @Override
     public void startServiceForm() {

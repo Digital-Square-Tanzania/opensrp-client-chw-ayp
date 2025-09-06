@@ -29,7 +29,7 @@ public class BaseAypRegisterFragmentTest {
         Whitebox.invokeMethod(baseTestRegisterFragment, "openProfile", client);
         PowerMockito.mockStatic(BaseAypProfileActivity.class);
         BaseAypProfileActivity.startProfileActivity(null, null);
-        PowerMockito.verifyStatic(times(1));
-
+        PowerMockito.verifyStatic(BaseAypProfileActivity.class, times(1));
+        BaseAypProfileActivity.startProfileActivity(null, null);
     }
 }

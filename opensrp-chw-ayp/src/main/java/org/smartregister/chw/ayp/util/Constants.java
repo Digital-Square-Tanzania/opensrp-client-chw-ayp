@@ -19,6 +19,7 @@ public interface Constants {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String ayp_SERVICES = "Ayp Services";
         String ayp_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
+        String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
 
@@ -27,6 +28,13 @@ public interface Constants {
     interface FORMS {
         String ayp_REGISTRATION = "ayp_enrollment";
         String ayp_FOLLOW_UP_VISIT = "ayp_followup_visit";
+        String AYP_IN_SCHOOL_CLIENT_STATUS = "ayp_in_school_client_status";
+        String AYP_IN_SCHOOL_CSE = "ayp_in_school_cse";
+        String AYP_IN_SCHOOL_FINANCIAL_LITERACY = "ayp_in_school_financial_literacy";
+        String AYP_IN_SCHOOL_EDUCATION_SUBSIDIES = "ayp_in_school_education_subsidies";
+        String AYP_IN_SCHOOL_SANITARY_KITS = "ayp_in_school_sanitary_kits";
+        String AYP_IN_SCHOOL_GBV_SCREENING = "ayp_in_school_gbv_screening";
+        String AYP_GROUP_ATTENDANCE = "ayp_in_school_group_members_attendance";
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -37,6 +45,7 @@ public interface Constants {
 
     interface TABLES {
         String ayp_ENROLLMENT = "ec_ayp_enrollment";
+        String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
         String ayp_SERVICE = "ec_ayp_services";
     }
 
@@ -47,6 +56,8 @@ public interface Constants {
         String MEMBER_PROFILE_OBJECT = "MemberObject";
         String EDIT_MODE = "editMode";
         String PROFILE_TYPE = "profile_type";
+        String GROUP_ID = "GROUP_ID";
+        String GROUP_NAME = "GROUP_NAME";
 
     }
 

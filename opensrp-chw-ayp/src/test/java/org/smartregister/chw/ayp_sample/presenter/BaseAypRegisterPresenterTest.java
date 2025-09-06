@@ -9,26 +9,26 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.reflect.Whitebox;
-import org.smartregister.chw.ayp.contract.aypRegisterContract;
-import org.smartregister.chw.ayp.presenter.BaseaypRegisterPresenter;
+import org.smartregister.chw.ayp.contract.AypRegisterContract;
+import org.smartregister.chw.ayp.presenter.BaseAypRegisterPresenter;
 
-@PrepareForTest(BaseaypRegisterPresenter.class)
+@PrepareForTest(BaseAypRegisterPresenter.class)
 public class BaseAypRegisterPresenterTest {
     @Mock
-    protected BaseaypRegisterPresenter baseaypRegisterPresenter;
+    protected BaseAypRegisterPresenter baseaypRegisterPresenter;
 
     @Mock
-    protected aypRegisterContract.Interactor interactor;
+    protected AypRegisterContract.Interactor interactor;
     @Mock
-    protected aypRegisterContract.Model model;
+    protected AypRegisterContract.Model model;
     @Mock
-    protected aypRegisterContract.View baseView;
-    private BaseaypRegisterPresenter presenter;
+    protected AypRegisterContract.View baseView;
+    private BaseAypRegisterPresenter presenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        presenter = new BaseaypRegisterPresenter(baseView, model, interactor);
+        presenter = new BaseAypRegisterPresenter(baseView, model, interactor);
     }
 
     @Test

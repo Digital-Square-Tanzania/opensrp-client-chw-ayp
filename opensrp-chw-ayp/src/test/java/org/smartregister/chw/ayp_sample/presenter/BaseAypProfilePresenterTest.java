@@ -3,9 +3,9 @@ package org.smartregister.chw.ayp_sample.presenter;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.smartregister.chw.ayp.contract.aypProfileContract;
+import org.smartregister.chw.ayp.contract.AypProfileContract;
 import org.smartregister.chw.ayp.domain.MemberObject;
-import org.smartregister.chw.ayp.presenter.BaseaypProfilePresenter;
+import org.smartregister.chw.ayp.presenter.BaseAypProfilePresenter;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -13,15 +13,15 @@ import static org.mockito.Mockito.verify;
 public class BaseAypProfilePresenterTest {
 
     @Mock
-    private aypProfileContract.View view = Mockito.mock(aypProfileContract.View.class);
+    private AypProfileContract.View view = Mockito.mock(AypProfileContract.View.class);
 
     @Mock
-    private aypProfileContract.Interactor interactor = Mockito.mock(aypProfileContract.Interactor.class);
+    private AypProfileContract.Interactor interactor = Mockito.mock(AypProfileContract.Interactor.class);
 
     @Mock
     private MemberObject aypMemberObject = new MemberObject();
 
-    private BaseaypProfilePresenter profilePresenter = new BaseaypProfilePresenter(view, interactor, aypMemberObject);
+    private BaseAypProfilePresenter profilePresenter = new BaseAypProfilePresenter(view, interactor, aypMemberObject);
 
 
     @Test

@@ -31,7 +31,7 @@
     <string name="error_unable_save_visit">Unable to save visit</string>
     <string name="return_to_previous_page">Return all Ayp Clients</string>
     <string name="last_visit_40_days_ago">Last visit %1$s ago</string>
-    <string name="view_medical_history">View medical history</string>
+    <string name="view_services_history">View services history</string>
     <string name="call_no_number_provided">(no number provided)</string>
     <string name="view_upcoming_services">View upcoming services</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
@@ -71,5 +71,44 @@
     <string name="female">Female</string>
     <string name="return_to_ayp_clients">Return to AYP Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
+    <string name="ayp_inschool_services_client_status">Client Status</string>
+    <string name="ayp_client_status_subtitle">Client Status: %s</string>
+    <string name="ayp_continuing">Continuing with Services</string>
+    <string name="ayp_dead">Dead</string>
+    <string name="ayp_transferred">Transferred</string>
+    <string name="ayp_dropped_from_school">Dropped from school</string>
+    <string name="ayp_opt_out">Parent or Guardian/Student requested to opt out of service</string>
+    <string name="ayp_inschool_cse_service">Comprehensive Sexuality Education</string>
 
+    <string name="ayp_comprehensive_sexual_education">Comprehensive Sexual Education</string>
+    <string name="ayp_cse_conducted_subtitle_with_topics">CSE Conducted (%d topics)</string>
+    <string name="ayp_cse_conducted_yes">CSE Conducted: Yes</string>
+    <string name="ayp_cse_conducted_no">CSE Conducted: No</string>
+
+    <string name="ayp_financial_literacy_education_title">Financial Literacy Education</string>
+
+    <!-- Generated for In-School Group Visit actions -->
+    <string name="ayp_group_attendance">Group Members Attendance</string>
+    <string name="return_to_ayp_groups">Return to AYP Groups</string>
+    <string name="provide_group_details">Provide Group Services</string>
+    <string name="add_group_member">Add Group Member</string>
+    <string name="group_members">Group Members</string>
+    <string name="unknown_location">Unknown location</string>
+    <string name="ayp_in_school_cse">Comprehensive Sexual Education</string>
+    <string name="ayp_in_school_financial_literacy">Financial Literacy Education</string>
+    <string name="ayp_financial_literacy_conducted_prefix">Conducted: </string>
+    <string name="ayp_yes">Yes</string>
+    <string name="ayp_no">No</string>
+
+    <string name="ayp_education_subsidies_title">Education Subsidies</string>
+    <string name="ayp_education_subsidies_provided_prefix">Provided: </string>
+
+    <string name="ayp_sanitary_kits_title">Sanitary Kits</string>
+    <string name="ayp_sanitary_kits_provided_prefix">Provided: </string>
+
+    <string name="ayp_gbv_screening_title">Screening for GBV</string>
+    <string name="ayp_gbv_screening_outcome_prefix">Screening Outcome: </string>
+    <string name="ayp_gbv_encountered">Encountered GBV</string>
+    <string name="ayp_gbv_not_encountered">Did not encounter GBV</string>
+    <string name="ayp_gbv_not_screened">Not Screened</string>
 </resources>

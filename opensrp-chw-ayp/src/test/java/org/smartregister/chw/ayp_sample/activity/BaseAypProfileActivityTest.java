@@ -13,15 +13,15 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.powermock.reflect.Whitebox;
 import org.smartregister.chw.ayp.R;
-import org.smartregister.chw.ayp.activity.BaseaypProfileActivity;
-import org.smartregister.chw.ayp.contract.aypProfileContract;
+import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
+import org.smartregister.chw.ayp.contract.AypProfileContract;
 
 public class BaseAypProfileActivityTest {
     @Mock
-    public BaseaypProfileActivity baseTestProfileActivity;
+    public BaseAypProfileActivity baseTestProfileActivity;
 
     @Mock
-    public aypProfileContract.Presenter profilePresenter;
+    public AypProfileContract.Presenter profilePresenter;
 
     @Mock
     public View view;
@@ -43,7 +43,7 @@ public class BaseAypProfileActivityTest {
 
     @Test
     public void formatTime() {
-        BaseaypProfileActivity activity = new BaseTestaypProfileActivity();
+        BaseAypProfileActivity activity = new BaseTestAypProfileActivity();
         try {
             Assert.assertEquals("25 Oct 2019", Whitebox.invokeMethod(activity, "formatTime", "25-10-2019"));
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class BaseAypProfileActivityTest {
 
     @Test
     public void onClickBackPressed() {
-        baseTestProfileActivity = Mockito.spy(new BaseTestaypProfileActivity());
+        baseTestProfileActivity = Mockito.spy(new BaseTestAypProfileActivity());
         Mockito.when(view.getId()).thenReturn(R.id.title_layout);
         Mockito.doNothing().when(baseTestProfileActivity).onBackPressed();
         baseTestProfileActivity.onClick(view);
@@ -80,7 +80,7 @@ public class BaseAypProfileActivityTest {
 
     @Test
     public void onClickOpenMedicalHistory() {
-        baseTestProfileActivity = Mockito.spy(new BaseTestaypProfileActivity());
+        baseTestProfileActivity = Mockito.spy(new BaseTestAypProfileActivity());
         Mockito.when(view.getId()).thenReturn(R.id.rlLastVisit);
         Mockito.doNothing().when(baseTestProfileActivity).openMedicalHistory();
         baseTestProfileActivity.onClick(view);
@@ -90,7 +90,7 @@ public class BaseAypProfileActivityTest {
 
     @Test(expected = Exception.class)
     public void onActivityResult() throws Exception {
-        baseTestProfileActivity = Mockito.spy(new BaseTestaypProfileActivity());
+        baseTestProfileActivity = Mockito.spy(new BaseTestAypProfileActivity());
         Whitebox.invokeMethod(baseTestProfileActivity, "onActivityResult", 2244, -1, null);
         Mockito.verify(profilePresenter).saveForm(null);
     }

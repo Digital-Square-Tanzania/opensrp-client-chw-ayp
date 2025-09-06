@@ -46,9 +46,11 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             aypMemberObject.setGender("Female");
             aypMemberObject.setMartialStatus("Married");
             aypMemberObject.setDob("1982-01-18T03:00:00.000+03:00");
+            aypMemberObject.setAge("30");
             aypMemberObject.setUniqueId("3503504");
             aypMemberObject.setBaseEntityId("3503504");
             aypMemberObject.setFamilyBaseEntityId("3503504");
+            aypMemberObject.setAddress("Njiro");
         }
 
         return aypMemberObject;
@@ -64,7 +66,8 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
 
         findViewById(R.id.ayp_activity).setOnClickListener(this);
         findViewById(R.id.ayp_home_visit).setOnClickListener(this);
-        findViewById(R.id.ayp_profile).setOnClickListener(this);
+        findViewById(R.id.ayp_in_school_client_profile).setOnClickListener(this);
+        findViewById(R.id.ayp_in_school_group_profile).setOnClickListener(this);
     }
 
     @Override
@@ -84,10 +87,13 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 startActivity(new Intent(this, AypRegisterActivity.class));
                 break;
             case R.id.ayp_home_visit:
-                AypServiceActivity.startaypVisitActivity(this, "12345", true);
+                AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, "12345", true);
                 break;
-            case R.id.ayp_profile:
-                AypMemberProfileActivity.startMe(this, "12345");
+            case R.id.ayp_in_school_client_profile:
+                AypInSchoolClientMemberProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.ayp_in_school_group_profile:
+                AypInSchoolGroupMemberProfileActivity.startMe(this, "12345");
                 break;
             default:
                 break;

@@ -6,8 +6,8 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.smartregister.chw.ayp.contract.aypRegisterFragmentContract;
-import org.smartregister.chw.ayp.presenter.BaseaypRegisterFragmentPresenter;
+import org.smartregister.chw.ayp.presenter.BaseAypRegisterFragmentPresenter;
+import org.smartregister.chw.ayp.contract.AypRegisterFragmentContract;
 import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.chw.ayp.util.DBConstants;
 import org.smartregister.configurableviews.model.View;
@@ -17,18 +17,18 @@ import java.util.TreeSet;
 
 public class BaseAypRegisterFragmentPresenterTest {
     @Mock
-    protected aypRegisterFragmentContract.View view;
+    protected AypRegisterFragmentContract.View view;
 
     @Mock
-    protected aypRegisterFragmentContract.Model model;
+    protected AypRegisterFragmentContract.Model model;
 
-    private BaseaypRegisterFragmentPresenter baseaypRegisterFragmentPresenter;
+    private BaseAypRegisterFragmentPresenter baseaypRegisterFragmentPresenter;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        baseaypRegisterFragmentPresenter = new BaseaypRegisterFragmentPresenter(view, model, "");
+        baseaypRegisterFragmentPresenter = new BaseAypRegisterFragmentPresenter(view, model, "");
     }
 
     @Test
