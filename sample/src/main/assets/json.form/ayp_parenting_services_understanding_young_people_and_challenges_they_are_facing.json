@@ -54,6 +54,10 @@
         "type": "check_box",
         "label": "Understanding young people and challenges they are facing",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        },
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "understanding_youth_challenges",
@@ -112,4 +116,3 @@
     ]
   }
 }
-

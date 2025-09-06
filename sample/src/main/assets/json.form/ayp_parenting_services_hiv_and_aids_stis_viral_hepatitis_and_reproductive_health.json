@@ -71,7 +71,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select Yes or No"
+        }
       },
       {
         "key": "rh_sections_provided",
@@ -110,7 +114,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "viral_hepatitis"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one section"
+        }
       },
       {
         "key": "hiv_aids_topics",
@@ -177,7 +185,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "effects_hiv_aids_in_society"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        }
       },
       {
         "key": "stis_rtis_topics",
@@ -244,7 +256,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prevention_control_techniques_stis_rtis"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        }
       },
       {
         "key": "viral_hepatitis_topics",
@@ -311,7 +327,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "conclusion"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        }
       }
     ]
   }

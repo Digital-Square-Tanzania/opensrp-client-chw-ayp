@@ -72,7 +72,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "individual"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select a modality"
+        }
       },
       {
         "key": "group_modality_types",
@@ -139,9 +143,12 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "clusters"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one type"
+        }
       }
     ]
   }
 }
-

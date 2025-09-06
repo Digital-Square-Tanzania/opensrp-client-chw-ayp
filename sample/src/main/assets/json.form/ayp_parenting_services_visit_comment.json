@@ -55,9 +55,12 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "visit_comment",
         "type": "edit_text",
-        "label": "Comment"
+        "label": "Comment",
+        "v_required": {
+          "value": true,
+          "err": "Please enter a comment"
+        }
       }
     ]
   }
 }
-

@@ -57,6 +57,10 @@
         "type": "check_box",
         "label": "Promote the use of HIV Services among Youth",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        },
         "options": [
           {
             "key": "hiv_testing_services",
@@ -77,4 +81,3 @@
     ]
   }
 }
-

@@ -57,6 +57,10 @@
         "type": "check_box",
         "label": "Sexual Reproductive Health for Youth",
         "combine_checkbox_option_values": "true",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        },
         "options": [
           {
             "key": "concept_early_pregnancy",
@@ -77,4 +81,3 @@
     ]
   }
 }
-

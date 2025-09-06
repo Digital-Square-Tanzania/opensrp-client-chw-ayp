@@ -73,7 +73,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "female"
           }
-        ]
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one option"
+        }
       },
       {
         "key": "male_children_count",
@@ -86,6 +90,10 @@
         "v_numeric_integer": {
           "value": true,
           "err": ""
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter a value"
         },
         "v_min": {
           "value": "0",
@@ -108,6 +116,10 @@
           "value": true,
           "err": ""
         },
+        "v_required": {
+          "value": true,
+          "err": "Please enter a value"
+        },
         "v_min": {
           "value": "0",
           "err": "Please enter a number between 0 and 10."
@@ -120,4 +132,3 @@
     ]
   }
 }
-
