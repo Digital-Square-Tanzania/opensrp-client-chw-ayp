@@ -10,7 +10,7 @@ import org.smartregister.chw.ayp.activity.BaseAypInSchoolClientVisitActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.presenter.BaseAypVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
-import org.smartregister.chw.ayp_sample.interactor.AypServiceVisitInteractor;
+import org.smartregister.chw.ayp_sample.interactor.AypInSchoolClientServiceVisitInteractor;
 
 
 public class AypInSchoolClientVisitActivity extends BaseAypInSchoolClientVisitActivity {
@@ -29,7 +29,7 @@ public class AypInSchoolClientVisitActivity extends BaseAypInSchoolClientVisitAc
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseAypVisitPresenter(memberObject, this, new AypServiceVisitInteractor(Constants.EVENT_TYPE.ayp_SERVICES));
+        presenter = new BaseAypVisitPresenter(memberObject, this, new AypInSchoolClientServiceVisitInteractor());
     }
 
     @Override

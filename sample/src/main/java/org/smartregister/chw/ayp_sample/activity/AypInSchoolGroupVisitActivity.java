@@ -7,12 +7,10 @@ import com.vijay.jsonwizard.constants.JsonFormConstants;
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypInSchoolGroupVisitActivity;
-import org.smartregister.chw.ayp.activity.BaseAypVisitActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.presenter.BaseAypVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.chw.ayp_sample.interactor.AypInSchoolGroupVisitInteractor;
-import org.smartregister.chw.ayp_sample.interactor.AypServiceVisitInteractor;
 
 
 public class AypInSchoolGroupVisitActivity extends BaseAypInSchoolGroupVisitActivity {
