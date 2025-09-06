@@ -90,7 +90,7 @@ public class BaseAypProfileActivityTest {
 
     @Test(expected = Exception.class)
     public void onActivityResult() throws Exception {
-        baseTestProfileActivity = Mockito.spy(new BaseTestaypProfileActivity());
+        baseTestProfileActivity = Mockito.spy(new BaseTestAypProfileActivity());
         Whitebox.invokeMethod(baseTestProfileActivity, "onActivityResult", 2244, -1, null);
         Mockito.verify(profilePresenter).saveForm(null);
     }
