@@ -90,6 +90,10 @@
         "openmrs_entity_id": "education_subsidies",
         "type": "check_box",
         "label": "Education Subsidies (ES) provided:",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one subsidy"
+        },
         "options": [
           {
             "key": "number_of_exercise_books",
@@ -320,4 +324,3 @@
     ]
   }
 }
-
