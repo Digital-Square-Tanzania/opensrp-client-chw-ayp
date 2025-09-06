@@ -48,7 +48,8 @@ public class AypInSchoolGroupMemberProfileActivity extends BaseAypGroupProfileAc
 
     @Override
     public void openMemberProfile(MemberObject member) {
-        Toast.makeText(this, "Open member: " + member.getFullName(), Toast.LENGTH_SHORT).show();
+        // Open the in-school client member profile with this member's details
+        AypInSchoolClientMemberProfileActivity.startMe(this, member.getBaseEntityId());
     }
 
     @Override
