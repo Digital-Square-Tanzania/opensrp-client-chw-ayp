@@ -17,10 +17,16 @@ import org.smartregister.chw.ayp_sample.interactor.AypServiceVisitInteractor;
 
 public class AypInSchoolGroupVisitActivity extends BaseAypInSchoolGroupVisitActivity {
     public static void startAypInSchoolGroupVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
+        startAypInSchoolGroupVisitActivity(activity, baseEntityId, editMode, null, null);
+    }
+
+    public static void startAypInSchoolGroupVisitActivity(Activity activity, String baseEntityId, Boolean editMode, String groupId, String groupName) {
         Intent intent = new Intent(activity, AypInSchoolGroupVisitActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.ayp_PROFILE);
+        if (groupId != null) intent.putExtra(Constants.ACTIVITY_PAYLOAD.GROUP_ID, groupId);
+        if (groupName != null) intent.putExtra(Constants.ACTIVITY_PAYLOAD.GROUP_NAME, groupName);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
     }
 
@@ -31,7 +37,10 @@ public class AypInSchoolGroupVisitActivity extends BaseAypInSchoolGroupVisitActi
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseAypVisitPresenter(memberObject, this, new AypInSchoolGroupVisitInteractor());
+        AypInSchoolGroupVisitInteractor interactor = new AypInSchoolGroupVisitInteractor();
+        String groupId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.GROUP_ID);
+        interactor.setGroupId(groupId);
+        presenter = new BaseAypVisitPresenter(memberObject, this, interactor);
     }
 
     @Override
@@ -56,4 +65,3 @@ public class AypInSchoolGroupVisitActivity extends BaseAypInSchoolGroupVisitActi
     }
 
 }
-

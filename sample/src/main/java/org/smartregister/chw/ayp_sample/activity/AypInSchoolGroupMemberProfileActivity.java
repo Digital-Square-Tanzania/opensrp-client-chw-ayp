@@ -36,14 +36,14 @@ public class AypInSchoolGroupMemberProfileActivity extends BaseAypGroupProfileAc
 
     @Override
     public void openGroupDetailsForm() {
-        // Launch the sample group visit flow for a sample member
-        AypInSchoolGroupVisitActivity.startAypInSchoolGroupVisitActivity(this, "entity-1", false);
+        // Launch the sample group visit flow for a sample member with sample group context
+        AypInSchoolGroupVisitActivity.startAypInSchoolGroupVisitActivity(this, "entity-1", false, "sample-group-1", "In-School Health Club");
     }
 
     @Override
     public void onAddMember() {
         // Also launch the sample group visit flow from Add Member for demo purposes
-        AypInSchoolGroupVisitActivity.startAypInSchoolGroupVisitActivity(this, "entity-1", false);
+        AypInSchoolGroupVisitActivity.startAypInSchoolGroupVisitActivity(this, "entity-1", false, "sample-group-1", "In-School Health Club");
     }
 
     @Override
