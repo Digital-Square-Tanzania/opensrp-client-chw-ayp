@@ -90,6 +90,10 @@
         "openmrs_entity_id": "financial_literacy_topics",
         "type": "check_box",
         "label": "Financial literacy Topics:",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        },
         "options": [
           {
             "key": "financial_basics",
@@ -167,4 +171,3 @@
     ]
   }
 }
-
