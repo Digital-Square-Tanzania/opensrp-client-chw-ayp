@@ -6,6 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.R;
+import org.smartregister.chw.ayp.AypLibrary;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
@@ -13,6 +15,9 @@ import org.smartregister.chw.ayp.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import timber.log.Timber;
 
@@ -20,21 +25,46 @@ public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVis
 
     private final Context context;
     private final MemberObject memberObject;
+    private final String groupId;
     private String submittedPayload;
+    private String loadedJson;
+    private String preProcessedJson;
 
-    public AypGroupAttendanceActionHelper(Context context, MemberObject memberObject) {
+    public AypGroupAttendanceActionHelper(Context context, MemberObject memberObject, String groupId) {
         this.context = context;
         this.memberObject = memberObject;
+        this.groupId = groupId;
     }
 
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> map) {
-        // no-op
+        this.loadedJson = jsonPayload;
+        try {
+            JSONObject form = new JSONObject(jsonPayload);
+
+            // Build dynamic options for members_present
+            JSONArray fields = form.getJSONObject("step1").getJSONArray("fields");
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject field = fields.getJSONObject(i);
+                if ("members_present".equals(field.optString("key"))) {
+                    JSONArray options = buildMemberOptions();
+                    field.put("options", options);
+                    // ensure combined option values is true
+                    field.put("combine_checkbox_option_values", "true");
+                    break;
+                }
+            }
+
+            this.preProcessedJson = form.toString();
+        } catch (Exception e) {
+            Timber.e(e);
+            this.preProcessedJson = this.loadedJson; // fallback
+        }
     }
 
     @Override
     public String getPreProcessed() {
-        return null;
+        return preProcessedJson;
     }
 
     @Override
@@ -96,5 +126,52 @@ public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVis
     public void onPayloadReceived(BaseAypVisitAction baseAypVisitAction) {
         // no-op
     }
-}
 
+    private JSONArray buildMemberOptions() {
+        JSONArray options = new JSONArray();
+        try {
+            List<MemberObject> members = getMembersForGroup();
+            for (MemberObject m : members) {
+                if (m == null || StringUtils.isBlank(m.getBaseEntityId())) continue;
+                JSONObject opt = new JSONObject();
+                opt.put("key", m.getBaseEntityId());
+                opt.put("text", m.getFullName());
+                opt.put("openmrs_entity_parent", "");
+                opt.put("openmrs_entity", "concept");
+                opt.put("openmrs_entity_id", m.getBaseEntityId());
+                options.put(opt);
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+        return options;
+    }
+
+    protected List<MemberObject> getMembersForGroup() {
+        List<MemberObject> members = new ArrayList<>();
+        try {
+            // Prefer members inferred from visits tagged with this groupId
+            if (StringUtils.isNotBlank(groupId)) {
+                List<org.smartregister.chw.ayp.domain.Visit> visits = AypLibrary.getInstance().visitRepository().getVisitsByGroup(groupId);
+                Set<String> memberIds = new LinkedHashSet<>();
+                for (org.smartregister.chw.ayp.domain.Visit v : visits) {
+                    if (StringUtils.isNotBlank(v.getBaseEntityId())) {
+                        memberIds.add(v.getBaseEntityId());
+                    }
+                }
+                for (String id : memberIds) {
+                    MemberObject m = AypDao.getMember(id);
+                    if (m != null) members.add(m);
+                }
+            }
+
+            // Fallback: load all members (sample/demo scenario)
+            if (members.isEmpty()) {
+                members = AypDao.getMembers();
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+        return members;
+    }
+}
