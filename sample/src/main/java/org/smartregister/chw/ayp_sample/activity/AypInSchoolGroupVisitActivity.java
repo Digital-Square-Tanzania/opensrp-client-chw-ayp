@@ -6,19 +6,21 @@ import android.content.Intent;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 
 import org.json.JSONObject;
+import org.smartregister.chw.ayp.activity.BaseAypInSchoolGroupVisitActivity;
 import org.smartregister.chw.ayp.activity.BaseAypVisitActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.presenter.BaseAypVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
+import org.smartregister.chw.ayp_sample.interactor.AypInSchoolGroupVisitInteractor;
 import org.smartregister.chw.ayp_sample.interactor.AypServiceVisitInteractor;
 
 
-public class AypInSchoolClientVisitActivity extends BaseAypVisitActivity {
-    public static void startAypInSchoolClientVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
-        Intent intent = new Intent(activity, AypInSchoolClientVisitActivity.class);
-        intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
-        intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
-        intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.ayp_PROFILE);
+public class AypInSchoolGroupVisitActivity extends BaseAypInSchoolGroupVisitActivity {
+    public static void startAypInSchoolGroupVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
+        Intent intent = new Intent(activity, AypInSchoolGroupVisitActivity.class);
+        intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
+        intent.putExtra(Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
+        intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.ayp_PROFILE);
         activity.startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
     }
 
@@ -29,7 +31,7 @@ public class AypInSchoolClientVisitActivity extends BaseAypVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseAypVisitPresenter(memberObject, this, new AypServiceVisitInteractor(Constants.EVENT_TYPE.ayp_SERVICES));
+        presenter = new BaseAypVisitPresenter(memberObject, this, new AypInSchoolGroupVisitInteractor());
     }
 
     @Override

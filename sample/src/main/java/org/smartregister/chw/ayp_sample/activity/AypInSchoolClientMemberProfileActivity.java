@@ -35,7 +35,7 @@ public class AypInSchoolClientMemberProfileActivity extends BaseAypProfileActivi
 
     @Override
     public void startServiceForm() {
-        AypServiceActivity.startaypVisitActivity(this, memberObject.getBaseEntityId(), false);
+        AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 

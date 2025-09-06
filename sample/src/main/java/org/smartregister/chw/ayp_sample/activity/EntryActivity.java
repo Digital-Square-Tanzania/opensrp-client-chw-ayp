@@ -67,6 +67,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.ayp_activity).setOnClickListener(this);
         findViewById(R.id.ayp_home_visit).setOnClickListener(this);
         findViewById(R.id.ayp_in_school_client_profile).setOnClickListener(this);
+        findViewById(R.id.ayp_in_school_group_profile).setOnClickListener(this);
     }
 
     @Override
@@ -86,10 +87,13 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 startActivity(new Intent(this, AypRegisterActivity.class));
                 break;
             case R.id.ayp_home_visit:
-                AypServiceActivity.startaypVisitActivity(this, "12345", true);
+                AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, "12345", true);
                 break;
             case R.id.ayp_in_school_client_profile:
                 AypInSchoolClientMemberProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.ayp_in_school_group_profile:
+                AypInSchoolGroupMemberProfileActivity.startMe(this, "12345");
                 break;
             default:
                 break;

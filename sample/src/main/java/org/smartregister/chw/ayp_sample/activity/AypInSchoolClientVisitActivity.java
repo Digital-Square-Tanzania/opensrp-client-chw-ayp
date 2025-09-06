@@ -6,16 +6,16 @@ import android.content.Intent;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 
 import org.json.JSONObject;
-import org.smartregister.chw.ayp.activity.BaseAypVisitActivity;
+import org.smartregister.chw.ayp.activity.BaseAypInSchoolClientVisitActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.presenter.BaseAypVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.chw.ayp_sample.interactor.AypServiceVisitInteractor;
 
 
-public class AypServiceActivity extends BaseAypVisitActivity {
-    public static void startaypVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
-        Intent intent = new Intent(activity, AypServiceActivity.class);
+public class AypInSchoolClientVisitActivity extends BaseAypInSchoolClientVisitActivity {
+    public static void startAypInSchoolClientVisitActivity(Activity activity, String baseEntityId, Boolean editMode) {
+        Intent intent = new Intent(activity, AypInSchoolClientVisitActivity.class);
         intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.EDIT_MODE, editMode);
         intent.putExtra(org.smartregister.chw.ayp.util.Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, Constants.PROFILE_TYPES.ayp_PROFILE);
