@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.smartregister.chw.ayp.contract.aypRegisterFragmentContract;
 import org.smartregister.chw.ayp.presenter.BaseAypRegisterFragmentPresenter;
 import org.smartregister.chw.ayp.contract.AypRegisterFragmentContract;
 import org.smartregister.chw.ayp.util.Constants;
