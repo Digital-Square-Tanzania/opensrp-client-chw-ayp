@@ -9,21 +9,21 @@ actions:
 name: step1_number_of_exercise_books_count
 description: Show count when option selected
 priority: 1
-condition: "step1_education_subsidies != null && step1_education_subsidies.contains('number_of_exercise_books')"
+condition: "step1_education_subsidies != null && step1_education_subsidies.contains('exercise_books')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_number_of_pens_count
 description: Show count when option selected
 priority: 1
-condition: "step1_education_subsidies != null && step1_education_subsidies.contains('number_of_pens')"
+condition: "step1_education_subsidies != null && step1_education_subsidies.contains('pens')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_number_of_pencils_count
 description: Show count when option selected
 priority: 1
-condition: "step1_education_subsidies != null && step1_education_subsidies.contains('number_of_pencils')"
+condition: "step1_education_subsidies != null && step1_education_subsidies.contains('pencils')"
 actions:
   - "isRelevant = true"
 ---
@@ -54,4 +54,3 @@ priority: 1
 condition: "step1_education_subsidies != null && step1_education_subsidies.contains('others')"
 actions:
   - "isRelevant = true"
-

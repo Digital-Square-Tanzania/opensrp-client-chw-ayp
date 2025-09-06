@@ -96,27 +96,27 @@
         },
         "options": [
           {
-            "key": "number_of_exercise_books",
-            "text": "Number of exercise books",
+            "key": "exercise_books",
+            "text": "Exercise Books",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "number_of_exercise_books",
+            "openmrs_entity_id": "exercise_books",
             "value": false
           },
           {
-            "key": "number_of_pens",
-            "text": "Number of Pen(s)",
+            "key": "pens",
+            "text": "Pens",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "number_of_pens",
+            "openmrs_entity_id": "pens",
             "value": false
           },
           {
-            "key": "number_of_pencils",
-            "text": "Number of pencils",
+            "key": "pencils",
+            "text": "Pencils",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "number_of_pencils",
+            "openmrs_entity_id": "pencils",
             "value": false
           },
           {
