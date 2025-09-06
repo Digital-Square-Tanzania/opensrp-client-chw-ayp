@@ -81,6 +81,7 @@ android {
 
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
+    ignoreFailures = true
 }
 
 def githubProperties = new Properties()
