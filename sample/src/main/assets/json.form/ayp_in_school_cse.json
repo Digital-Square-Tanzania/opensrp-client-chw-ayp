@@ -90,6 +90,10 @@
         "openmrs_entity_id": "topics_covered",
         "type": "check_box",
         "label": "Comprehensive Sexuality Education Topics Covered:",
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        },
         "options": [
           {
             "key": "friendship_and_relationship_building",
@@ -263,4 +267,3 @@
     ]
   }
 }
-
