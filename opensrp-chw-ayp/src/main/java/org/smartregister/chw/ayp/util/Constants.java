@@ -34,6 +34,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_EDUCATION_SUBSIDIES = "ayp_in_school_education_subsidies";
         String AYP_IN_SCHOOL_SANITARY_KITS = "ayp_in_school_sanitary_kits";
         String AYP_IN_SCHOOL_GBV_SCREENING = "ayp_in_school_gbv_screening";
+        String AYP_GROUP_ATTENDANCE = "ayp_in_school_group_members_attendance";
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -55,6 +56,8 @@ public interface Constants {
         String MEMBER_PROFILE_OBJECT = "MemberObject";
         String EDIT_MODE = "editMode";
         String PROFILE_TYPE = "profile_type";
+        String GROUP_ID = "GROUP_ID";
+        String GROUP_NAME = "GROUP_NAME";
 
     }
 

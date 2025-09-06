@@ -86,6 +86,16 @@
     <string name="ayp_cse_conducted_no">CSE Conducted: No</string>
 
     <string name="ayp_financial_literacy_education_title">Financial Literacy Education</string>
+
+    <!-- Generated for In-School Group Visit actions -->
+    <string name="ayp_group_attendance">Group Members Attendance</string>
+    <string name="return_to_ayp_groups">Return to AYP Groups</string>
+    <string name="provide_group_details">Provide Group Services</string>
+    <string name="add_group_member">Add Group Member</string>
+    <string name="group_members">Group Members</string>
+    <string name="unknown_location">Unknown location</string>
+    <string name="ayp_in_school_cse">Comprehensive Sexual Education</string>
+    <string name="ayp_in_school_financial_literacy">Financial Literacy Education</string>
     <string name="ayp_financial_literacy_conducted_prefix">Conducted: </string>
     <string name="ayp_yes">Yes</string>
     <string name="ayp_no">No</string>
