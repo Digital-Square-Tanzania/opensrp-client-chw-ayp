@@ -7,11 +7,14 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.domain.MemberObject;
+import org.smartregister.chw.ayp.util.AypJsonFormUtils;
 import org.smartregister.chw.ayp.util.DBConstants;
 import org.smartregister.chw.ayp_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.util.FormUtils;
 import org.smartregister.view.activity.SecuredActivity;
 
 import java.util.HashMap;
@@ -68,6 +71,9 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.ayp_home_visit).setOnClickListener(this);
         findViewById(R.id.ayp_in_school_client_profile).setOnClickListener(this);
         findViewById(R.id.ayp_in_school_group_profile).setOnClickListener(this);
+
+        /* out of school */
+        findViewById(R.id.ayp_out_school_client_profile).setOnClickListener(this);
     }
 
     @Override
@@ -95,10 +101,15 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.ayp_in_school_group_profile:
                 AypInSchoolGroupMemberProfileActivity.startMe(this, "12345");
                 break;
+            case R.id.ayp_out_school_client_profile:
+                AypOutSchoolClientMemberProfileActivity.startMe(this, "12345");
+                break;
             default:
                 break;
         }
     }
+
+
 
     @Override
     public void onDialogOptionUpdated(String jsonString) {

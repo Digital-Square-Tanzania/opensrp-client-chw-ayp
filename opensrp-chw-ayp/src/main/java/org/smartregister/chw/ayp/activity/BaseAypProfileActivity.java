@@ -187,43 +187,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
-        try {
 
-            if (getServiceVisit() != null) {
-                if (!getServiceVisit().getProcessed() && AypVisitsUtil.getaypServiceVisitStatus(getServiceVisit()).equalsIgnoreCase(AypVisitsUtil.Complete)) {
-                    manualProcessVisit.setVisibility(View.VISIBLE);
-                    textViewContinueaypService.setText(R.string.edit_visit);
-                    manualProcessVisit.setOnClickListener(view -> {
-                        try {
-                            AypVisitsUtil.manualProcessVisit(getServiceVisit());
-                            displayToast(R.string.ayp_visit_conducted);
-                            setupViews();
-                        } catch (Exception e) {
-                            Timber.d(e);
-                        }
-                    });
-                } else {
-                    manualProcessVisit.setVisibility(View.GONE);
-                }
-                if (isVisitOnProgress(getServiceVisit())) {
-                    textViewRecordayp.setVisibility(View.GONE);
-                    aypServiceInProgress.setVisibility(View.VISIBLE);
-                } else {
-                    textViewRecordayp.setVisibility(View.VISIBLE);
-                    aypServiceInProgress.setVisibility(View.GONE);
-                }
-
-                processaypService();
-
-                if (isVisitOnProgress(getServiceVisit())) {
-                    findViewById(R.id.family_ayp_head).setVisibility(View.GONE);
-                }
-
-            }
-
-        } catch (Exception e) {
-            Timber.d(e);
-        }
     }
 
     protected Visit getServiceVisit() {

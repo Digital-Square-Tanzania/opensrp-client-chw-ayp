@@ -67,7 +67,7 @@
             android:textColor="@color/white" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
-            android:id="@+id/ayp_out_school_screening"
+            android:id="@+id/ayp_out_school_client_profile"
             style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/ayp_out_school_screening"
+            android:text="@string/ayp_out_school_client_profile"
             android:textColor="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton

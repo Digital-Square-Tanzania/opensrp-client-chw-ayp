@@ -12,6 +12,7 @@
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_ayp">Provide AYP Services</string>
+    <string name="record_ayp_service">Record AYP Services</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
@@ -86,6 +87,14 @@
     <string name="ayp_cse_conducted_no">CSE Conducted: No</string>
 
     <string name="ayp_financial_literacy_education_title">Financial Literacy Education</string>
+
+<!--    AYP - OUT OF SCHOOL-->
+    <string name="ayp_out_school_service_status">Service Status</string>
+    <string name="ayp_out_school_structural_services">Structural Services</string>
+    <string name="ayp_out_school_medical_services">Medical Services</string>
+    <string name="ayp_out_school_health_and_behaviour_change_services">Health and Behavior Change Services</string>
+    <string name="ayp_out_school_next_appointment">Next Appointment</string>
+
 
     <!-- Generated for In-School Group Visit actions -->
     <string name="ayp_group_attendance">Group Members Attendance</string>
