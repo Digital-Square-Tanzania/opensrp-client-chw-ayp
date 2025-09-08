@@ -56,6 +56,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected TextView textViewLocation;
     protected TextView textViewUniqueID;
     protected TextView textViewRecordayp;
+    protected TextView textViewGraduate;
     protected TextView textViewRecordAnc;
     protected TextView textViewContinueayp;
     protected TextView textViewContinueaypService;
@@ -140,6 +141,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         textViewRecordAncNotDone = findViewById(R.id.textview_record_anc_not_done);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
         textViewRecordayp = findViewById(R.id.textview_record_ayp);
+        textViewGraduate = findViewById(R.id.textview_graduate);
         textViewContinueayp = findViewById(R.id.textview_continue);
         textViewContinueaypService = findViewById(R.id.continue_ayp_service);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
@@ -154,6 +156,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         rlFamilyServicesDue.setOnClickListener(this);
         rlaypPositiveDate.setOnClickListener(this);
         textViewRecordayp.setOnClickListener(this);
+        textViewGraduate.setOnClickListener(this);
         textViewContinueayp.setOnClickListener(this);
         textViewContinueaypService.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.View;
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
@@ -16,11 +15,11 @@ import org.smartregister.chw.ayp_sample.R;
 import timber.log.Timber;
 
 
-public class AypOutSchoolClientMemberProfileActivity extends BaseAypProfileActivity {
+public class AypOutSchoolGroupMemberProfileActivity extends BaseAypProfileActivity {
     private Visit serviceVisit = null;
 
     public static void startMe(Activity activity, String baseEntityID) {
-        Intent intent = new Intent(activity, AypOutSchoolClientMemberProfileActivity.class);
+        Intent intent = new Intent(activity, AypOutSchoolGroupMemberProfileActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityID);
         activity.startActivity(intent);
     }
@@ -33,16 +32,14 @@ public class AypOutSchoolClientMemberProfileActivity extends BaseAypProfileActiv
     @Override
     protected void setupButtons() {
         if (textViewRecordayp != null) {
-            textViewRecordayp.setText(R.string.record_ayp_service);
+            textViewRecordayp.setText(R.string.record_ayp_group_visit);
         }
-        textViewGraduate.setVisibility(View.VISIBLE);
-
     }
 
 
     @Override
     public void openFollowupVisit() {
-        AypOutSchoolRecordServicesVisitActivity.startAypVisitActivity(this,memberObject.getBaseEntityId(),false);
+        AypOutSchoolRecordGroupVisitActivity.startAypVisitActivity(this,memberObject.getBaseEntityId(),false);
     }
 
     @Override

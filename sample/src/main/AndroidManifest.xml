@@ -67,7 +67,15 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="org.smartregister.chw.ayp_sample.activity.AypOutSchoolGroupMemberProfileActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="org.smartregister.chw.ayp_sample.activity.AypInSchoolGroupVisitActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="org.smartregister.chw.ayp_sample.activity.AypOutSchoolRecordGroupVisitActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

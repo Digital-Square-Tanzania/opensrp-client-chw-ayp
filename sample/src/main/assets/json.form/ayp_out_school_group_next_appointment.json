@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "service_status",
+  "encounter_type": "next_appointment_date",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -52,38 +52,24 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Next Appointment Date",
     "display_back_button": "true",
     "fields": [
       {
-        "key": "service_status",
+        "key": "next_appointment_date",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "service_status",
-        "type": "check_box",
-        "label": "Chagua hali ya huduma ya mteja",
-        "combine_checkbox_option_values": "true",
-        "label_text_style": "normal",
-        "text_color": "#C0C0C0",
-        "exclusive": [
-          "not_in_service"
-        ],
-        "options": [
-          {
-            "key": "in_service",
-            "text": "Yupo kwenye huduma",
-            "openmrs_entity": "person_attribute",
-            "openmrs_entity_id": "in_service"
-          },
-          {
-            "key": "not_in_service",
-            "text": "Hayupo kwenye huduma",
-            "openmrs_entity": "person_attribute",
-            "openmrs_entity_id": "not_in_service"
-          }
-        ]
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+5y",
+        "expanded": false,
+        "hint": "Next Appointment Date",
+        "v_required": {
+          "value": "true",
+          "err": "Required"
+        }
       }
     ]
   }
 }
-

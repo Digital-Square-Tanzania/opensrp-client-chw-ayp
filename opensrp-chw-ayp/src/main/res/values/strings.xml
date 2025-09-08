@@ -13,6 +13,7 @@
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_ayp">Provide AYP Services</string>
     <string name="record_ayp_service">Record AYP Services</string>
+    <string name="record_ayp_group_visit">Record Group Visit</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
@@ -20,6 +21,8 @@
     <string name="ayp_service_visit_in_progress">Ayp Service In Progress</string>
     <string name="ayp_procedure_visit_in_progress">Ayp Procedure In Progress</string>
     <string name="ayp_visit_conducted">AYP Visit Conducted</string>
+
+    <string name="graduate">Graduate</string>
 
     <string name="ayp_profile">AYP Profile</string>
 
@@ -95,6 +98,8 @@
     <string name="ayp_out_school_health_and_behaviour_change_services">Health and Behavior Change Services</string>
     <string name="ayp_out_school_next_appointment">Next Appointment</string>
 
+    <string name="ayp_out_school_group_attendance">Group Attendance</string>
+    <string name="ayp_out_school_sbc_services">SBC Services</string>
 
     <!-- Generated for In-School Group Visit actions -->
     <string name="ayp_group_attendance">Group Members Attendance</string>

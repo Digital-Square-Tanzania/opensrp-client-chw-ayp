@@ -42,6 +42,11 @@ public interface Constants {
         String AYP_OUT_SCHOOL_MEDICAL_SERVICE = "ayp_out_school_medical_services";
         String AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES= "ayp_out_school_health_and_behaviour_change_services";
         String AYP_OUT_SCHOOL_NEXT_APPOINTMENT = "ayp_out_school_next_appointment";
+
+        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_attendance";
+        String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
+        String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
+        String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
     }
 
     interface ayp_FOLLOWUP_FORMS {

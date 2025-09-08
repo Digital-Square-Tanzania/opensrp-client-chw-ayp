@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "client_status",
+  "encounter_type": "next_appointment_date",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -52,94 +52,22 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Next Appointment Date",
     "display_back_button": "true",
     "fields": [
       {
-        "key": "client_status",
+        "key": "next_appointment_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_status",
-        "type": "native_radio",
-        "label": "Client status",
-        "options": [
-          {
-            "key": "continuing",
-            "text": "Continuing with Services",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "continuing"
-          },
-          {
-            "key": "dead",
-            "text": "Dead",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "dead"
-          },
-          {
-            "key": "transferred",
-            "text": "Transferred",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "transferred"
-          },
-          {
-            "key": "dropped_from_school",
-            "text": "Dropped from school",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "dropped_from_school"
-          },
-          {
-            "key": "opt_out",
-            "text": "Parent or Guardian/Student requested to opt out of service",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "opt_out"
-          }
-        ],
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today",
+        "max_date": "today+5y",
+        "expanded": false,
+        "hint": "Tarehe ya hudhurio lijalo",
         "v_required": {
-          "value": true,
-          "err": "Please select the client status"
-        }
-      },
-      {
-        "key": "transfer_remarks",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "transfer_remarks",
-        "type": "edit_text",
-        "hint": "Provide comment/remarks",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
-            }
-          }
-        },
-        "v_required": {
-          "value": true,
-          "err": "Please provide comment/remarks"
-        }
-      },
-      {
-        "key": "new_address",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "new_address",
-        "type": "edit_text",
-        "hint": "New address",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
-            }
-          }
-        },
-        "v_required": {
-          "value": true,
-          "err": "Please provide the new address"
+          "value": "true",
+          "err": "Required"
         }
       }
     ]
