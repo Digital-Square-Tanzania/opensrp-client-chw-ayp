@@ -113,11 +113,11 @@ public class BaseAypInSchoolGroupVisitInteractor extends BaseAypVisitInteractor 
 
     @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.ayp_SERVICES;
+        return Constants.EVENT_TYPE.AYP_SERVICES;
     }
 
     @Override
     protected String getTableName() {
-        return Constants.TABLES.ayp_SERVICE;
+        return Constants.TABLES.AYP_SERVICE;
     }
 }

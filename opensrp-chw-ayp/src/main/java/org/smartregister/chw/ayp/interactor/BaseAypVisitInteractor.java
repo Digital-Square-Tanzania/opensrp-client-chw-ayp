@@ -10,8 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
-import org.smartregister.chw.ayp.R;
-import org.smartregister.chw.ayp.actionhelper.AypInSchoolFinancialLiteracyActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
@@ -381,6 +379,6 @@ public class BaseAypVisitInteractor implements BaseAypVisitContract.Interactor {
     }
 
     protected String getTableName() {
-        return Constants.TABLES.ayp_ENROLLMENT;
+        return Constants.TABLES.AYP_ENROLLMENT;
     }
 }

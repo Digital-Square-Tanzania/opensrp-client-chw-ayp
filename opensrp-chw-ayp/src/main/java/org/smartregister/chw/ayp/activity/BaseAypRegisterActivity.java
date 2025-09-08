@@ -51,7 +51,7 @@ public class BaseAypRegisterActivity extends BaseRegisterActivity implements Ayp
         super.onCreate(savedInstanceState);
         BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         FAMILY_BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.FAMILY_BASE_ENTITY_ID);
-        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.ayp_FORM_NAME);
+        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.AYP_FORM_NAME);
         onStartActivityWithAction();
     }
 
