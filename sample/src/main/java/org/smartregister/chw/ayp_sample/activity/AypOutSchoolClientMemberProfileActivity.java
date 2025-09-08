@@ -1,10 +1,15 @@
 package org.smartregister.chw.ayp_sample.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+
+import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
@@ -48,6 +53,38 @@ public class AypOutSchoolClientMemberProfileActivity extends BaseAypProfileActiv
     @Override
     public void startServiceForm() {
         AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
+    }
+
+    @Override
+    public void graduateForm() {
+        try {
+            startForm("ayp_out_school_graduate");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @SuppressLint("TimberArgCount")
+    private void startForm(String formName) throws Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+        }
     }
 
 

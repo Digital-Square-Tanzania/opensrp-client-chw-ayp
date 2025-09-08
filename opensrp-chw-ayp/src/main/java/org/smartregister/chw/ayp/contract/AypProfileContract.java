@@ -59,6 +59,7 @@ public interface AypProfileContract {
 
         void startServiceForm();
 
+        void graduateForm();
 
         void continueService();
 

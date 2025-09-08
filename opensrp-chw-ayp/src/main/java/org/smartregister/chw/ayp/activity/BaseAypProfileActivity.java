@@ -221,6 +221,8 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_ayp) {
             this.openFollowupVisit();
+        } else if (id == R.id.textview_graduate) {
+            this.graduateForm();
         } else if (id == R.id.continue_ayp_service) {
             this.continueService();
         } else if (id == R.id.textview_continue) {
@@ -252,6 +254,11 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
 
     @Override
     public void openFollowupVisit() {
+        //Implement in application
+    }
+
+    @Override
+    public void graduateForm() {
         //Implement in application
     }
 

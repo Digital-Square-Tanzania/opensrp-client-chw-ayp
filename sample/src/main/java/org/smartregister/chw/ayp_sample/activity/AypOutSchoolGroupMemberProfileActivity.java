@@ -1,9 +1,14 @@
 package org.smartregister.chw.ayp_sample.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+
+import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
@@ -44,7 +49,6 @@ public class AypOutSchoolGroupMemberProfileActivity extends BaseAypProfileActivi
 
     @Override
     public void startServiceForm() {
-        AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 
