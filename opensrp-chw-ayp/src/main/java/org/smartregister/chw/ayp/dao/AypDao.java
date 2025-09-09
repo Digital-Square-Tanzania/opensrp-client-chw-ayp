@@ -213,7 +213,7 @@ public class AypDao extends AbstractDao {
                 "mr.* " +
                 "from ec_family_member m " +
                 "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_ayp_in_school_register mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join " + Constants.TABLES.AYP_IN_SCHOOL_ENROLLMENT + " mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 ";
