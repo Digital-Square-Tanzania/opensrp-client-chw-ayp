@@ -21,6 +21,7 @@ public interface Constants {
         String AYP_SERVICES = "Ayp Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
         String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
+        String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
 
@@ -37,6 +38,17 @@ public interface Constants {
         String AYP_IN_SCHOOL_SANITARY_KITS = "ayp_in_school_sanitary_kits";
         String AYP_IN_SCHOOL_GBV_SCREENING = "ayp_in_school_gbv_screening";
         String AYP_GROUP_ATTENDANCE = "ayp_in_school_group_members_attendance";
+
+        String AYP_OUT_SCHOOL_SERVICE_STATUS = "ayp_out_school_service_status";
+        String AYP_OUT_SCHOOL_STRUCTURAL_SERVICE = "ayp_out_school_structural_services";
+        String AYP_OUT_SCHOOL_MEDICAL_SERVICE = "ayp_out_school_medical_services";
+        String AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES= "ayp_out_school_health_and_behaviour_change_services";
+        String AYP_OUT_SCHOOL_NEXT_APPOINTMENT = "ayp_out_school_next_appointment";
+
+        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_attendance";
+        String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
+        String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
+        String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -50,6 +62,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_ENROLLMENT = "ec_ayp_in_school_enrollment";
         String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
         String AYP_SERVICE = "ec_ayp_services";
+        String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
     }
 
     interface ACTIVITY_PAYLOAD {

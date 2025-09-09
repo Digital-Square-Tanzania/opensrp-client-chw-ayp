@@ -1,5 +1,6 @@
 package org.smartregister.chw.ayp_sample.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +8,26 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.domain.MemberObject;
+import org.smartregister.chw.ayp.util.AypJsonFormUtils;
 import org.smartregister.chw.ayp.util.DBConstants;
+import org.smartregister.chw.ayp.util.JsonFormUtils;
+import org.smartregister.chw.ayp.util.Constants;
+
 import org.smartregister.chw.ayp_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
+import org.smartregister.util.FormUtils;
 import org.smartregister.view.activity.SecuredActivity;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -68,6 +82,10 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.ayp_home_visit).setOnClickListener(this);
         findViewById(R.id.ayp_in_school_client_profile).setOnClickListener(this);
         findViewById(R.id.ayp_in_school_group_profile).setOnClickListener(this);
+
+        /* out of school */
+        findViewById(R.id.ayp_out_school_client_profile).setOnClickListener(this);
+        findViewById(R.id.ayp_out_school_group_profile).setOnClickListener(this);
     }
 
     @Override
@@ -95,10 +113,41 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.ayp_in_school_group_profile:
                 AypInSchoolGroupMemberProfileActivity.startMe(this, "12345");
                 break;
+            case R.id.ayp_out_school_client_profile:
+                AypOutSchoolClientMemberProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.ayp_out_school_group_profile:
+                AypOutSchoolGroupMemberProfileActivity.startMe(this, "12345");
+                break;
             default:
                 break;
         }
     }
+
+    @SuppressLint("TimberArgCount")
+    private void startForm(String formName) throws Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+        }
+    }
+
+
 
     @Override
     public void onDialogOptionUpdated(String jsonString) {

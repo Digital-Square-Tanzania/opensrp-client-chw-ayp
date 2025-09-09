@@ -56,6 +56,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected TextView textViewLocation;
     protected TextView textViewUniqueID;
     protected TextView textViewRecordayp;
+    protected TextView textViewGraduate;
     protected TextView textViewRecordAnc;
     protected TextView textViewContinueayp;
     protected TextView textViewContinueaypService;
@@ -140,6 +141,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         textViewRecordAncNotDone = findViewById(R.id.textview_record_anc_not_done);
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
         textViewRecordayp = findViewById(R.id.textview_record_ayp);
+        textViewGraduate = findViewById(R.id.textview_graduate);
         textViewContinueayp = findViewById(R.id.textview_continue);
         textViewContinueaypService = findViewById(R.id.continue_ayp_service);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
@@ -154,6 +156,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         rlFamilyServicesDue.setOnClickListener(this);
         rlaypPositiveDate.setOnClickListener(this);
         textViewRecordayp.setOnClickListener(this);
+        textViewGraduate.setOnClickListener(this);
         textViewContinueayp.setOnClickListener(this);
         textViewContinueaypService.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
@@ -187,43 +190,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
-        try {
 
-            if (getServiceVisit() != null) {
-                if (!getServiceVisit().getProcessed() && AypVisitsUtil.getaypServiceVisitStatus(getServiceVisit()).equalsIgnoreCase(AypVisitsUtil.Complete)) {
-                    manualProcessVisit.setVisibility(View.VISIBLE);
-                    textViewContinueaypService.setText(R.string.edit_visit);
-                    manualProcessVisit.setOnClickListener(view -> {
-                        try {
-                            AypVisitsUtil.manualProcessVisit(getServiceVisit());
-                            displayToast(R.string.ayp_visit_conducted);
-                            setupViews();
-                        } catch (Exception e) {
-                            Timber.d(e);
-                        }
-                    });
-                } else {
-                    manualProcessVisit.setVisibility(View.GONE);
-                }
-                if (isVisitOnProgress(getServiceVisit())) {
-                    textViewRecordayp.setVisibility(View.GONE);
-                    aypServiceInProgress.setVisibility(View.VISIBLE);
-                } else {
-                    textViewRecordayp.setVisibility(View.VISIBLE);
-                    aypServiceInProgress.setVisibility(View.GONE);
-                }
-
-                processaypService();
-
-                if (isVisitOnProgress(getServiceVisit())) {
-                    findViewById(R.id.family_ayp_head).setVisibility(View.GONE);
-                }
-
-            }
-
-        } catch (Exception e) {
-            Timber.d(e);
-        }
     }
 
     protected Visit getServiceVisit() {
@@ -254,6 +221,8 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_ayp) {
             this.openFollowupVisit();
+        } else if (id == R.id.textview_graduate) {
+            this.graduateForm();
         } else if (id == R.id.continue_ayp_service) {
             this.continueService();
         } else if (id == R.id.textview_continue) {
@@ -285,6 +254,11 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
 
     @Override
     public void openFollowupVisit() {
+        //Implement in application
+    }
+
+    @Override
+    public void graduateForm() {
         //Implement in application
     }
 

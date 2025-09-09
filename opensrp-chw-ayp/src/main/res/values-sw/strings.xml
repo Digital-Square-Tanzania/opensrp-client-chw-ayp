@@ -11,7 +11,10 @@
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="ayp_followup_visit">Tembeleo la ufuatiliaji</string>
     <string name="record_ayp">Utoaji wa Huduma Ya AYP</string>
+    <string name="record_ayp_service">Rekodi Huduma Ya AYP</string>
+    <string name="record_ayp_group_visit">Rekodi tembeleo la kikundi</string>
 
+    <string name="graduate">Hitimu</string>
 
     <string name="optional">Sio lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuitunza hii visit</string>
