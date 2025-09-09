@@ -12,6 +12,7 @@ import org.smartregister.chw.ayp.actionhelper.AypInSchoolFinancialLiteracyAction
 import org.smartregister.chw.ayp.actionhelper.AypInSchoolSanitaryKitsActionHelper;
 import org.smartregister.chw.ayp.actionhelper.AypInSchoolGbvScreeningActionHelper; // Added import
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
@@ -148,5 +149,10 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
 
     protected String getTableName() {
         return Constants.TABLES.AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return AypDao.getInSchoolMember(memberID);
     }
 }
