@@ -1,31 +1,31 @@
 package org.smartregister.chw.ayp_sample.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
-
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.Visit;
 import org.smartregister.chw.ayp.util.Constants;
-
+import org.smartregister.chw.ayp_sample.R;
 
 import timber.log.Timber;
 
 
-public class AypMemberProfileActivity extends BaseAypProfileActivity {
-    private Visit enrollmentVisit = null;
+public class AypOutSchoolClientMemberProfileActivity extends BaseAypProfileActivity {
     private Visit serviceVisit = null;
 
     public static void startMe(Activity activity, String baseEntityID) {
-        Intent intent = new Intent(activity, AypMemberProfileActivity.class);
+        Intent intent = new Intent(activity, AypOutSchoolClientMemberProfileActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityID);
         activity.startActivity(intent);
     }
@@ -36,19 +36,41 @@ public class AypMemberProfileActivity extends BaseAypProfileActivity {
     }
 
     @Override
+    protected void setupButtons() {
+        if (textViewRecordayp != null) {
+            textViewRecordayp.setText(R.string.record_ayp_service);
+        }
+        textViewGraduate.setVisibility(View.VISIBLE);
+
+    }
+
+
+    @Override
     public void openFollowupVisit() {
+        AypOutSchoolRecordServicesVisitActivity.startAypVisitActivity(this,memberObject.getBaseEntityId(),false);
+    }
+
+    @Override
+    public void startServiceForm() {
+        AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
+    }
+
+    @Override
+    public void graduateForm() {
         try {
-            startForm("ayp_enrollment");
+            startForm("ayp_out_school_graduate");
         } catch (Exception e) {
-            Timber.e(e);
+            throw new RuntimeException(e);
         }
     }
 
+    @SuppressLint("TimberArgCount")
     private void startForm(String formName) throws Exception {
         JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
 
         String currentLocationId = "Tanzania";
         if (jsonForm != null) {
+
             jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
             Intent intent = new Intent(this, JsonWizardFormActivity.class);
             intent.putExtra("json", jsonForm.toString());
@@ -62,14 +84,7 @@ public class AypMemberProfileActivity extends BaseAypProfileActivity {
 
             intent.putExtra("form", form);
             startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
-
         }
-
-    }
-
-    @Override
-    public void startServiceForm() {
-        AypInSchoolClientVisitActivity.startAypInSchoolClientVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
 

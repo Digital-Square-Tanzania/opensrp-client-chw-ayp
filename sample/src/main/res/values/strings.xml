@@ -2,6 +2,9 @@
     <string name="app_name">opensrp-chw-testing</string>
     <string name="action_settings">Settings</string>
     <string name="ayp_in_school_client_profile">AYP In-School Client Profile</string>
+    <string name="ayp_out_school_client_profile">AYP Out-School Client Profile</string>
+    <string name="ayp_out_school_group_profile">AYP Out-School Group Profile</string>
     <string name="ayp_in_school_group_profile">AYP In-School Group Profile</string>
+    <string name="ayp_out_school_screening">AYP Screening</string>
     <string name="ayp_follow_up_visit">Follow up AYP Client Profile</string>
 </resources>

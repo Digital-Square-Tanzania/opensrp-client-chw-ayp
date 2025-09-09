@@ -98,6 +98,6 @@ public class AypInSchoolEducationSubsidiesActionHelper implements BaseAypVisitAc
     // @Override
     // Corrected typo in previous versions if any
     public void onPayloadReceived(BaseAypVisitAction action) { 
-        // Empty as per AypInSchoolFinancialLiteracyActionHelper
+        // Empty as per AypOutSchoolServiceStatusActionHelper
     }
 }
