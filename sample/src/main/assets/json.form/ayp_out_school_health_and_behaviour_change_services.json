@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Huduma za Afya ya mabadiliko ya Tabia",
     "display_back_button": "true",
     "fields": [
       {
@@ -186,7 +186,11 @@
             "openmrs_entity": "person_attribute",
             "openmrs_entity_id": "distribution_of_health_education_leaflets"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        }
       }
     ]
   }

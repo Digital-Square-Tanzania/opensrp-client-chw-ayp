@@ -454,7 +454,13 @@
         "openmrs_entity_id": "linked_to_self_testing_module",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
-        "toaster_type": "positive"
+        "toaster_type": "positive",
+        "relevance": {
+          "step1:understanding_of_business_and_financial_record_keeping": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
       }
     ]
   }

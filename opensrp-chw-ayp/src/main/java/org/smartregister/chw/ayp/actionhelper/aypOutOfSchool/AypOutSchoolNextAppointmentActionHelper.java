@@ -2,10 +2,12 @@ package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 
 import android.content.Context;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
+import org.smartregister.chw.ayp.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +16,7 @@ import timber.log.Timber;
 
 public class AypOutSchoolNextAppointmentActionHelper implements BaseAypVisitAction.aypVisitActionHelper {
     private MemberObject memberObject;
-    private String financialLiteracyConducted;
+    protected String serviceStatus;
     protected String jsonPayload;
     private Context context;
 
@@ -47,7 +49,7 @@ public class AypOutSchoolNextAppointmentActionHelper implements BaseAypVisitActi
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject payload = new JSONObject(jsonPayload);
-//            financialLiteracyConducted = JsonFormUtils.getValue(payload, "financial_literacy_conducted");
+            this.serviceStatus = JsonFormUtils.getValue(payload, "next_appointment_date");
         } catch (Exception e) {
             Timber.e(e);
         }
@@ -60,30 +62,16 @@ public class AypOutSchoolNextAppointmentActionHelper implements BaseAypVisitActi
 
     @Override
     public String evaluateSubTitle() {
-//        if (StringUtils.isBlank(financialLiteracyConducted)) {
-//            return "";
-//        }
-//
-//        String conductedString = "";
-//        if ("yes".equalsIgnoreCase(financialLiteracyConducted)) {
-//            conductedString = context.getString(R.string.ayp_yes);
-//        } else if ("no".equalsIgnoreCase(financialLiteracyConducted)) {
-//            conductedString = context.getString(R.string.ayp_no);
-//        }
-//
-//        if (StringUtils.isNotBlank(conductedString)) {
-//            return context.getString(R.string.ayp_financial_literacy_conducted_prefix) + conductedString;
-//        }
         return "";
     }
 
     @Override
     public BaseAypVisitAction.Status evaluateStatusOnPayload() {
-//        if (StringUtils.isBlank(financialLiteracyConducted)) {
-//            return BaseAypVisitAction.Status.PENDING;
-//        }
-
-        return BaseAypVisitAction.Status.COMPLETED;
+        if (StringUtils.isBlank(serviceStatus))
+            return BaseAypVisitAction.Status.PENDING;
+        else {
+            return BaseAypVisitAction.Status.COMPLETED;
+        }
     }
 
     @Override

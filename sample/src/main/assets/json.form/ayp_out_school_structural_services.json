@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Huduma za Kimuundo",
     "display_back_button": "true",
     "fields": [
       {
@@ -141,7 +141,11 @@
             "openmrs_entity": "person_attribute",
             "openmrs_entity_id": "none"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza"
+        }
       },
       {
         "key": "choose_integrated_services",
@@ -226,7 +230,11 @@
             "openmrs_entity": "person_attribute",
             "openmrs_entity_id": "assistance_in_obtaining_national_ids"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza"
+        }
       },
       {
         "key": "received_youth_friendly_health_services",
@@ -253,7 +261,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -281,7 +289,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -309,7 +317,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -337,7 +345,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -350,7 +358,13 @@
         "edit_type": "name",
         "v_required": {
           "value": "true",
-          "err": "Please specify"
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:client_received_sanitary_pads": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       }
     ]

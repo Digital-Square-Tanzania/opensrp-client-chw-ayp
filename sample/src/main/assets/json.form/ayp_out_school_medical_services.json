@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Huduma za kitabibu",
     "display_back_button": "true",
     "fields": [
       {
@@ -80,7 +80,7 @@
         ],
         "v_required": {
           "value": true,
-          "err": "Please select"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -90,7 +90,13 @@
         "openmrs_entity_id": "linked_to_self_testing_module",
         "openmrs_entity": "concept",
         "openmrs_entity_parent": "",
-        "toaster_type": "info"
+        "toaster_type": "info",
+        "relevance": {
+          "step1:self_testing_service_provided": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
       },
       {
         "key": "condom_distribution",
@@ -127,7 +133,18 @@
         "edit_type": "name",
         "v_required": {
           "value": "true",
-          "err": "Please specify"
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:condom_distribution": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "male"
+                ]
+              }
+            ]
+          }
         }
       },
       {
@@ -140,7 +157,18 @@
         "edit_type": "name",
         "v_required": {
           "value": "true",
-          "err": "Please specify"
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:condom_distribution": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "female"
+                ]
+              }
+            ]
+          }
         }
       },
       {
@@ -168,7 +196,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       },
       {
@@ -206,7 +234,45 @@
             "openmrs_entity": "person_attribute",
             "openmrs_entity_id": "economic"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:gender_based_violence_investigation": {
+            "type": "string",
+            "ex": "equalTo(., \"done\")"
+          }
+        }
+      },
+      {
+        "key": "family_planning",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "family_planning",
+        "type": "native_radio",
+        "label": "Anatumia Uzazi wa mpango",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza"
+        }
       },
       {
         "key": "contraceptive_method_used",
@@ -261,7 +327,13 @@
         ],
         "v_required": {
           "value": true,
-          "err": "Please select"
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:family_planning": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
         }
       },
       {
@@ -289,7 +361,7 @@
         ],
         "v_required": {
           "value": "true",
-          "err": "Please pick at least one"
+          "err": "Tafadhali jaza"
         }
       }
     ]

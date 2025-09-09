@@ -214,7 +214,17 @@
             "openmrs_entity": "person_attribute",
             "openmrs_entity_id": "distribution_of_health_educational_materials"
           }
-        ]
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:provided_sbc_service": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
       }
     ]
   }
