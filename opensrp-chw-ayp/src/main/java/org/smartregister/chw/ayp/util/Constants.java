@@ -24,6 +24,7 @@ public interface Constants {
         String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
+        String AYP_GROUP_DETAILS = "group_details";
 
     }
 
