@@ -3,11 +3,9 @@ package org.smartregister.chw.ayp_sample.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.activity.BaseAypGroupProfileActivity;
-import org.smartregister.chw.ayp.activity.BaseAypProfileActivity;
 import org.smartregister.chw.ayp.domain.GroupObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.Visit;
@@ -61,7 +59,7 @@ public class AypInSchoolGroupMemberProfileActivity extends BaseAypGroupProfileAc
                 JSONObject form = new JSONObject(jsonString);
                 String encounterType = form.getString(Constants.JSON_FORM_EXTRA.EVENT_TYPE);
                 switch (encounterType) {
-                    case Constants.EVENT_TYPE.ayp_SERVICES:
+                    case Constants.EVENT_TYPE.AYP_SERVICES:
                         serviceVisit = new Visit();
                         serviceVisit.setProcessed(true);
                         serviceVisit.setJson(jsonString);

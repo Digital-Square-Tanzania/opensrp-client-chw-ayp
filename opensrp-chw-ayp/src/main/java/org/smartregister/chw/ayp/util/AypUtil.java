@@ -138,7 +138,7 @@ public class AypUtil {
         Event closeaypEvent = new Gson().
                 fromJson(jsonString, Event.class);
 
-        closeaypEvent.setEntityType(Constants.TABLES.ayp_ENROLLMENT);
+        closeaypEvent.setEntityType(Constants.TABLES.AYP_ENROLLMENT);
         closeaypEvent.setEventType(Constants.EVENT_TYPE.CLOSE_ayp_SERVICE);
         closeaypEvent.setBaseEntityId(baseEntityId);
         closeaypEvent.setFormSubmissionId(JsonFormUtils.

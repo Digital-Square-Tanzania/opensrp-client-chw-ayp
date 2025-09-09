@@ -39,7 +39,7 @@ public class AypVisitsUtil extends VisitUtils {
             Date updatedAtDate = new Date(v.getUpdatedAt().getTime());
             int daysDiff = TimeUtils.getElapsedDays(updatedAtDate);
             if (daysDiff > 1) {
-                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.ayp_FOLLOW_UP_VISIT) && getaypVisitStatus(v).equals(Complete)) {
+                if (v.getVisitType().equalsIgnoreCase(Constants.EVENT_TYPE.AYP_FOLLOW_UP_VISIT) && getaypVisitStatus(v).equals(Complete)) {
                     prepFollowupVisit.add(v);
                 }
             }

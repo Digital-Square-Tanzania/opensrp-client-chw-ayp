@@ -125,4 +125,5 @@
     <string name="ayp_gbv_encountered">Encountered GBV</string>
     <string name="ayp_gbv_not_encountered">Did not encounter GBV</string>
     <string name="ayp_gbv_not_screened">Not Screened</string>
+    <string name="ayp_in_school_register_title">AYP In-School Clients</string>
 </resources>

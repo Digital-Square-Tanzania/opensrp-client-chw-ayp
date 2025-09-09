@@ -97,7 +97,7 @@ public class BaseAypRegisterFragmentPresenter implements AypRegisterFragmentCont
 
     @Override
     public String getMainTable() {
-        return Constants.TABLES.ayp_ENROLLMENT;
+        return Constants.TABLES.AYP_ENROLLMENT;
     }
 
     @Override

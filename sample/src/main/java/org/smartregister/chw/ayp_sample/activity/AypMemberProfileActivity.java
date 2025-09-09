@@ -114,7 +114,7 @@ public class AypMemberProfileActivity extends BaseAypProfileActivity {
                 JSONObject form = new JSONObject(jsonString);
                 String encounterType = form.getString(Constants.JSON_FORM_EXTRA.EVENT_TYPE);
                 switch (encounterType) {
-                    case Constants.EVENT_TYPE.ayp_SERVICES:
+                    case Constants.EVENT_TYPE.AYP_SERVICES:
                         serviceVisit = new Visit();
                         serviceVisit.setProcessed(true);
                         serviceVisit.setJson(jsonString);
