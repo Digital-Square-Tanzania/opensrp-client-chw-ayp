@@ -108,6 +108,9 @@
     <string name="provide_group_details">Provide Group Services</string>
     <string name="add_group_member">Add Group Member</string>
     <string name="group_members">Group Members</string>
+    <string name="group_members_count">Members: %1$d</string>
+    <string name="group_type_title">Type:</string>
+    <string name="group_age_band_title">Age-band:</string>
     <string name="unknown_location">Unknown location</string>
     <string name="ayp_in_school_cse">Comprehensive Sexual Education</string>
     <string name="ayp_in_school_financial_literacy">Financial Literacy Education</string>
