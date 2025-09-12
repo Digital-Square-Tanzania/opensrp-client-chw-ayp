@@ -31,8 +31,9 @@ import java.util.List;
 public class BaseAypGroupProfileActivity extends AppCompatActivity implements AypGroupProfileContract.View, View.OnClickListener {
 
     protected TextView tvGroupName;
-    protected TextView tvGroupLocation;
-    protected TextView tvGroupId;
+    protected TextView tvGroupType;
+    protected TextView tvGroupAgeBand;
+    protected TextView tvGroupMemberCount;
     protected TextView btnProvideDetails;
     protected TextView btnAddMember;
     protected RecyclerView rvMembers;
@@ -71,8 +72,9 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
         }
 
         tvGroupName = findViewById(R.id.textview_group_name);
-        tvGroupLocation = findViewById(R.id.textview_group_location);
-        tvGroupId = findViewById(R.id.textview_group_id);
+        tvGroupType = findViewById(R.id.textview_group_type);
+        tvGroupAgeBand = findViewById(R.id.textview_group_age_band);
+        tvGroupMemberCount = findViewById(R.id.textview_group_member_count);
         btnProvideDetails = findViewById(R.id.textview_provide_group_details);
         btnAddMember = findViewById(R.id.textview_add_member);
         rvMembers = findViewById(R.id.recycler_members);
@@ -99,13 +101,24 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
     @Override
     public void setGroupViewWithData(GroupObject groupObject) {
         tvGroupName.setText(groupObject.getGroupName());
-        tvGroupLocation.setText(groupObject.getLocation() != null ? groupObject.getLocation() : getString(R.string.unknown_location));
-        tvGroupId.setText(groupObject.getGroupId());
+        // Type and Age-band can be set by the app module subclass when available
+        if (tvGroupType != null) tvGroupType.setText("");
+        if (tvGroupAgeBand != null) tvGroupAgeBand.setText("");
+        if (tvGroupMemberCount != null) {
+            tvGroupMemberCount.setText(getString(R.string.group_members_count, groupObject.getMemberCount()));
+        }
     }
 
     @Override
     public void renderMembers(List<MemberObject> members) {
         adapter.setItems(members);
+        if (tvGroupMemberCount != null) {
+            tvGroupMemberCount.setText(getString(R.string.group_members_count, members != null ? members.size() : 0));
+        }
+        if (btnProvideDetails != null) {
+            boolean hasMembers = members != null && !members.isEmpty();
+            btnProvideDetails.setVisibility(hasMembers ? View.VISIBLE : View.GONE);
+        }
     }
 
     @Override
@@ -148,4 +161,3 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
 
     }
 }
-
