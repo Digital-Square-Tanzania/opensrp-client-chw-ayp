@@ -115,6 +115,10 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
         if (tvGroupMemberCount != null) {
             tvGroupMemberCount.setText(getString(R.string.group_members_count, members != null ? members.size() : 0));
         }
+        if (btnProvideDetails != null) {
+            boolean hasMembers = members != null && !members.isEmpty();
+            btnProvideDetails.setVisibility(hasMembers ? View.VISIBLE : View.GONE);
+        }
     }
 
     @Override
