@@ -17,8 +17,9 @@ public interface Constants {
 
     interface EVENT_TYPE {
         String ayp_ENROLLMENT = "Ayp Enrollment";
-        String ayp_SERVICES = "Ayp Services";
-        String ayp_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
+        String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
+        String AYP_SERVICES = "Ayp Services";
+        String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
         String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
         String VOID_EVENT = "Void Event";
@@ -27,9 +28,10 @@ public interface Constants {
     }
 
     interface FORMS {
-        String ayp_REGISTRATION = "ayp_enrollment";
-        String ayp_FOLLOW_UP_VISIT = "ayp_followup_visit";
+        String AYP_REGISTRATION = "ayp_enrollment";
+        String AYP_FOLLOW_UP_VISIT = "ayp_followup_visit";
         String AYP_IN_SCHOOL_CLIENT_STATUS = "ayp_in_school_client_status";
+        String AYP_IN_SCHOOL_ENROLLMENT = "ayp_in_school_enrollment";
         String AYP_IN_SCHOOL_CSE = "ayp_in_school_cse";
         String AYP_IN_SCHOOL_FINANCIAL_LITERACY = "ayp_in_school_financial_literacy";
         String AYP_IN_SCHOOL_EDUCATION_SUBSIDIES = "ayp_in_school_education_subsidies";
@@ -56,16 +58,17 @@ public interface Constants {
     }
 
     interface TABLES {
-        String ayp_ENROLLMENT = "ec_ayp_enrollment";
+        String AYP_ENROLLMENT = "ec_ayp_enrollment";
+        String AYP_IN_SCHOOL_ENROLLMENT = "ec_ayp_in_school_enrollment";
         String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
+        String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
-        String ayp_SERVICE = "ec_ayp_services";
     }
 
     interface ACTIVITY_PAYLOAD {
         String BASE_ENTITY_ID = "BASE_ENTITY_ID";
         String FAMILY_BASE_ENTITY_ID = "FAMILY_BASE_ENTITY_ID";
-        String ayp_FORM_NAME = "ayp_FORM_NAME";
+        String AYP_FORM_NAME = "AYP_FORM_NAME";
         String MEMBER_PROFILE_OBJECT = "MemberObject";
         String EDIT_MODE = "editMode";
         String PROFILE_TYPE = "profile_type";

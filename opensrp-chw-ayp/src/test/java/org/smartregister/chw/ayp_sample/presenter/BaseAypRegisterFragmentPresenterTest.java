@@ -48,20 +48,20 @@ public class BaseAypRegisterFragmentPresenterTest {
 
     @Test
     public void getDefaultSortQuery() {
-        Assert.assertEquals(Constants.TABLES.ayp_ENROLLMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseaypRegisterFragmentPresenter.getDefaultSortQuery());
+        Assert.assertEquals(Constants.TABLES.AYP_ENROLLMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseaypRegisterFragmentPresenter.getDefaultSortQuery());
     }
 
     @Test
     public void getMainTable() {
-        Assert.assertEquals(Constants.TABLES.ayp_ENROLLMENT, baseaypRegisterFragmentPresenter.getMainTable());
+        Assert.assertEquals(Constants.TABLES.AYP_ENROLLMENT, baseaypRegisterFragmentPresenter.getMainTable());
     }
 
     @Test
     public void initializeQueries() {
         Set<View> visibleColumns = new TreeSet<>();
         baseaypRegisterFragmentPresenter.initializeQueries(null);
-        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.ayp_ENROLLMENT, null, null);
-        Mockito.verify(view).initializeQueryParams(Constants.TABLES.ayp_ENROLLMENT, null, null);
+        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.AYP_ENROLLMENT, null, null);
+        Mockito.verify(view).initializeQueryParams(Constants.TABLES.AYP_ENROLLMENT, null, null);
         Mockito.verify(view).initializeAdapter(visibleColumns);
         Mockito.verify(view).countExecute();
         Mockito.verify(view).filterandSortInInitializeQueries();

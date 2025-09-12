@@ -194,7 +194,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected Visit getServiceVisit() {
-        return AypLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.ayp_SERVICES);
+        return AypLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.AYP_SERVICES);
     }
 
 

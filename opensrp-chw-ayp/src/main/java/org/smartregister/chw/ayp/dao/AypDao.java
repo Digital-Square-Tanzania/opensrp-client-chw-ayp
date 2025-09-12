@@ -1,6 +1,7 @@
 package org.smartregister.chw.ayp.dao;
 
 import org.smartregister.chw.ayp.domain.MemberObject;
+import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
@@ -84,6 +85,19 @@ public class AypDao extends AbstractDao {
 
     public static boolean isRegisteredForAyp(String baseEntityID) {
         String sql = "SELECT count(p.base_entity_id) count FROM ec_ayp_enrollment p " +
+                "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 ";
+
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1)
+            return false;
+
+        return res.get(0) > 0;
+    }
+
+    public static boolean isRegisteredForAypInSchoolServices(String baseEntityID) {
+        String sql = "SELECT count(p.base_entity_id) count FROM "+ Constants.TABLES.AYP_IN_SCHOOL_ENROLLMENT +" p " +
                 "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 ";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");

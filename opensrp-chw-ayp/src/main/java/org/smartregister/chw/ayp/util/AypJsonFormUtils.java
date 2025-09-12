@@ -91,9 +91,9 @@ public class AypJsonFormUtils extends org.smartregister.util.JsonFormUtils {
         String encounter_type = jsonForm.optString(Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE);
 
         if (Constants.EVENT_TYPE.ayp_ENROLLMENT.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.ayp_ENROLLMENT;
-        } else if (Constants.EVENT_TYPE.ayp_SERVICES.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.ayp_SERVICE;
+            encounter_type = Constants.TABLES.AYP_ENROLLMENT;
+        } else if (Constants.EVENT_TYPE.AYP_SERVICES.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.AYP_SERVICE;
         }
         return org.smartregister.util.JsonFormUtils.createEvent(fields, getJSONObject(jsonForm, METADATA), formTag(allSharedPreferences), entityId, getString(jsonForm, ENCOUNTER_TYPE), encounter_type);
     }
