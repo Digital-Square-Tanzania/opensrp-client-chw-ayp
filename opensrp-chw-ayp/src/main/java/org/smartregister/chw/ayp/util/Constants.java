@@ -25,6 +25,7 @@ public interface Constants {
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
         String AYP_GROUP_DETAILS = "group_details";
+        String AYP_GROUP_MEMBERSHIP = "ayp_group_membership";
 
     }
 
