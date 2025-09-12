@@ -12,6 +12,7 @@ import org.smartregister.chw.ayp.actionhelper.AypInSchoolFinancialLiteracyAction
 import org.smartregister.chw.ayp.actionhelper.AypInSchoolSanitaryKitsActionHelper;
 import org.smartregister.chw.ayp.actionhelper.AypInSchoolGbvScreeningActionHelper; // Added import
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
@@ -19,6 +20,8 @@ import org.smartregister.chw.ayp.util.AppExecutors;
 import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.sync.helper.ECSyncHelper;
 
+import org.json.JSONObject;
+import org.smartregister.chw.ayp.util.JsonFormUtils;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,6 +60,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
         final Runnable runnable = () -> {
             try {
                 evaluateClientStatus(details);
+                // Gate all other actions behind Client Status = "continuing"
                 evaluateCse(details);
                 evaluateFinancialLiteracyEducation(details);
                 evaluateEducationSubsidies(details);
@@ -92,6 +96,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_IN_SCHOOL_CSE)
                 .build();
         actionList.put(context.getString(R.string.ayp_inschool_cse_service), action);
@@ -103,6 +108,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_IN_SCHOOL_FINANCIAL_LITERACY)
                 .build();
         actionList.put(context.getString(R.string.ayp_financial_literacy_education_title), action);
@@ -114,6 +120,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_IN_SCHOOL_EDUCATION_SUBSIDIES)
                 .build();
         actionList.put(context.getString(R.string.ayp_education_subsidies_title), action);
@@ -125,6 +132,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
                 .withOptional(false)
                 .withDetails(visitDetails)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_IN_SCHOOL_SANITARY_KITS)
                 .build();
         actionList.put(context.getString(R.string.ayp_sanitary_kits_title), action);
@@ -136,6 +144,7 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
                 .withOptional(false)
                 .withDetails(visitDetails)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_IN_SCHOOL_GBV_SCREENING)
                 .build();
         actionList.put(context.getString(R.string.ayp_gbv_screening_title), action);
@@ -148,5 +157,52 @@ public class BaseAypInSchoolClientVisitInteractor extends BaseAypVisitInteractor
 
     protected String getTableName() {
         return Constants.TABLES.AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return AypDao.getInSchoolMember(memberID);
+    }
+
+    private BaseAypVisitAction.Validator getClientStatusGatingValidator() {
+        return new BaseAypVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                // Client status action is always visible
+                String clientStatusTitle = context.getString(R.string.ayp_inschool_services_client_status);
+                if (clientStatusTitle.equals(key)) return true;
+                // Other actions only visible when client status == continuing
+                return isContinuingSelected();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                // Mirror visibility for enabled state
+                return isValid(key);
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // No-op; UI layer should re-query isValid/isEnabled when actions change
+            }
+        };
+    }
+
+    private boolean isContinuingSelected() {
+        try {
+            String clientStatusTitle = context.getString(R.string.ayp_inschool_services_client_status);
+            BaseAypVisitAction statusAction = actionList.get(clientStatusTitle);
+            if (statusAction != null) {
+                String payload = statusAction.getJsonPayload();
+                if (StringUtils.isNotBlank(payload)) {
+                    JSONObject json = new JSONObject(payload);
+                    String value = JsonFormUtils.getValue(json, "client_status");
+                    return "continuing".equalsIgnoreCase(value != null ? value.trim() : null);
+                }
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+        return false;
     }
 }

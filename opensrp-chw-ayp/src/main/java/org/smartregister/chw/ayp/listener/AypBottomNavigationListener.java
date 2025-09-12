@@ -23,7 +23,14 @@ public class AypBottomNavigationListener extends BottomNavigationListener {
 
         BaseRegisterActivity baseRegisterActivity = (BaseRegisterActivity) context;
 
-        if (item.getItemId() == R.id.action_family) {
+        // Switch fragments by position based on selected item
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_home) {
+            baseRegisterActivity.switchToFragment(0);
+        } else if (itemId == R.id.action_groups) {
+            baseRegisterActivity.switchToFragment(1);
+        } else {
+            // Fallback to base fragment for any unrecognized item
             baseRegisterActivity.switchToBaseFragment();
         }
 
