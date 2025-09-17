@@ -198,7 +198,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
 
-    protected void processaypService() {
+    protected void processAypService() {
         rlLastVisit.setVisibility(View.VISIBLE);
         findViewById(R.id.family_ayp_head).setVisibility(View.VISIBLE);
     }
