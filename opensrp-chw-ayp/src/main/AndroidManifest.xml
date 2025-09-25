@@ -4,6 +4,9 @@
 
     <application>
         <activity
+            android:name="org.smartregister.chw.ayp.activity.AypParentalVisitActivity"
+            android:exported="false" />
+        <activity
             android:name="org.smartregister.chw.ayp.activity.BaseAypInSchoolGroupVisitActivity"
             android:exported="false" />
         <activity
