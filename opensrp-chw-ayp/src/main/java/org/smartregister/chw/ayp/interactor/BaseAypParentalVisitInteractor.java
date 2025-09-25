@@ -14,6 +14,8 @@ import org.smartregister.chw.ayp.actionhelper.AypParentingTrainingParentsActionH
 import org.smartregister.chw.ayp.actionhelper.AypParentingUnderstandingYouthActionHelper;
 import org.smartregister.chw.ayp.actionhelper.AypParentingVisitCommentActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
+import org.smartregister.chw.ayp.dao.AypDao;
+import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.AppExecutors;
@@ -169,6 +171,11 @@ public class BaseAypParentalVisitInteractor extends BaseAypVisitInteractor {
 
     @Override
     protected String getTableName() {
-        return Constants.TABLES.AYP_SERVICE;
+        return Constants.TABLES.AYP_PARENTAL_ENROLLMENT;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return AypDao.getParentalMember(memberID);
     }
 }

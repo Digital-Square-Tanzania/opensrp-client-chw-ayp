@@ -129,6 +129,10 @@
     <string name="ayp_parenting_promote_hiv_services_youth">Promote the Use of HIV Services Among Youth</string>
     <string name="ayp_parenting_visit_comment">Parenting Services Visit Comment</string>
     <string name="ayp_parenting_next_appointment_referral">Next Appointment and Referral</string>
+    <string name="ayp_parental_register_title">AYP Parental Clients</string>
+    <string name="ayp_parental_medical_history_title">%1$s - AYP Parental Visit History</string>
+    <string name="ayp_no_visit_history">No parental services recorded</string>
+    <string name="ayp_visit_date_unknown">Visit date unavailable</string>
 
     <string name="ayp_education_subsidies_title">Education Subsidies</string>
     <string name="ayp_education_subsidies_provided_prefix">Provided: </string>

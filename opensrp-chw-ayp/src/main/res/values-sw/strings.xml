@@ -77,5 +77,9 @@
     <string name="no_phone_number">Hakuna nambari ya simu</string>
     <string name="return_to_ayp_clients">Rudi kwenye wateja wote wa tohara</string>
     <string name="number_not_filled">Nambari ya simu ya mteja, haijajazwa</string>
+    <string name="ayp_parental_register_title">Wateja wa AYP wazazi</string>
+    <string name="ayp_parental_medical_history_title">Historia ya huduma za wazazi za AYP kwa %1$s</string>
+    <string name="ayp_no_visit_history">Hakuna huduma za wazazi zilizorekodiwa</string>
+    <string name="ayp_visit_date_unknown">Tarehe ya huduma haijulikani</string>
 
 </resources>

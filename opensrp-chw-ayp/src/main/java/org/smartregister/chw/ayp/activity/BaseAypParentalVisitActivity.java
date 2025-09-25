@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.ayp.R;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.interactor.BaseAypParentalVisitInteractor;
 import org.smartregister.chw.ayp.presenter.BaseAypParentalVisitPresenter;
@@ -25,6 +26,12 @@ public class BaseAypParentalVisitActivity extends BaseAypVisitActivity {
     @Override
     protected void registerPresenter() {
         presenter = new BaseAypParentalVisitPresenter(memberObject, this, new BaseAypParentalVisitInteractor());
+    }
+
+    @Override
+    protected MemberObject getMemberObject(String baseEntityId) {
+        MemberObject member = AypDao.getParentalMember(baseEntityId);
+        return member != null ? member : super.getMemberObject(baseEntityId);
     }
 
     @Override

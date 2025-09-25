@@ -18,6 +18,7 @@ public interface Constants {
     interface EVENT_TYPE {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
+        String AYP_PARENTAL_ENROLLMENT = "AYP Parental Service Enrollment";
         String AYP_SERVICES = "Ayp Services";
         String AYP_PARENTAL_SERVICES = "Ayp Parental Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
@@ -35,6 +36,7 @@ public interface Constants {
         String AYP_FOLLOW_UP_VISIT = "ayp_followup_visit";
         String AYP_IN_SCHOOL_CLIENT_STATUS = "ayp_in_school_client_status";
         String AYP_IN_SCHOOL_ENROLLMENT = "ayp_in_school_enrollment";
+        String AYP_PARENTAL_ENROLLMENT = "ayp_parenting_services_enrollment";
         String AYP_IN_SCHOOL_CSE = "ayp_in_school_cse";
         String AYP_IN_SCHOOL_FINANCIAL_LITERACY = "ayp_in_school_financial_literacy";
         String AYP_IN_SCHOOL_EDUCATION_SUBSIDIES = "ayp_in_school_education_subsidies";
@@ -76,6 +78,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_ENROLLMENT = "ec_ayp_in_school_enrollment";
         String AYP_IN_SCHOOL_GROUP_DETAILS = "ec_ayp_in_school_group_details";
         String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
+        String AYP_PARENTAL_ENROLLMENT = "ec_ayp_parental_enrollment";
         String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
     }
