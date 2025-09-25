@@ -6,16 +6,16 @@ import android.content.Intent;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.domain.MemberObject;
-import org.smartregister.chw.ayp.interactor.AypParentalVisitInteractor;
-import org.smartregister.chw.ayp.presenter.AypParentalVisitPresenter;
+import org.smartregister.chw.ayp.interactor.BaseAypParentalVisitInteractor;
+import org.smartregister.chw.ayp.presenter.BaseAypParentalVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
 
-public class AypParentalVisitActivity extends BaseAypVisitActivity {
+public class BaseAypParentalVisitActivity extends BaseAypVisitActivity {
 
-    private static final String TAG = AypParentalVisitActivity.class.getCanonicalName();
+    private static final String TAG = BaseAypParentalVisitActivity.class.getCanonicalName();
 
     public static void startMe(Activity activity, String baseEntityID, Boolean isEditMode) {
-        Intent intent = new Intent(activity, AypParentalVisitActivity.class);
+        Intent intent = new Intent(activity, BaseAypParentalVisitActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityID);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.EDIT_MODE, isEditMode);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.PROFILE_TYPE, profileType);
@@ -24,7 +24,7 @@ public class AypParentalVisitActivity extends BaseAypVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new AypParentalVisitPresenter(memberObject, this, new AypParentalVisitInteractor());
+        presenter = new BaseAypParentalVisitPresenter(memberObject, this, new BaseAypParentalVisitInteractor());
     }
 
     @Override

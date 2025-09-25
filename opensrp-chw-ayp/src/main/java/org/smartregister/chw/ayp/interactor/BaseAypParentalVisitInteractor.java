@@ -25,15 +25,15 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class AypParentalVisitInteractor extends BaseAypVisitInteractor {
+public class BaseAypParentalVisitInteractor extends BaseAypVisitInteractor {
 
     @VisibleForTesting
-    AypParentalVisitInteractor(AppExecutors appExecutors, ECSyncHelper ecSyncHelper) {
+    BaseAypParentalVisitInteractor(AppExecutors appExecutors, ECSyncHelper ecSyncHelper) {
         super(appExecutors, ecSyncHelper);
         this.visitType = Constants.EVENT_TYPE.AYP_PARENTAL_SERVICES;
     }
 
-    public AypParentalVisitInteractor() {
+    public BaseAypParentalVisitInteractor() {
         super(Constants.EVENT_TYPE.AYP_PARENTAL_SERVICES);
     }
 
