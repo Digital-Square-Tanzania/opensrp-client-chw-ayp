@@ -4,10 +4,19 @@
 
     <application>
         <activity
+            android:name="org.smartregister.chw.ayp.activity.BaseAypParentalVisitActivity"
+            android:exported="false" />
+        <activity
             android:name="org.smartregister.chw.ayp.activity.BaseAypInSchoolGroupVisitActivity"
             android:exported="false" />
         <activity
             android:name="org.smartregister.chw.ayp.activity.BaseAypGroupProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.smartregister.chw.ayp.activity.BaseAypParentalMemberProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.smartregister.chw.ayp.activity.BaseAypParentalMedicalHistoryActivity"
             android:exported="false" />
     </application>
 
