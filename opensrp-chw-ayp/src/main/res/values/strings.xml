@@ -118,6 +118,18 @@
     <string name="ayp_yes">Yes</string>
     <string name="ayp_no">No</string>
 
+    <string name="ayp_parental_services_visit_title">AYP Parental Services</string>
+    <string name="ayp_parenting_client_status">Client Status</string>
+    <string name="ayp_parenting_delivery_modality">Service Delivery Modality</string>
+    <string name="ayp_parenting_training_parents">Parental Training for Parents and Guardians</string>
+    <string name="ayp_parenting_hiv_stis_reproductive_health">HIV and AIDS, STIs, Viral Hepatitis and Reproductive Health</string>
+    <string name="ayp_parenting_understanding_youth">Understanding Young People and Their Challenges</string>
+    <string name="ayp_parenting_skills_education_youth">Skills, Education and Communication for Youth</string>
+    <string name="ayp_parenting_sexual_reproductive_health_youth">Sexual Reproductive Health for Youth</string>
+    <string name="ayp_parenting_promote_hiv_services_youth">Promote the Use of HIV Services Among Youth</string>
+    <string name="ayp_parenting_visit_comment">Parenting Services Visit Comment</string>
+    <string name="ayp_parenting_next_appointment_referral">Next Appointment and Referral</string>
+
     <string name="ayp_education_subsidies_title">Education Subsidies</string>
     <string name="ayp_education_subsidies_provided_prefix">Provided: </string>
 
