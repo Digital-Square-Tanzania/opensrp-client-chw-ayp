@@ -26,3 +26,10 @@ condition: "step1_rh_sections_provided != null && step1_rh_sections_provided.con
 actions:
   - "isRelevant = true"
 
+---
+name: step1_protection_against_hiv_aids_stis_viral_hepatitis
+description: Show protection_against_hiv_aids_stis_viral_hepatitis when any related section is provided
+priority: 1
+condition: "step1_rh_sections_provided != null && step1_rh_sections_provided.contains('protection_against_hiv')"
+actions:
+  - "isRelevant = true"
