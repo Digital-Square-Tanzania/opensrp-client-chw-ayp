@@ -15,6 +15,12 @@
     <string name="record_ayp_service">Rekodi Huduma Ya AYP</string>
     <string name="record_ayp_group_visit">Rekodi tembeleo la kikundi</string>
 
+    <string name="ayp_out_school_service_status">Hali ya huduma</string>
+    <string name="ayp_out_school_structural_services">Huduma za kimuundo</string>
+    <string name="ayp_out_school_medical_services">Huduma za kitibabu</string>
+    <string name="ayp_out_school_health_and_behaviour_change_services">Huduma za afya na mabadiliko ya tabia</string>
+    <string name="ayp_out_school_next_appointment">Hudhurio lijalo</string>
+
     <string name="graduate">Hitimu</string>
 
     <string name="optional">Sio lazima</string>
