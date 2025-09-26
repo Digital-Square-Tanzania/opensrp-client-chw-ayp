@@ -11,6 +11,7 @@ import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolNextApp
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolServiceStatusActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolStructuralServiceActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.interactor.BaseAypVisitInteractor;
@@ -136,5 +137,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
 
     protected String getTableName() {
         return Constants.TABLES.AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return AypDao.getOutSchoolMember(memberID);
     }
 }

@@ -69,10 +69,9 @@ public class AypVisitsUtil extends VisitUtils {
             JSONObject jsonObject = new JSONObject(lastVisit.getJson());
             JSONArray obs = jsonObject.getJSONArray("obs");
 
-            completionObject.put("isFirstVitalDone", computeCompletionStatusForAction(obs, "first_vital_completion_status"));
-            completionObject.put("isSecondVitalDone", computeCompletionStatusForAction(obs, "second_vital_completion_status"));
-            completionObject.put("isDischargeConditionDone", computeCompletionStatus(obs, "discharge_condition"));
-
+            completionObject.put("isFirstVitalDone", computeCompletionStatusForAction(obs, "service_status"));
+//            completionObject.put("isSecondVitalDone", computeCompletionStatusForAction(obs, "second_vital_completion_status"));
+//            completionObject.put("isDischargeConditionDone", computeCompletionStatus(obs, "discharge_condition"));
 
         } catch (Exception e) {
             Timber.e(e);

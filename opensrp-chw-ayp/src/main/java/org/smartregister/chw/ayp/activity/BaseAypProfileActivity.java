@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -190,7 +191,18 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
+//        Timber.tag("testing").d(getAypOutSchoolVisit().toString());
+        if (getAypOutSchoolVisit() != null) {
+            if (AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
+                textViewGraduate.setVisibility(View.VISIBLE);
+            } else {
+                textViewGraduate.setVisibility(View.GONE);
+            }
+        }
+    }
 
+    protected Visit getAypOutSchoolVisit() {
+        return AypLibrary.getInstance().visitRepository().getLatestVisit(memberObject.getBaseEntityId(), Constants.EVENT_TYPE.AYP_OUT_SCHOOL_FOLLOW_UP_VISIT);
     }
 
     protected Visit getServiceVisit() {
@@ -198,7 +210,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
 
-    protected void processaypService() {
+    protected void processAypService() {
         rlLastVisit.setVisibility(View.VISIBLE);
         findViewById(R.id.family_ayp_head).setVisibility(View.VISIBLE);
     }
