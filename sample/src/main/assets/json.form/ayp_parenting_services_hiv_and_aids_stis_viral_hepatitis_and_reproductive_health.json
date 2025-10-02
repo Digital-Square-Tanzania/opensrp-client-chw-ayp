@@ -84,7 +84,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
+              "rules-file": "ayp-parenting-services-hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
             }
           }
         },
@@ -113,6 +113,13 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "viral_hepatitis"
+          },
+          {
+            "key": "protection_against_hiv",
+            "text": "Protection against HIV and AIDS, STIs, and Viral Hepatitis",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "protection_against_hiv"
           }
         ],
         "v_required": {
@@ -127,7 +134,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
+              "rules-file": "ayp-parenting-services-hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
             }
           }
         },
@@ -198,7 +205,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
+              "rules-file": "ayp-parenting-services-hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
             }
           }
         },
@@ -269,7 +276,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
+              "rules-file": "ayp-parenting-services-hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
             }
           }
         },
@@ -326,6 +333,42 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "conclusion"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Please select at least one topic"
+        }
+      },
+      {
+        "key": "protection_against_hiv_aids_stis_viral_hepatitis",
+        "type": "check_box",
+        "label": "Protection against HIV and AIDS, STIs, and Viral Hepatitis",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp-parenting-services-hiv-and-aids-stis-viral-hepatitis-and-reproductive-health-relevance-rules.yml"
+            }
+          }
+        },
+        "combine_checkbox_option_values": "true",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "protection_against_hiv_aids_stis_viral_hepatitis",
+        "options": [
+          {
+            "key": "proper_condom_use",
+            "text": "Proper condom use",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "proper_condom_use"
+          },
+          {
+            "key": "biomedical_prevention_methods_against_hiv",
+            "text": "Biomedical prevention methods against HIV",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "biomedical_prevention_methods_against_hiv"
           }
         ],
         "v_required": {

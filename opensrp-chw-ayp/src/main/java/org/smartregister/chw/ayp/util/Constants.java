@@ -18,8 +18,10 @@ public interface Constants {
     interface EVENT_TYPE {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
+        String AYP_PARENTAL_ENROLLMENT = "AYP Parental Service Enrollment";
         String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out-school Enrollment";
         String AYP_SERVICES = "Ayp Services";
+        String AYP_PARENTAL_SERVICES = "Ayp Parental Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
         String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
@@ -35,6 +37,7 @@ public interface Constants {
         String AYP_FOLLOW_UP_VISIT = "ayp_followup_visit";
         String AYP_IN_SCHOOL_CLIENT_STATUS = "ayp_in_school_client_status";
         String AYP_IN_SCHOOL_ENROLLMENT = "ayp_in_school_enrollment";
+        String AYP_PARENTAL_ENROLLMENT = "ayp_parenting_services_enrollment";
         String AYP_IN_SCHOOL_CSE = "ayp_in_school_cse";
         String AYP_IN_SCHOOL_FINANCIAL_LITERACY = "ayp_in_school_financial_literacy";
         String AYP_IN_SCHOOL_EDUCATION_SUBSIDIES = "ayp_in_school_education_subsidies";
@@ -43,6 +46,17 @@ public interface Constants {
         String AYP_GROUP_ATTENDANCE = "ayp_in_school_group_members_attendance";
 
         String AYP_OUT_SCHOOL_ENROLLMENT = "ayp_out_school_enrollment";
+        String AYP_PARENTING_CLIENT_STATUS = "ayp_parenting_services_client_status";
+        String AYP_PARENTING_DELIVERY_MODALITY = "ayp_parenting_services_delivery_modality";
+        String AYP_PARENTING_TRAINING_PARENTS = "ayp_parenting_services_parenting_training_for_parents_and_guardians";
+        String AYP_PARENTING_HIV_STIS_REPRODUCTIVE_HEALTH = "ayp_parenting_services_hiv_and_aids_stis_viral_hepatitis_and_reproductive_health";
+        String AYP_PARENTING_UNDERSTANDING_YOUTH = "ayp_parenting_services_understanding_young_people_and_challenges_they_are_facing";
+        String AYP_PARENTING_SKILLS_EDUCATION_YOUTH = "ayp_parenting_services_skills_education_communication_youth";
+        String AYP_PARENTING_SEXUAL_REPRODUCTIVE_HEALTH_YOUTH = "ayp_parenting_services_sexual_reproductive_health_youth";
+        String AYP_PARENTING_PROMOTE_HIV_SERVICES_YOUTH = "ayp_parenting_services_promote_hiv_services_youth";
+        String AYP_PARENTING_VISIT_COMMENT = "ayp_parenting_services_visit_comment";
+        String AYP_PARENTING_NEXT_APPOINTMENT_REFERRAL = "ayp_parenting_services_next_appointment_and_referral";
+
         String AYP_OUT_SCHOOL_SERVICE_STATUS = "ayp_out_school_service_status";
         String AYP_OUT_SCHOOL_STRUCTURAL_SERVICE = "ayp_out_school_structural_services";
         String AYP_OUT_SCHOOL_MEDICAL_SERVICE = "ayp_out_school_medical_services";
@@ -67,6 +81,7 @@ public interface Constants {
         String AYP_OUT_SCHOOL_ENROLLMENT = "ec_ayp_out_school_enrollment";
         String AYP_IN_SCHOOL_GROUP_DETAILS = "ec_ayp_in_school_group_details";
         String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
+        String AYP_PARENTAL_ENROLLMENT = "ec_ayp_parental_enrollment";
         String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
     }
