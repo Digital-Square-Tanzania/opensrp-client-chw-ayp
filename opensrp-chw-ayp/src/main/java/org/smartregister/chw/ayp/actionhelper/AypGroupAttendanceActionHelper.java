@@ -150,24 +150,8 @@ public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVis
     protected List<MemberObject> getMembersForGroup() {
         List<MemberObject> members = new ArrayList<>();
         try {
-            // Prefer members inferred from visits tagged with this groupId
-            if (StringUtils.isNotBlank(groupId)) {
-                List<org.smartregister.chw.ayp.domain.Visit> visits = AypLibrary.getInstance().visitRepository().getVisitsByGroup(groupId);
-                Set<String> memberIds = new LinkedHashSet<>();
-                for (org.smartregister.chw.ayp.domain.Visit v : visits) {
-                    if (StringUtils.isNotBlank(v.getBaseEntityId())) {
-                        memberIds.add(v.getBaseEntityId());
-                    }
-                }
-                for (String id : memberIds) {
-                    MemberObject m = AypDao.getMember(id);
-                    if (m != null) members.add(m);
-                }
-            }
-
-            // Fallback: load all members (sample/demo scenario)
             if (members.isEmpty()) {
-                members = AypDao.getMembers();
+                members = AypDao.getInSchoolGroupMembers(groupId);
             }
         } catch (Exception e) {
             Timber.e(e);
