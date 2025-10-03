@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.adapter.AypGroupMembersAdapter;
 import org.smartregister.chw.ayp.contract.AypGroupProfileContract;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.GroupObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.interactor.BaseAypGroupProfileInteractor;
@@ -105,7 +106,7 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
         if (tvGroupType != null) tvGroupType.setText("");
         if (tvGroupAgeBand != null) tvGroupAgeBand.setText("");
         if (tvGroupMemberCount != null) {
-            tvGroupMemberCount.setText(getString(R.string.group_members_count, groupObject.getMemberCount()));
+            tvGroupMemberCount.setText(getString(R.string.group_members_count, AypDao.getInSchoolGroupMembers(groupObject.getGroupId()).size()));
         }
     }
 
