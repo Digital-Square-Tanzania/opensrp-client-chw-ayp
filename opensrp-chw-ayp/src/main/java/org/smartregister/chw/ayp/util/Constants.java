@@ -30,6 +30,8 @@ public interface Constants {
         String AYP_GROUP_DETAILS = "group_details";
         String AYP_GROUP_MEMBERSHIP = "ayp_group_membership";
 
+        String AYP_OUT_GROUP_DETAILS = "group_out_details";
+        String AYP_OUT_GROUP_MEMBERSHIP = "ayp_group_out_membership";
     }
 
     interface FORMS {
@@ -67,6 +69,8 @@ public interface Constants {
         String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
         String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
         String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
+
+        String AYP_OUT_SCHOOL_GRADUATION = "ayp_out_school_graduate";
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -84,6 +88,7 @@ public interface Constants {
         String AYP_PARENTAL_ENROLLMENT = "ec_ayp_parental_enrollment";
         String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
+        String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
     }
 
     interface ACTIVITY_PAYLOAD {
