@@ -130,7 +130,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "other_education_specify",
         "type": "edit_text",
-        "label": "If other, specify",
         "relevance": {
           "rules-engine": {
             "rules-file": "ayp_facility_screening_rules.yml",
@@ -141,7 +140,8 @@
               }
             ]
           }
-        }
+        },
+        "hint": "Please specify the other education level."
       },
       {
         "key": "parents_alive",
@@ -180,7 +180,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "caregiving_situation",
         "type": "native_radio",
-        "label": "Current caregiving situation",
+        "label": "What is the client's current caregiving situation?",
         "options": [
           {
             "key": "raised_by_parent",
@@ -364,7 +364,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "pregnancy_status",
         "type": "check_box",
-        "label": "Pregnancy status (For AGYW only)",
+        "label": "What is the client's pregnancy status? (For AGYW only)",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -438,7 +438,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "early_marriage",
         "type": "native_radio",
-        "label": "Married at a young age (Under 18)",
+        "label": "Has the client ever been married under the age of 18?",
         "options": [
           {
             "key": "yes",
@@ -534,7 +534,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ayp_eligibility",
         "type": "calculation",
-        "label": "AYP Enrollment Eligibility",
+        "label": "Does the client meet the AYP enrollment eligibility criteria?",
         "calculation": "if(\n        selected(${parents_alive}, 'no') or\n        selected(${parents_alive}, 'one_alive') or\n        selected(${caregiving_situation}, 'self_cared') or\n        selected(${consume_alcohol}, 'yes') or\n        selected(${use_drugs}, 'yes') or\n        selected(${ever_had_sex}, 'yes') or\n        selected(${transactional_sex}, 'yes') or\n        selected(${condom_use}, 'no') or\n        any_selected(${pregnancy_status}, ['currently_pregnant','has_been_pregnant','parent']) or\n        selected(${multiple_partners}, 'yes') or\n        selected(${early_marriage}, 'yes') or\n        selected(${sti_infection}, 'yes') or\n        selected(${experienced_violence}, 'yes'),\n        \"Eligible for AYP enrollment\",\n        \"Not eligible\"\n      )"
       }
     ]
@@ -548,7 +548,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_of_enrollment",
         "type": "date_picker",
-        "label": "Date of Enrollment",
+        "label": "What is the client's enrollment date?",
         "relevance": {
           "rules-engine": {
             "rules-file": "ayp_facility_screening_rules.yml",
@@ -567,7 +567,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "enrollment_status",
         "type": "native_radio",
-        "label": "Enrollment Status",
+        "label": "What is the client's enrollment status?",
         "options": [
           {
             "key": "new_client",
@@ -602,7 +602,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "uic_number",
         "type": "edit_text",
-        "label": "UIC Number",
         "constraints": [
           {
             "type": "v_numeric",
@@ -619,7 +618,8 @@
               }
             ]
           }
-        }
+        },
+        "hint": "What is the client's UIC number?"
       },
       {
         "key": "enrollment_education_level",
@@ -627,7 +627,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "enrollment_education_level",
         "type": "native_radio",
-        "label": "Education Level",
+        "label": "What is the client's education level at enrollment?",
         "options": [
           {
             "key": "primary",
@@ -683,7 +683,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ayp_beneficiary",
         "type": "native_radio",
-        "label": "AYP Beneficial",
+        "label": "Is the client an AYP beneficiary?",
         "options": [
           {
             "key": "yes",
@@ -718,7 +718,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "program_name",
         "type": "native_radio",
-        "label": "Program name",
+        "label": "Which program is the client enrolled in?",
         "options": [
           {
             "key": "dreams",
@@ -760,7 +760,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "program_name_other_specify",
         "type": "edit_text",
-        "label": "If other, specify",
         "relevance": {
           "rules-engine": {
             "rules-file": "ayp_facility_screening_rules.yml",
@@ -771,7 +770,8 @@
               }
             ]
           }
-        }
+        },
+        "hint": "Please specify the other program name."
       },
       {
         "key": "linkage_economic_strengthening",
@@ -779,7 +779,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_economic_strengthening",
         "type": "native_radio",
-        "label": "Linkage to Economic Strengthening Opportunity",
+        "label": "Has the client been linked to an economic strengthening opportunity?",
         "options": [
           {
             "key": "yes",
@@ -814,7 +814,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "economic_strengthening_options",
         "type": "check_box",
-        "label": "Type of Economic Strengthening Opportunity",
+        "label": "Which economic strengthening opportunities were offered to the client?",
         "combine_checkbox_option_values": "true",
         "options": [
           {

@@ -56,7 +56,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hivst_kit_provided",
-        "type": "radio",
+        "type": "native_radio",
         "label": "HIVST kit provided?",
         "options": [
           {

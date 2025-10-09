@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sti_treatment",
-        "type": "radio",
-        "label": "STI Treatment (Client)",
+        "type": "native_radio",
+        "label": "What was the client's STI treatment outcome?",
         "options": [
           {
             "key": "treated",

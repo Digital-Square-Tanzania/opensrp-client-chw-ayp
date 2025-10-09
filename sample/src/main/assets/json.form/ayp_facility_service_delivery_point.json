@@ -54,8 +54,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "service_delivery_point",
-        "type": "radio",
-        "label": "Service delivery point",
+        "type": "native_radio",
+        "label": "At which service delivery point was the client seen?",
         "options": [
           {
             "key": "opd",
@@ -100,14 +100,14 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "service_delivery_point_other_specify",
         "type": "edit_text",
-        "label": "If Others, specify",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
               "rules-file": "ayp_facility_service_delivery_point_rules.yml"
             }
           }
-        }
+        },
+        "hint": "Please specify the other service delivery point."
       }
     ]
   }

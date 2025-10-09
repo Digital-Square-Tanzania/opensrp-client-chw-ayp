@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "gbv_screening",
-        "type": "radio",
-        "label": "GBV Screening",
+        "type": "native_radio",
+        "label": "What was the outcome of the client's GBV screening?",
         "options": [
           {
             "key": "reported",
@@ -81,7 +81,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "gbv_type",
         "type": "check_box",
-        "label": "GBV Type",
+        "label": "Which type(s) of GBV did the client experience?",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
@@ -119,8 +119,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "post_gbv_care",
-        "type": "radio",
-        "label": "Post GBV Care Provided",
+        "type": "native_radio",
+        "label": "Was post-GBV care provided to the client?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

@@ -53,7 +53,7 @@
       {
         "key": "sbc_services",
         "type": "check_box",
-        "label": "SBC Services Provided",
+        "label": "Which SBC services were provided to the client during this visit?",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sbc_services",

@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_screening",
-        "type": "radio",
-        "label": "TB Screening",
+        "type": "native_radio",
+        "label": "What was the client's TB screening outcome?",
         "options": [
           {
             "key": "presumptive",

@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_b",
-        "type": "radio",
-        "label": "Hepatitis B (HBV) Screening and Management",
+        "type": "native_radio",
+        "label": "What was the client's Hepatitis B (HBV) screening and management outcome?",
         "options": [
           {
             "key": "not_screened",
@@ -94,8 +94,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hepatitis_c",
-        "type": "radio",
-        "label": "Hepatitis C (HCV) Screening and Management",
+        "type": "native_radio",
+        "label": "What was the client's Hepatitis C (HCV) screening and management outcome?",
         "options": [
           {
             "key": "not_screened",

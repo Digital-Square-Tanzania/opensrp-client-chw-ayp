@@ -56,7 +56,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "refer_other_services",
         "type": "check_box",
-        "label": "Refer for Other Services",
+        "label": "Which additional services is the client being referred to?",
         "required": "false",
         "combine_checkbox_option_values": "true",
         "options": [

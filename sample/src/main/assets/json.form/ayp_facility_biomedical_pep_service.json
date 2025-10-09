@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "pep_service",
-        "type": "radio",
-        "label": "PEP Service",
+        "type": "native_radio",
+        "label": "What was the outcome of the client's PEP service?",
         "options": [
           {
             "key": "provided",

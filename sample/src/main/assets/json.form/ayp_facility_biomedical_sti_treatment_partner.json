@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sti_treatment_partner",
-        "type": "radio",
-        "label": "STI Treatment (AYP Partner)",
+        "type": "native_radio",
+        "label": "What was the STI treatment outcome for the client's partner?",
         "options": [
           {
             "key": "treated",

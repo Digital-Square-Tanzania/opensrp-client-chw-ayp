@@ -57,7 +57,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "family_planning_methods",
         "type": "check_box",
-        "label": "Family Planning methods",
+        "label": "Which family planning methods were provided to the client?",
         "combine_checkbox_option_values": "true",
         "options": [
           {

@@ -56,8 +56,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sti_screening",
-        "type": "radio",
-        "label": "STI Screening Result",
+        "type": "native_radio",
+        "label": "What was the client's STI screening result?",
         "options": [
           {
             "key": "negative",

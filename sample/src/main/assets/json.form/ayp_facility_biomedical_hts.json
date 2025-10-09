@@ -55,8 +55,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_testing_services",
-        "type": "radio",
-        "label": "HIV testing services",
+        "type": "native_radio",
+        "label": "Were HIV testing services provided to the client today?",
         "options": [
           {
             "key": "yes",
@@ -79,8 +79,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_status",
-        "type": "spinner",
-        "label": "HIV Status",
+        "type": "native_radio",
+        "label": "What is the client's HIV status?",
         "options": [
           {
             "key": "negative",
