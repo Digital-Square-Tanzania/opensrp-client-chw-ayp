@@ -1,3 +1,12 @@
+name: step1_condom_distribution
+description: Show condom_distribution when condoms have been provided
+priority: 1
+condition: "step1_condoms_distributed != null && step1_condoms_distributed == 'yes'"
+actions:
+  - "isRelevant = true"
+
+---
+
 name: step1_condom_quantity_male
 description: Show condom_quantity_male when its condition is met
 priority: 1

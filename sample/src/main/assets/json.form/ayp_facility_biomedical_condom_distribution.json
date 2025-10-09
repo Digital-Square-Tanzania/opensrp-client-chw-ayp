@@ -52,12 +52,43 @@
     "title": "ayp_facility_biomedical_condom_distribution",
     "fields": [
       {
+        "key": "condoms_distributed",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condoms_distributed",
+        "type": "native_radio",
+        "label": "Have condoms been distributed to the client?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
         "key": "condom_distribution",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condom_distribution",
         "type": "check_box",
-        "label": "Condom Distribution",
+        "label": "Which types of condoms did the client receive today?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_condom_distribution_rules.yml"
+            }
+          }
+        },
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -82,7 +113,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condom_quantity_male",
         "type": "edit_text",
-        "label": "Male condoms quantity distributed",
         "input_type": "number",
         "relevance": {
           "rules-engine": {
@@ -90,7 +120,8 @@
               "rules-file": "ayp_facility_biomedical_condom_distribution_rules.yml"
             }
           }
-        }
+        },
+        "hint": "How many male condoms were given to the client?"
       },
       {
         "key": "condom_quantity_female",
@@ -98,7 +129,6 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condom_quantity_female",
         "type": "edit_text",
-        "label": "Female condoms quantity distributed",
         "input_type": "number",
         "relevance": {
           "rules-engine": {
@@ -106,7 +136,8 @@
               "rules-file": "ayp_facility_biomedical_condom_distribution_rules.yml"
             }
           }
-        }
+        },
+        "hint": "How many female condoms were given to the client?"
       }
     ]
   }
