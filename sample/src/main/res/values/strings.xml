@@ -8,4 +8,5 @@
     <string name="ayp_in_school_group_profile">AYP In-School Group Profile</string>
     <string name="ayp_out_school_screening">AYP Screening</string>
     <string name="ayp_follow_up_visit">Follow up AYP Client Profile</string>
+    <string name="ayp_facility_biomedical_visit">AYP Facility Biomedical Visit</string>
 </resources>
