@@ -1,0 +1,199 @@
+{
+  "count": "1",
+  "encounter_type": "Provide SBC Service",
+  "entity_id": "",
+  "relational_id": "",
+  "rules_file": "ayp_facility_sbc_services_rules.yml",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Provide SBC Service",
+    "fields": [
+      {
+        "key": "sbc_services",
+        "type": "check_box",
+        "label": "SBC Services Provided",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sbc_services",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "safe_space",
+            "text": "Identification of safe space and influential people",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "safe_space"
+          },
+          {
+            "key": "risky_behaviors",
+            "text": "Risky behaviors",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "risky_behaviors"
+          },
+          {
+            "key": "gender_sex_education",
+            "text": "Gender and sex education",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gender_sex_education"
+          },
+          {
+            "key": "reproductive_health",
+            "text": "Reproductive health",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "reproductive_health"
+          },
+          {
+            "key": "effective_communication",
+            "text": "Effective communication",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "effective_communication"
+          },
+          {
+            "key": "stis",
+            "text": "STIs",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stis"
+          },
+          {
+            "key": "family_planning",
+            "text": "Family Planning",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_planning"
+          },
+          {
+            "key": "healthy_relationships",
+            "text": "Healthy relationships",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "healthy_relationships"
+          },
+          {
+            "key": "gbv",
+            "text": "Gender-based violence (GBV)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gbv"
+          },
+          {
+            "key": "condom_use",
+            "text": "Correct and consistent use of condoms",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "condom_use"
+          },
+          {
+            "key": "hiv_care_treatment",
+            "text": "HIV Care and Treatment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hiv_care_treatment"
+          },
+          {
+            "key": "prep",
+            "text": "Pre-Exposure Prophylaxis (PrEP)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "prep"
+          },
+          {
+            "key": "pep",
+            "text": "Post Exposure Prophylaxis (PEP)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pep"
+          },
+          {
+            "key": "hts",
+            "text": "HIV Testing Services (HTS)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hts"
+          },
+          {
+            "key": "hepatitis_b",
+            "text": "Hepatitis B (HBV)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_b"
+          },
+          {
+            "key": "hepatitis_c",
+            "text": "Hepatitis C (HCV)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hepatitis_c"
+          },
+          {
+            "key": "hpv_vaccination",
+            "text": "HPV Vaccination",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hpv_vaccination"
+          },
+          {
+            "key": "vmmc",
+            "text": "Voluntary Medical Male Circumcision (VMMC)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vmmc"
+          },
+          {
+            "key": "health_education_materials",
+            "text": "Distribution of health education IEC materials",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_education_materials"
+          }
+        ]
+      }
+    ]
+  }
+}

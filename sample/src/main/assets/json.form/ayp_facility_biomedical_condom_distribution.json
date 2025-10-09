@@ -1,0 +1,113 @@
+{
+  "count": "1",
+  "encounter_type": "ayp_facility_biomedical_condom_distribution",
+  "entity_id": "",
+  "relational_id": "",
+  "form_name": "ayp_facility_biomedical_condom_distribution",
+  "rules_file": "ayp_facility_biomedical_condom_distribution_rules.yml",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "ayp_facility_biomedical_condom_distribution",
+    "fields": [
+      {
+        "key": "condom_distribution",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_distribution",
+        "type": "check_box",
+        "label": "Condom Distribution",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "male",
+            "text": "Male",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "male"
+          },
+          {
+            "key": "female",
+            "text": "Female",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "female"
+          }
+        ]
+      },
+      {
+        "key": "condom_quantity_male",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_quantity_male",
+        "type": "edit_text",
+        "label": "Male condoms quantity distributed",
+        "input_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_condom_distribution_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "condom_quantity_female",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_quantity_female",
+        "type": "edit_text",
+        "label": "Female condoms quantity distributed",
+        "input_type": "number",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_condom_distribution_rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
