@@ -1,0 +1,15 @@
+name: step1_condom_quantity_male
+description: Show condom_quantity_male when its condition is met
+priority: 1
+condition: "step1_condom_distribution != null && step1_condom_distribution.contains('male')"
+actions:
+  - "isRelevant = true"
+
+---
+
+name: step1_condom_quantity_female
+description: Show condom_quantity_female when its condition is met
+priority: 1
+condition: "step1_condom_distribution != null && step1_condom_distribution.contains('female')"
+actions:
+  - "isRelevant = true"

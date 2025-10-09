@@ -1,0 +1,104 @@
+- name: step1_education_level
+  description: Show education_level when respondent is currently in school
+  priority: 1
+  condition: "step1_currently_in_school != null && step1_currently_in_school == 'yes'"
+  actions:
+    - "isRelevant = true"
+
+- name: step1_other_education_specify
+  description: Show other_education_specify when other education level is selected
+  priority: 1
+  condition: "step1_education_level != null && step1_education_level == 'other'"
+  actions:
+    - "isRelevant = true"
+
+- name: step1_caregiving_situation
+  description: Show caregiving_situation when at least one parent is alive
+  priority: 1
+  condition: "step1_parents_alive != null && (step1_parents_alive == 'yes' || step1_parents_alive == 'one_alive')"
+  actions:
+    - "isRelevant = true"
+
+- name: step1_transactional_sex
+  description: Show transactional_sex when respondent has had sex
+  priority: 1
+  condition: "step1_ever_had_sex != null && step1_ever_had_sex == 'yes'"
+  actions:
+    - "isRelevant = true"
+
+- name: step1_condom_use
+  description: Show condom_use when respondent has had sex
+  priority: 1
+  condition: "step1_ever_had_sex != null && step1_ever_had_sex == 'yes'"
+  actions:
+    - "isRelevant = true"
+
+- name: step1_multiple_partners
+  description: Show multiple_partners when respondent has had sex
+  priority: 1
+  condition: "step1_ever_had_sex != null && step1_ever_had_sex == 'yes'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_date_of_enrollment
+  description: Show date_of_enrollment when respondent is eligible for AYP enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_enrollment_status
+  description: Show enrollment_status when respondent is eligible for AYP enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_uic_number
+  description: Show uic_number when respondent is eligible for AYP enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_enrollment_education_level
+  description: Show enrollment_education_level when respondent is eligible for AYP enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_ayp_beneficiary
+  description: Show ayp_beneficiary when respondent is eligible for AYP enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_program_name
+  description: Show program_name when respondent is an AYP beneficiary
+  priority: 1
+  condition: "step2_ayp_beneficiary != null && step2_ayp_beneficiary == 'yes'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_program_name_other_specify
+  description: Show program_name_other_specify when other program is selected
+  priority: 1
+  condition: "step2_program_name != null && step2_program_name == 'other'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_linkage_economic_strengthening
+  description: Show linkage_economic_strengthening when respondent is not eligible for enrollment
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Not eligible'"
+  actions:
+    - "isRelevant = true"
+
+- name: step2_economic_strengthening_options
+  description: Show economic_strengthening_options when linkage to economic strengthening is yes
+  priority: 1
+  condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Not eligible' && step2_linkage_economic_strengthening != null && step2_linkage_economic_strengthening == 'yes'"
+  actions:
+    - "isRelevant = true"
