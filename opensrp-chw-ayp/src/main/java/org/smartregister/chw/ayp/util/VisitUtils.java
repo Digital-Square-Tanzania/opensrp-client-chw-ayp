@@ -92,7 +92,7 @@ public class VisitUtils {
             if (!v.getProcessed()) {
 
                 // persist to db
-                Event baseEvent = new Gson().fromJson(v.getPreProcessedJson(), Event.class);
+                Event baseEvent = new Gson().fromJson(v.getJson(), Event.class);
                 if (StringUtils.isBlank(baseEvent.getFormSubmissionId()))
                     baseEvent.setFormSubmissionId(UUID.randomUUID().toString());
 

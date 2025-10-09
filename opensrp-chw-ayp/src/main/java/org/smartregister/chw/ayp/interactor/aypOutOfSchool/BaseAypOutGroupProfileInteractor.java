@@ -1,19 +1,14 @@
-package org.smartregister.chw.ayp.interactor;
+package org.smartregister.chw.ayp.interactor.aypOutOfSchool;
 
 import org.apache.commons.lang3.StringUtils;
-import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.contract.AypGroupProfileContract;
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.GroupObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
-import org.smartregister.chw.ayp.domain.Visit;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
-public class BaseAypGroupProfileInteractor implements AypGroupProfileContract.Interactor {
+public class BaseAypOutGroupProfileInteractor implements AypGroupProfileContract.Interactor {
 
     @Override
     public void fetchGroupAndMembers(String groupId, String groupName, AypGroupProfileContract.InteractorCallback callback) {
@@ -23,7 +18,7 @@ public class BaseAypGroupProfileInteractor implements AypGroupProfileContract.In
                 return;
             }
 
-            List<MemberObject> members = AypDao.getInSchoolGroupMembers(groupId);
+            List<MemberObject> members = AypDao.getOutSchoolGroupMembers(groupId);
 
             String location = !members.isEmpty() ? members.get(0).getAddress() : null;
             GroupObject group = new GroupObject(groupId, StringUtils.defaultIfBlank(groupName, "Group"), location, members.size());

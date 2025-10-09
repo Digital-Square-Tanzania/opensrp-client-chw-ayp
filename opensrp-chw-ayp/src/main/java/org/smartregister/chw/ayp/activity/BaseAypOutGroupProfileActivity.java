@@ -24,12 +24,13 @@ import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.GroupObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.interactor.BaseAypGroupProfileInteractor;
+import org.smartregister.chw.ayp.interactor.aypOutOfSchool.BaseAypOutGroupProfileInteractor;
 import org.smartregister.chw.ayp.presenter.BaseAypGroupProfilePresenter;
 import org.smartregister.chw.ayp.util.Constants;
 
 import java.util.List;
 
-public class BaseAypGroupProfileActivity extends AppCompatActivity implements AypGroupProfileContract.View, View.OnClickListener {
+public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements AypGroupProfileContract.View, View.OnClickListener {
 
     protected TextView tvGroupName;
     protected TextView tvGroupType;
@@ -44,7 +45,7 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
     protected AypGroupMembersAdapter adapter;
 
     public static void startGroupProfileActivity(Activity activity, String groupId, @Nullable String groupName) {
-        Intent intent = new Intent(activity, BaseAypGroupProfileActivity.class);
+        Intent intent = new Intent(activity, BaseAypOutGroupProfileActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.GROUP_ID, groupId);
         if (groupName != null) intent.putExtra(Constants.ACTIVITY_PAYLOAD.GROUP_NAME, groupName);
         activity.startActivity(intent);
@@ -66,7 +67,7 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
             actionBar.setHomeAsUpIndicator(upArrow);
         }
 
-        toolbar.setNavigationOnClickListener(v -> BaseAypGroupProfileActivity.this.finish());
+        toolbar.setNavigationOnClickListener(v -> BaseAypOutGroupProfileActivity.this.finish());
         View appBarLayout = this.findViewById(R.id.collapsing_toolbar_appbarlayout);
         if (Build.VERSION.SDK_INT >= 21 && appBarLayout != null) {
             appBarLayout.setOutlineProvider(null);
@@ -88,7 +89,7 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
         adapter = new AypGroupMembersAdapter(this::openMemberProfile);
         rvMembers.setAdapter(adapter);
 
-        presenter = new BaseAypGroupProfilePresenter(this, new BaseAypGroupProfileInteractor());
+        presenter = new BaseAypGroupProfilePresenter(this, new BaseAypOutGroupProfileInteractor());
         String groupId = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.GROUP_ID);
         String groupName = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.GROUP_NAME);
         presenter.load(groupId, groupName);
@@ -106,7 +107,7 @@ public class BaseAypGroupProfileActivity extends AppCompatActivity implements Ay
         if (tvGroupType != null) tvGroupType.setText("");
         if (tvGroupAgeBand != null) tvGroupAgeBand.setText("");
         if (tvGroupMemberCount != null) {
-            tvGroupMemberCount.setText(getString(R.string.group_members_count, AypDao.getInSchoolGroupMembers(groupObject.getGroupId()).size()));
+            tvGroupMemberCount.setText(getString(R.string.group_members_count, AypDao.getOutSchoolGroupMembers(groupObject.getGroupId()).size()));
         }
     }
 

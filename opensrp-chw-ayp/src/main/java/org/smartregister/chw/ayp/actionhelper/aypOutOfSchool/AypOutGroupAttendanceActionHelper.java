@@ -1,4 +1,4 @@
-package org.smartregister.chw.ayp.actionhelper;
+package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 
 import android.content.Context;
 
@@ -6,22 +6,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.R;
-import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.JsonFormUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 import timber.log.Timber;
 
-public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVisitActionHelper {
+public class AypOutGroupAttendanceActionHelper implements BaseAypVisitAction.aypVisitActionHelper {
 
     private final Context context;
     private final MemberObject memberObject;
@@ -30,7 +27,7 @@ public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVis
     private String loadedJson;
     private String preProcessedJson;
 
-    public AypGroupAttendanceActionHelper(Context context, MemberObject memberObject, String groupId) {
+    public AypOutGroupAttendanceActionHelper(Context context, MemberObject memberObject, String groupId) {
         this.context = context;
         this.memberObject = memberObject;
         this.groupId = groupId;
@@ -151,7 +148,7 @@ public class AypGroupAttendanceActionHelper implements BaseAypVisitAction.aypVis
         List<MemberObject> members = new ArrayList<>();
         try {
             if (members.isEmpty()) {
-                members = AypDao.getInSchoolGroupMembers(groupId);
+                members = AypDao.getOutSchoolGroupMembers(groupId);
             }
         } catch (Exception e) {
             Timber.e(e);
