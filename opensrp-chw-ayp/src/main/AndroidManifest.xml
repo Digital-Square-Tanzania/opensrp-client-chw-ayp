@@ -18,6 +18,9 @@
         <activity
             android:name="org.smartregister.chw.ayp.activity.BaseAypParentalMedicalHistoryActivity"
             android:exported="false" />
+        <activity
+            android:name="org.smartregister.chw.ayp.activity.AypFacilityBiomedicalVisitActivity"
+            android:exported="false" />
     </application>
 
     

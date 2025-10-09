@@ -65,6 +65,21 @@ public interface Constants {
         String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
         String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
         String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
+
+        String AYP_FACILITY_BIOMEDICAL_HTS = "ayp_facility_biomedical_hts";
+        String AYP_FACILITY_BIOMEDICAL_HIVST = "ayp_facility_biomedical_hivst";
+        String AYP_FACILITY_BIOMEDICAL_CONDOM_DISTRIBUTION = "ayp_facility_biomedical_condom_distribution";
+        String AYP_FACILITY_BIOMEDICAL_GBV = "ayp_facility_biomedical_gbv";
+        String AYP_FACILITY_BIOMEDICAL_STI_SCREENING = "ayp_facility_biomedical_sti_screening";
+        String AYP_FACILITY_BIOMEDICAL_STI_TREATMENT_CLIENT = "ayp_facility_biomedical_sti_treatment_client";
+        String AYP_FACILITY_BIOMEDICAL_STI_TREATMENT_PARTNER = "ayp_facility_biomedical_sti_treatment_partner";
+        String AYP_FACILITY_BIOMEDICAL_TB_SCREENING = "ayp_facility_biomedical_tb_screening";
+        String AYP_FACILITY_BIOMEDICAL_PEP_SERVICE = "ayp_facility_biomedical_pep_service";
+        String AYP_FACILITY_BIOMEDICAL_HEPATITIS = "ayp_facility_biomedical_hepatitis";
+        String AYP_PARENTING_SERVICES_NEXT_APPOINTMENT_AND_REFERRAL = "ayp_parenting_services_next_appointment_and_referral";
+        String AYP_FACILITY_BIOMEDICAL_FAMILY_PLANNING = "ayp_facility_biomedical_family_planning";
+        String AYP_FACILITY_REFERRAL_TO_OTHER_SERVICES = "ayp_facility_referral_to_other_services";
+        String AYP_FACILITY_NEXT_APPOINTMENT = "ayp_facility_next_appointment";
     }
 
     interface ayp_FOLLOWUP_FORMS {
