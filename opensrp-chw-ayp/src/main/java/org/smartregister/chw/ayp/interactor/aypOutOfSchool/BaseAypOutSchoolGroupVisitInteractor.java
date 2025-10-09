@@ -5,14 +5,10 @@ import androidx.annotation.VisibleForTesting;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
-import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolGroupAttendanceActionHelper;
+import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutGroupAttendanceActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolGroupNextAppointActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolGroupStructuralActionHelper;
-import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolMedicalServiceActionHelper;
-import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolNextAppointmentActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolSBCServiceActionHelper;
-import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolServiceStatusActionHelper;
-import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolStructuralServiceActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
@@ -36,6 +32,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
     protected Map<String, List<VisitDetail>> details = null;
     protected String visitType;
     protected MemberObject memberObject;
+    protected String groupId;
 
     @VisibleForTesting
     public BaseAypOutSchoolGroupVisitInteractor(AppExecutors appExecutors, ECSyncHelper syncHelper) {
@@ -56,6 +53,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
         return Constants.EVENT_TYPE.ayp_ENROLLMENT;
     }
 
+    @Override
     protected void populateActionList(BaseAypVisitContract.InteractorCallBack callBack) {
         final Runnable runnable = () -> {
             try {
@@ -75,15 +73,23 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
 
 
     private void evaluateGroupAttendance(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
-        AypOutSchoolGroupAttendanceActionHelper actionHelper = new AypOutSchoolGroupAttendanceActionHelper(context, memberObject);
+        AypOutGroupAttendanceActionHelper actionHelper = createGroupAttendanceHelper();
 
-        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_group_attendance))
+        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_group_attendance))
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_GROUP_ATTENDANCE)
+                .withFormName(Constants.FORMS.AYP_GROUP_ATTENDANCE)
                 .build();
-        actionList.put(context.getString(R.string.ayp_out_school_group_attendance), action);
+        actionList.put(context.getString(R.string.ayp_group_attendance), action);
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    protected AypOutGroupAttendanceActionHelper createGroupAttendanceHelper() {
+        return new AypOutGroupAttendanceActionHelper(context, memberObject, groupId);
     }
 
     private void evaluateStructuralServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
@@ -121,11 +127,21 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
     }
 
 
+    @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.AYP_OUT_SCHOOL_FOLLOW_UP_VISIT;
+        return Constants.EVENT_TYPE.AYP_SERVICES;
     }
 
+    @Override
     protected String getTableName() {
-        return Constants.TABLES.AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT;
+        return Constants.TABLES.AYP_SERVICE;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        MemberObject memberObject = new MemberObject();
+        memberObject.setBaseEntityId(memberID);
+
+        return memberObject;
     }
 }
