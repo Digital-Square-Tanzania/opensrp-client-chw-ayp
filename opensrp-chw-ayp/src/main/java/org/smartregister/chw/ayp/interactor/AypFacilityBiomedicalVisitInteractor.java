@@ -20,6 +20,8 @@ import org.smartregister.chw.ayp.actionhelper.AypFacilityNextAppointmentActionHe
 import org.smartregister.chw.ayp.actionhelper.AypFacilityReferralToOtherServicesActionHelper;
 import org.smartregister.chw.ayp.actionhelper.AypParentingServicesNextAppointmentAndReferralActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
+import org.smartregister.chw.ayp.dao.AypDao;
+import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.AppExecutors;
@@ -59,7 +61,6 @@ public class AypFacilityBiomedicalVisitInteractor extends BaseAypVisitInteractor
                 evaluateTbScreening(details);
                 evaluatePepService(details);
                 evaluateHepatitis(details);
-                evaluateNextAppointmentAndReferral(details);
                 evaluateFamilyPlanning(details);
                 evaluateReferralToOtherServices(details);
                 evaluateNextAppointment(details);
@@ -175,16 +176,6 @@ public class AypFacilityBiomedicalVisitInteractor extends BaseAypVisitInteractor
         actionList.put(context.getString(R.string.ayp_facility_biomedical_hepatitis), action);
     }
 
-    private void evaluateNextAppointmentAndReferral(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
-        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_parenting_services_next_appointment_and_referral))
-                .withOptional(false)
-                .withDetails(details)
-                .withHelper(new AypParentingServicesNextAppointmentAndReferralActionHelper(context, memberObject))
-                .withFormName(Constants.FORMS.AYP_PARENTING_SERVICES_NEXT_APPOINTMENT_AND_REFERRAL)
-                .build();
-        actionList.put(context.getString(R.string.ayp_parenting_services_next_appointment_and_referral), action);
-    }
-
     private void evaluateFamilyPlanning(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_facility_biomedical_family_planning))
                 .withOptional(false)
@@ -285,11 +276,16 @@ public class AypFacilityBiomedicalVisitInteractor extends BaseAypVisitInteractor
 
     @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.AYP_SERVICES;
+        return Constants.EVENT_TYPE.AYP_FACILITY_SERVICES;
     }
 
     @Override
     protected String getTableName() {
-        return Constants.TABLES.AYP_SERVICE;
+        return Constants.TABLES.AYP_FACILITY_SERVICES;
+    }
+
+    @Override
+    public MemberObject getMemberClient(String memberID, String profileType) {
+        return AypDao.getFacilityMember(memberID);
     }
 }

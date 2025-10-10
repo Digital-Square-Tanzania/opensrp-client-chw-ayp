@@ -3,6 +3,8 @@ package org.smartregister.chw.ayp.activity;
 import android.app.Activity;
 import android.content.Intent;
 
+import org.smartregister.chw.ayp.dao.AypDao;
+import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.interactor.AypFacilityBiomedicalVisitInteractor;
 import org.smartregister.chw.ayp.presenter.AypFacilityBiomedicalVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
@@ -20,5 +22,11 @@ public class BaseAypFacilityBiomedicalVisitActivity extends BaseAypVisitActivity
     @Override
     protected void registerPresenter() {
         presenter = new AypFacilityBiomedicalVisitPresenter(memberObject, this, new AypFacilityBiomedicalVisitInteractor());
+    }
+
+    @Override
+    protected MemberObject getMemberObject(String baseEntityId) {
+        MemberObject member = AypDao.getFacilityMember(baseEntityId);
+        return member != null ? member : super.getMemberObject(baseEntityId);
     }
 }
