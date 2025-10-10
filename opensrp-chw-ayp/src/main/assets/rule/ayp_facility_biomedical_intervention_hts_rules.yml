@@ -1,6 +1,7 @@
-- name: step1_hiv_status
-  description: Show hiv_status when HIV testing services is yes
-  priority: 1
-  condition: "step1_hiv_testing_services != null && step1_hiv_testing_services == 'yes'"
-  actions:
-    - "isRelevant = true"
+---
+name: step1_hiv_status
+description: Show hiv_status when HIV testing services is yes
+priority: 1
+condition: "step1_hiv_testing_services != null && step1_hiv_testing_services == 'yes'"
+actions:
+  - "isRelevant = true"
