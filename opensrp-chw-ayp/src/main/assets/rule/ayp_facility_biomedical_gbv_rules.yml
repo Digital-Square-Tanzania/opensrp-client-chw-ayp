@@ -2,13 +2,13 @@
 name: step1_gbv_type
 description: Show gbv_type when its condition is met
 priority: 1
-condition: "step1_gbv_screening == 'reported'"
+condition: "step1_gbv_screening_conducted != null && step1_gbv_screening_conducted == 'yes' && step1_gbv_screening != null && step1_gbv_screening == 'reported'"
 actions:
   - "isRelevant = true"
 ---
 name: step1_post_gbv_care
 description: Show post_gbv_care when its condition is met
 priority: 1
-condition: "step1_gbv_screening == 'reported'"
+condition: "step1_gbv_screening_conducted != null && step1_gbv_screening_conducted == 'yes' && step1_gbv_screening != null && step1_gbv_screening == 'reported'"
 actions:
   - "isRelevant = true"

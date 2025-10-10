@@ -52,12 +52,42 @@
     "title": "GBV Services",
     "fields": [
       {
+        "key": "gbv_screening_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gbv_screening_conducted",
+        "type": "native_radio",
+        "label": "Was GBV screening conducted during this visit?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
         "key": "gbv_screening",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "gbv_screening",
         "type": "native_radio",
         "label": "What was the outcome of the client's GBV screening?",
+        "relevance": {
+          "step1:gbv_screening_conducted": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        },
         "options": [
           {
             "key": "reported",
