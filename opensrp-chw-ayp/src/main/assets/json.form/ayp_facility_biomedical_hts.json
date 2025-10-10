@@ -106,13 +106,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_biomedical_intervention_hts_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_hiv_status"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_intervention_hts_rules.yml"
+            }
           }
         }
       }

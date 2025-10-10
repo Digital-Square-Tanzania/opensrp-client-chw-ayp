@@ -48,7 +48,7 @@
   },
   "rules_file": "ayp_facility_screening_rules.yml",
   "step1": {
-    "title": "AYP Screening Tool + Enrollment",
+    "title": "AYP Screening and Enrollment",
     "next": "step2",
     "fields": [
       {
@@ -114,13 +114,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_education_level"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -132,13 +128,9 @@
         "type": "edit_text",
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_other_education_specify"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         },
         "hint": "Please specify the other education level."
@@ -206,13 +198,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_caregiving_situation"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -313,13 +301,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_transactional_sex"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -348,13 +332,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_condom_use"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -422,13 +402,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step1_multiple_partners"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -551,13 +527,9 @@
         "label": "What is the client's enrollment date?",
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_date_of_enrollment"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -586,13 +558,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_enrollment_status"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -610,13 +578,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_uic_number"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         },
         "hint": "What is the client's UIC number?"
@@ -667,13 +631,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_enrollment_education_level"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -702,13 +662,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_ayp_beneficiary"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -744,13 +700,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_program_name"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -762,13 +714,9 @@
         "type": "edit_text",
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_program_name_other_specify"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         },
         "hint": "Please specify the other program name."
@@ -798,13 +746,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_linkage_economic_strengthening"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       },
@@ -890,13 +834,9 @@
         ],
         "relevance": {
           "rules-engine": {
-            "rules-file": "ayp_facility_screening_rules.yml",
-            "logical-operators": [
-              {
-                "type": "rule",
-                "value": "step2_economic_strengthening_options"
-              }
-            ]
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
           }
         }
       }
