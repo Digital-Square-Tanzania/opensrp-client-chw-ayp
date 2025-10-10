@@ -56,7 +56,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_testing_services",
         "type": "native_radio",
-        "label": "Were HIV testing services provided to the client today?",
+        "label": "Were HIV testing services provided to the client?",
         "options": [
           {
             "key": "yes",

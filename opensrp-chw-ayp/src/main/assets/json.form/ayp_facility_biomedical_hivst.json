@@ -57,11 +57,11 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hivst_kit_provided",
         "type": "native_radio",
-        "label": "Was an HIVST kit provided to the client?",
+        "label": "Were HIVST kits provided to the client?",
         "options": [
           {
             "key": "yes",
-            "text": "Yes (link to HIVST Module)",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"

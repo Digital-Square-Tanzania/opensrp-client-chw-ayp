@@ -81,7 +81,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "condom_distribution",
         "type": "check_box",
-        "label": "Which types of condoms did the client receive today?",
+        "label": "Which types of condoms did the client receive?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

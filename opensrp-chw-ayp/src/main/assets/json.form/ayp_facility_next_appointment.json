@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Next Appointment Date",
+    "title": "Next Appointment Date and Referral to other services",
     "display_back_button": "true",
     "fields": [
       {
@@ -64,11 +64,44 @@
         "min_date": "today",
         "max_date": "today+5y",
         "expanded": false,
-        "hint": "Tarehe ya hudhurio lijalo",
+        "hint": "Select the Next Appointment Date",
         "v_required": {
           "value": "true",
           "err": "Required"
         }
+      },
+      {
+        "key": "refer_other_services",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "refer_other_services",
+        "type": "check_box",
+        "label": "Which additional services is the client being referred to?",
+        "required": "false",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "vmmc",
+            "text": "VMMC",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vmmc"
+          },
+          {
+            "key": "gbv",
+            "text": "GBV",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "gbv"
+          },
+          {
+            "key": "hbv_hcv",
+            "text": "HBV/HCV",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hbv_hcv"
+          }
+        ]
       }
     ]
   }

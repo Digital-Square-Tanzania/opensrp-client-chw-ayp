@@ -41,6 +41,13 @@ condition: "step1_ever_had_sex != null && step1_ever_had_sex == 'yes'"
 actions:
   - "isRelevant = true"
 ---
+name: step2_eligible_for_ayp_services
+description: eligible_for_ayp_services
+priority: 1
+condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Eligible for AYP enrollment'"
+actions:
+  - "isRelevant = true"
+---
 name: step2_date_of_enrollment
 description: Show date_of_enrollment when respondent is eligible for AYP enrollment
 priority: 1
@@ -101,5 +108,12 @@ name: step2_economic_strengthening_options
 description: Show economic_strengthening_options when linkage to economic strengthening is yes
 priority: 1
 condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Not eligible' && step2_linkage_economic_strengthening != null && step2_linkage_economic_strengthening == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step2_not_eligible_for_ayp_services
+description: not_eligible_for_ayp_services
+priority: 1
+condition: "step1_ayp_eligibility != null && step1_ayp_eligibility == 'Not eligible'"
 actions:
   - "isRelevant = true"

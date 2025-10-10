@@ -509,7 +509,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ayp_eligibility",
-        "type": "calculation",
+        "type": "hidden",
         "label": "Does the client meet the AYP enrollment eligibility criteria?",
         "calculation": {
           "rules-engine": {
@@ -522,15 +522,54 @@
     ]
   },
   "step2": {
-    "title": "Link to Other Services - Economic Strengthening Opportunity",
+    "title": "Enrollment/Linkage to Other Services",
     "fields": [
+      {
+        "key": "eligible_for_ayp_services",
+        "type": "toaster_notes",
+        "text": "The client is eligible for AYP Services",
+        "openmrs_entity_id": "eligible_for_ayp_services",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "not_eligible_for_ayp_services",
+        "type": "toaster_notes",
+        "text": "The client is not eligible for AYP Services, Link to client to other services",
+        "openmrs_entity_id": "not_eligible_for_ayp_services",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
       {
         "key": "date_of_enrollment",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_of_enrollment",
         "type": "date_picker",
-        "label": "What is the client's enrollment date?",
+        "hint": "What is the client's enrollment date?",
+        "expanded": false,
+        "max_date": "today",
+        "min_date": "today - 1m",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the enrollment date"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -733,7 +772,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "linkage_economic_strengthening",
         "type": "native_radio",
-        "label": "Has the client been linked to an economic strengthening opportunity?",
+        "hint": "Has the client been linked to an economic strengthening opportunity?",
         "options": [
           {
             "key": "yes",
