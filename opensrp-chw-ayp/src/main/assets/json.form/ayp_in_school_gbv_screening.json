@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "screening_for_gbv",
         "type": "native_radio",
-        "label": "Screening for GBV:",
+        "label": "Has GBV screening been conducted?",
         "options": [
           {
             "key": "encountered_gbv",
@@ -190,4 +190,3 @@
     ]
   }
 }
-

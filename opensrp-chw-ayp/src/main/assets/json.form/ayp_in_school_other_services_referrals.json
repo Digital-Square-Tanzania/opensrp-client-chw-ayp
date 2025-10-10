@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "referrals_other_services_provided",
         "type": "native_radio",
-        "label": "Were referrals to other services provided?",
+        "label": "Have referrals to other services been provided?",
         "options": [
           {
             "key": "yes",
@@ -89,7 +89,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "referrals_to_other_services",
         "type": "check_box",
-        "label": "Referrals to other services:",
+        "label": "Referrals to other services provided:",
         "options": [
           {
             "key": "sti",
@@ -162,4 +162,3 @@
     ]
   }
 }
-

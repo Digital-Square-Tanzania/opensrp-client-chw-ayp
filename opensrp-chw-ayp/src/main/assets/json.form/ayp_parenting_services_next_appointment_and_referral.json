@@ -70,7 +70,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "referral_services",
         "type": "check_box",
-        "label": "Select the Referrals to other services provided",
+        "label": "Select the referrals to other services provided:",
         "combine_checkbox_option_values": "true",
         "exclusive": [
           "chk_none"

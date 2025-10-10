@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "cse_conducted",
         "type": "native_radio",
-        "label": "Comprehensive Sexual Education Conducted?",
+        "label": "Has comprehensive sexuality education been provided?",
         "options": [
           {
             "key": "yes",
@@ -89,7 +89,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "topics_covered",
         "type": "check_box",
-        "label": "Comprehensive Sexuality Education Topics Covered:",
+        "label": "Comprehensive sexuality education topics covered:",
         "v_required": {
           "value": true,
           "err": "Please select at least one topic"

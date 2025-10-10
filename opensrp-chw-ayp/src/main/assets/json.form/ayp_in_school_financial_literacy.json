@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "financial_literacy_conducted",
         "type": "native_radio",
-        "label": "Financial literacy Education Conducted?",
+        "label": "Has financial literacy education been provided?",
         "options": [
           {
             "key": "yes",
@@ -89,7 +89,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "financial_literacy_topics",
         "type": "check_box",
-        "label": "Financial literacy Topics:",
+        "label": "Financial literacy topics covered:",
         "v_required": {
           "value": true,
           "err": "Please select at least one topic"

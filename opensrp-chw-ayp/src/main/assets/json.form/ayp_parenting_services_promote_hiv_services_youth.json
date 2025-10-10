@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "promote_hiv_services_youth",
         "type": "check_box",
-        "label": "Select the topics covered regarding Promoting the use of HIV Services among Youth",
+        "label": "Select the topics covered on promoting the use of HIV services among youth:",
         "combine_checkbox_option_values": "true",
         "v_required": {
           "value": true,

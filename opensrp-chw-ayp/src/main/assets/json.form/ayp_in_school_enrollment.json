@@ -96,7 +96,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "date_enrolled",
         "type": "date_picker",
-        "hint": "Date when the client was enrolled?",
+        "hint": "Enter the date when the client was enrolled",
         "max_date": "today",
         "v_required": {
           "value": true,

@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sanitary_kits_provided",
         "type": "native_radio",
-        "label": "Were Sanitary Kits provided?",
+        "label": "Have sanitary kits been provided?",
         "options": [
           {
             "key": "yes",
@@ -89,7 +89,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sanitary_kits",
         "type": "check_box",
-        "label": "Sanitary Kits provided:",
+        "label": "Sanitary kits provided:",
         "options": [
           {
             "key": "sanitary_pads",
@@ -316,4 +316,3 @@
     ]
   }
 }
-

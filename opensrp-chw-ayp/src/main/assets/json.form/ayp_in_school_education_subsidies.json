@@ -61,7 +61,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "education_subsidies_provided",
         "type": "native_radio",
-        "label": "Were Education Busidies provided?",
+        "label": "Have education subsidies been provided?",
         "options": [
           {
             "key": "yes",
@@ -89,7 +89,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "education_subsidies",
         "type": "check_box",
-        "label": "Education Subsidies (ES) provided:",
+        "label": "Education subsidies provided:",
         "v_required": {
           "value": true,
           "err": "Please select at least one subsidy"

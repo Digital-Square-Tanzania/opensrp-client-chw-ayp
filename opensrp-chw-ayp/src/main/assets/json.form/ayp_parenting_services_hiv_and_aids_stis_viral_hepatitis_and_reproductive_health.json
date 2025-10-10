@@ -52,7 +52,7 @@
       {
         "key": "rh_provided",
         "type": "native_radio",
-        "label": "Has HIV and AIDS, STIs, Viral Hepatitis and reproductive health been provided?",
+        "label": "Have HIV and AIDS, STI, viral hepatitis, and reproductive health sessions been provided?",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "rh_provided",
@@ -80,7 +80,7 @@
       {
         "key": "rh_sections_provided",
         "type": "check_box",
-        "label": "Which section(s) have been provided?",
+        "label": "Which sections have been provided?",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -130,7 +130,7 @@
       {
         "key": "hiv_aids_topics",
         "type": "check_box",
-        "label": "HIV and AIDS topics",
+        "label": "HIV and AIDS topics provided:",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -201,7 +201,7 @@
       {
         "key": "stis_rtis_topics",
         "type": "check_box",
-        "label": "RTIs and STIs topics",
+        "label": "RTI and STI topics provided:",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -272,7 +272,7 @@
       {
         "key": "viral_hepatitis_topics",
         "type": "check_box",
-        "label": "Viral Hepatitis topics",
+        "label": "Viral hepatitis topics provided:",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -343,7 +343,7 @@
       {
         "key": "protection_against_hiv_aids_stis_viral_hepatitis",
         "type": "check_box",
-        "label": "Protection against HIV and AIDS, STIs, and Viral Hepatitis",
+        "label": "Protection against HIV and AIDS, STIs, and viral hepatitis topics provided:",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
