@@ -9,25 +9,19 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
-import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
 import org.smartregister.chw.ayp.domain.MemberObject;
-import org.smartregister.chw.ayp.util.AypJsonFormUtils;
 import org.smartregister.chw.ayp.util.DBConstants;
-import org.smartregister.chw.ayp.util.JsonFormUtils;
 import org.smartregister.chw.ayp.util.Constants;
 
 import org.smartregister.chw.ayp_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
-import org.smartregister.util.FormUtils;
 import org.smartregister.view.activity.SecuredActivity;
 
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -125,7 +119,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 AypOutSchoolGroupMemberProfileActivity.startMe(this, "12345");
                 break;
             case R.id.ayp_facility_biomedical_visit:
-                AypFacilityBiomedicalVisitSampleActivity.start(this, "12345", false);
+                BaseAypFacilityBiomedicalVisitSampleActivity.start(this, "12345", false);
                 break;
             default:
                 break;

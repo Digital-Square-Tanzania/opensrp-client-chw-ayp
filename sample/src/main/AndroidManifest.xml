@@ -87,7 +87,7 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.ayp_sample.activity.AypFacilityBiomedicalVisitSampleActivity"
+            android:name="org.smartregister.chw.ayp_sample.activity.BaseAypFacilityBiomedicalVisitSampleActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
