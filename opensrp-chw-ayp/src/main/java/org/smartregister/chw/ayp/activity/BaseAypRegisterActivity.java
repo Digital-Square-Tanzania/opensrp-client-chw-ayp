@@ -16,7 +16,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.Context;
+import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.contract.AypRegisterContract;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.fragment.BaseAypRegisterFragment;
 import org.smartregister.chw.ayp.interactor.BaseAypRegisterInteractor;
 import org.smartregister.chw.ayp.listener.AypBottomNavigationListener;
@@ -32,7 +34,6 @@ import org.smartregister.repository.BaseRepository;
 import org.smartregister.util.Utils;
 import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
-import org.smartregister.chw.ayp.R;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -84,6 +85,14 @@ public class BaseAypRegisterActivity extends BaseRegisterActivity implements Ayp
 
     @Override
     public void startFormActivity(JSONObject jsonForm) {
+        try {
+            JSONObject genderObject = new JSONObject();
+            genderObject.put("gender", AypDao.getFacilityMember(BASE_ENTITY_ID).getGender());
+            jsonForm.put("global", genderObject);
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+
         Intent intent = new Intent(this, BaseAypRegisterActivity.class);
         intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
 

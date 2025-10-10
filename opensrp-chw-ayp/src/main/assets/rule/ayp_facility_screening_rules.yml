@@ -6,6 +6,13 @@ condition: "step1_currently_in_school != null && step1_currently_in_school == 'y
 actions:
   - "isRelevant = true"
 ---
+name: step1_pregnancy_status
+description: pregnancy_status
+priority: 1
+condition: "global_gender == 'female'"
+actions:
+  - "isRelevant = true"
+---
 name: step1_other_education_specify
 description: Show other_education_specify when other education level is selected
 priority: 1

@@ -47,6 +47,7 @@
     }
   },
   "rules_file": "ayp_facility_screening_rules.yml",
+  "global": {},
   "step1": {
     "title": "AYP Screening and Enrollment",
     "next": "step2",
@@ -344,7 +345,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "pregnancy_status",
         "type": "check_box",
-        "label": "What is the client's pregnancy status? (For AGYW only)",
+        "label": "What is the client's pregnancy status?",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -375,7 +376,14 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "none"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "multiple_partners",
