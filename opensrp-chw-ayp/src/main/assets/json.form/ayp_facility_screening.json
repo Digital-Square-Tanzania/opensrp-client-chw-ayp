@@ -57,7 +57,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "currently_in_school",
         "type": "native_radio",
-        "label": "Are you currently in school?",
+        "label": "Is the client in school?",
         "options": [
           {
             "key": "yes",
