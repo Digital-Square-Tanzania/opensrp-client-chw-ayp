@@ -55,7 +55,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "section_selection",
         "type": "check_box",
-        "label": "Select the sections provided:",
+        "label": "Select the sections covered in this session:",
         "combine_checkbox_option_values": "true",
         "options": [
           {
@@ -99,7 +99,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hiv_problem_topics",
         "type": "check_box",
-        "label": "HIV problem among young people topics covered:",
+        "label": "What are the HIV problem among young people topics covered?:",
         "combine_checkbox_option_values": "true",
         "relevance": {
           "rules-engine": {
