@@ -52,12 +52,43 @@
     "title": "TB Screening",
     "fields": [
       {
+        "key": "tb_screening_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_screening_conducted",
+        "type": "native_radio",
+        "label": "Was TB screening conducted during this visit?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
         "key": "tb_screening",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_screening",
         "type": "native_radio",
         "label": "What was the client's TB screening outcome?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_tb_screening_rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "presumptive",
@@ -72,13 +103,6 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "not_presumptive"
-          },
-          {
-            "key": "not_screened",
-            "text": "Not Screened",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "not_screened"
           }
         ]
       }

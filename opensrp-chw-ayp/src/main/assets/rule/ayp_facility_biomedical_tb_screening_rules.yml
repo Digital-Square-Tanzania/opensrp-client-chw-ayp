@@ -1,2 +1,7 @@
 ---
-# No relevance rules defined for ayp_facility_biomedical_tb_screening
+name: step1_tb_screening
+description: Show TB screening outcome when screening conducted
+priority: 1
+condition: "step1_tb_screening_conducted != null && step1_tb_screening_conducted == 'yes'"
+actions:
+  - "isRelevant = true"
