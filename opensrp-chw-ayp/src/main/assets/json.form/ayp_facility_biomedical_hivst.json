@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "ayp_facility_biomedical_hivst",
+    "title": "HIVST Provision",
     "fields": [
       {
         "key": "hivst_kit_provided",
@@ -57,7 +57,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "hivst_kit_provided",
         "type": "native_radio",
-        "label": "Were HIVST kits provided to the client?",
+        "label": "Does the client need HIV self test kits?",
         "options": [
           {
             "key": "yes",
@@ -74,6 +74,21 @@
             "openmrs_entity_id": "no"
           }
         ]
+      },
+      {
+        "key": "prompt_for_hivst",
+        "type": "toaster_notes",
+        "text": "Please use HIVST Module to record the Information",
+        "openmrs_entity_id": "prompt_for_hivst",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:hivst_kit_provided": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
       }
     ]
   }

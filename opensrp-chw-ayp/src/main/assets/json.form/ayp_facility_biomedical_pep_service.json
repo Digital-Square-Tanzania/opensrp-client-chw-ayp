@@ -57,7 +57,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "pep_service",
         "type": "native_radio",
-        "label": "What was the outcome of the client's PEP service?",
+        "label": "What was the outcome of the client's PEP assessment?",
         "options": [
           {
             "key": "provided",
