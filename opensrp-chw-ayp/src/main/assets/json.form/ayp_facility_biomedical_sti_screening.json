@@ -52,12 +52,43 @@
     "title": "STI Screening",
     "fields": [
       {
-        "key": "sti_screening",
+        "key": "sti_screening_conducted",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sti_screening_conducted",
+        "type": "native_radio",
+        "label": "Was STI screening conducted during this visit?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "sti_screening_result",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sti_screening",
         "type": "native_radio",
         "label": "What was the client's STI screening result?",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_sti_screening_rules.yml"
+            }
+          }
+        },
         "options": [
           {
             "key": "negative",
@@ -73,13 +104,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "positive"
           },
-          {
-            "key": "not_screened",
-            "text": "Not Screened",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "not_screened"
-          }
         ]
       }
     ]
