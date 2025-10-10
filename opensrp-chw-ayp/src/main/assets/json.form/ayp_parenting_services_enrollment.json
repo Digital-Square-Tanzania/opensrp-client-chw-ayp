@@ -85,7 +85,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "male_children_count",
         "type": "edit_text",
-        "label": "Number of Male Children",
+        "hint": "Number of Male Children",
         "edit_type": "number",
         "v_numeric_integer": {
           "value": true,
@@ -102,6 +102,17 @@
         "v_max": {
           "value": "10",
           "err": "Please enter a number between 0 and 10."
+        },
+        "relevance": {
+          "step1:number_of_children": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "male"
+                ]
+              }
+            ]
+          }
         }
       },
       {
@@ -110,7 +121,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "female_children_count",
         "type": "edit_text",
-        "label": "Number of Female Children",
+        "hint": "Number of Female Children",
         "edit_type": "number",
         "v_numeric_integer": {
           "value": true,
@@ -127,6 +138,17 @@
         "v_max": {
           "value": "10",
           "err": "Please enter a number between 0 and 10."
+        },
+        "relevance": {
+          "step1:number_of_children": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "female"
+                ]
+              }
+            ]
+          }
         }
       }
     ]

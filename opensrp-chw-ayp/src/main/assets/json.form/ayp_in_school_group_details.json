@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "client_status",
+  "encounter_type": "group_details",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -52,93 +52,96 @@
     }
   },
   "step1": {
-    "title": "Client Status",
+    "title": "Group Details",
     "display_back_button": "true",
     "fields": [
       {
-        "key": "client_status",
+        "key": "group_name",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "client_status",
+        "openmrs_entity_id": "group_name",
+        "type": "edit_text",
+        "hint": "Group Name",
+        "v_required": {
+          "value": true,
+          "err": "Please enter the group name"
+        }
+      },
+      {
+        "key": "group_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "group_type",
         "type": "native_radio",
-        "label": "Client status",
+        "label": "Group Type:",
         "options": [
           {
-            "key": "new_client",
-            "text": "New Client",
+            "key": "age_band",
+            "text": "Age band",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "new_client"
+            "openmrs_entity_id": "age_band"
           },
           {
-            "key": "returning",
-            "text": "Returning",
+            "key": "classes",
+            "text": "Classes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "returning"
-          },
-          {
-            "key": "transferred",
-            "text": "Transferred",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "transferred"
-          },
-          {
-            "key": "opt_out",
-            "text": "Parent or Guardian/Student requested to opt out of service",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "opt_out"
-          }, {
-            "key": "dead",
-            "text": "Dead",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "dead"
+            "openmrs_entity_id": "classes"
           }
         ],
         "v_required": {
           "value": true,
-          "err": "Please select the client status"
+          "err": "Please select the group type"
         }
       },
       {
-        "key": "transfer_remarks",
+        "key": "age_band",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "transfer_remarks",
-        "type": "edit_text",
-        "hint": "Provide comment/remarks",
+        "openmrs_entity_id": "age_band",
+        "type": "native_radio",
+        "label": "Age-band:",
+        "options": [
+          {
+            "key": "age_10_14",
+            "text": "10-14",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "age_10_14"
+          },
+          {
+            "key": "age_10_19_enabling_dreams",
+            "text": "10-19 (Enabling DREAMS)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "age_10_19_enabling_dreams"
+          },
+          {
+            "key": "age_15_19",
+            "text": "15-19",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "age_15_19"
+          },
+          {
+            "key": "age_20_24",
+            "text": "20-24",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "age_20_24"
+          }
+        ],
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
+              "rules-file": "ayp_in-school_group-details-relevance-rules.yml"
             }
           }
         },
         "v_required": {
           "value": true,
-          "err": "Please provide comment/remarks"
-        }
-      },
-      {
-        "key": "new_address",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "new_address",
-        "type": "edit_text",
-        "hint": "New address",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "ayp_in-school_client-status-relevance-rules.yml"
-            }
-          }
-        },
-        "v_required": {
-          "value": true,
-          "err": "Please provide the new address"
+          "err": "Please select an age band"
         }
       }
     ]

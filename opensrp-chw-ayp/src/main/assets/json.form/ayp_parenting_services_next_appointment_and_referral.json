@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Service Delivery Modality",
+  "encounter_type": "AYP Parenting Services Next Appointment and Referral",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -16,7 +16,6 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
-    "today": "today",
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -48,105 +47,111 @@
     }
   },
   "step1": {
-    "title": "Service Delivery Modality",
+    "title": "AYP Parenting Services Next Appointment and Referral",
+    "rules_file": "ayp-parenting-services-next-appointment-and-referral-relevance-rules.yml",
     "fields": [
       {
-        "key": "service_delivery_modality",
+        "key": "next_appointment_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "service_delivery_modality",
-        "type": "native_radio",
-        "label": "Service delivery modality",
-        "options": [
-          {
-            "key": "group",
-            "text": "Group",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "group"
-          },
-          {
-            "key": "individual",
-            "text": "Individual",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "individual"
-          }
-        ],
+        "openmrs_entity_id": "next_appointment_date",
+        "type": "date_picker",
+        "min_date": "today+1d1012",
+        "max_date": "today+2m",
+        "hint": "Please select the next appointment date",
         "v_required": {
           "value": true,
-          "err": "Please select a modality"
+          "err": "Please select the next appointment date"
         }
       },
       {
-        "key": "group_modality_types",
+        "key": "referral_services",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "group_modality_types",
+        "openmrs_entity_id": "referral_services",
         "type": "check_box",
-        "label": "If Group, select type(s)",
+        "label": "Select the Referrals to other services provided",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "chk_none"
+        ],
         "options": [
           {
-            "key": "groups_vicoba_upatu",
-            "text": "Groups (VICOBA, upatu, n.k.)",
+            "key": "hts",
+            "text": "HTS",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "groups_vicoba_upatu"
+            "openmrs_entity_id": "hts"
           },
           {
-            "key": "religious_congregation_jumuia",
-            "text": "Religious congregation (Jumuia)",
+            "key": "vmmc",
+            "text": "VMMC",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "religious_congregation_jumuia"
+            "openmrs_entity_id": "vmmc"
           },
           {
-            "key": "community_meetings",
-            "text": "Community meetings",
+            "key": "gbv",
+            "text": "GBV",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "community_meetings"
+            "openmrs_entity_id": "gbv"
           },
           {
-            "key": "traditional_initiation_practices",
-            "text": "Traditional (initiation) practices",
+            "key": "economic_empowerment",
+            "text": "Economic empowerment",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "traditional_initiation_practices"
+            "openmrs_entity_id": "economic_empowerment"
           },
           {
-            "key": "church_mosque",
-            "text": "Church/Mosque",
+            "key": "pep",
+            "text": "PEP",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "church_mosque"
+            "openmrs_entity_id": "pep"
           },
           {
-            "key": "household",
-            "text": "Household",
+            "key": "others_specify",
+            "text": "Others (specify)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "household"
+            "openmrs_entity_id": "others_specify"
           },
           {
-            "key": "school",
-            "text": "School",
+            "key": "none",
+            "text": "None",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "school"
-          },
-          {
-            "key": "clusters",
-            "text": "Clusters",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "clusters"
+            "openmrs_entity_id": "none"
           }
         ],
         "v_required": {
           "value": true,
-          "err": "Please select at least one type"
+          "err": "Please select at least one referral service"
+        }
+      },
+      {
+        "key": "referral_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "referral_other_specify",
+        "type": "edit_text",
+        "hint": "If others, please specify",
+        "v_required": {
+          "value": true,
+          "err": "Please specify other referral"
+        },
+        "relevance": {
+          "step1:referral_services": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "others_specify"
+                ]
+              }
+            ]
+          }
         }
       }
     ]

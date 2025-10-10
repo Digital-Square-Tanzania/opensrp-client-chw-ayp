@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "AYP Parenting Services Next Appointment and Referral",
+  "encounter_type": "Service Delivery Modality",
   "entity_id": "",
   "relational_id": "",
   "metadata": {
@@ -16,6 +16,7 @@
       "openmrs_data_type": "end",
       "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
     },
+    "today": "today",
     "deviceid": {
       "openmrs_entity_parent": "",
       "openmrs_entity": "concept",
@@ -47,88 +48,111 @@
     }
   },
   "step1": {
-    "title": "AYP Parenting Services Next Appointment and Referral",
-    "rules_file": "ayp-parenting-services-next-appointment-and-referral-relevance-rules.yml",
+    "title": "Service Delivery Modality",
     "fields": [
       {
-        "key": "next_appointment_date",
+        "key": "service_delivery_modality",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "next_appointment_date",
-        "type": "date_picker",
-        "label": "Next Appointment Date",
-        "v_required": {
-          "value": true,
-          "err": "Please select the next appointment date"
-        }
-      },
-      {
-        "key": "referral_services",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "referral_services",
-        "type": "check_box",
-        "label": "Referral to other services",
-        "combine_checkbox_option_values": "true",
+        "openmrs_entity_id": "service_delivery_modality",
+        "type": "native_radio",
+        "label": "Service delivery modality",
         "options": [
           {
-            "key": "hts",
-            "text": "HTS",
+            "key": "group",
+            "text": "Group",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hts"
+            "openmrs_entity_id": "group"
           },
           {
-            "key": "vmmc",
-            "text": "VMMC",
+            "key": "individual",
+            "text": "Individual",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "vmmc"
-          },
-          {
-            "key": "gbv",
-            "text": "GBV",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "gbv"
-          },
-          {
-            "key": "economic_empowerment",
-            "text": "Economic empowerment",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "economic_empowerment"
-          },
-          {
-            "key": "pep",
-            "text": "PEP",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "pep"
-          },
-          {
-            "key": "others_specify",
-            "text": "Others (specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "others_specify"
+            "openmrs_entity_id": "individual"
           }
         ],
         "v_required": {
           "value": true,
-          "err": "Please select at least one referral service"
+          "err": "Please select a modality"
         }
       },
       {
-        "key": "referral_other_specify",
+        "key": "group_modality_types",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "referral_other_specify",
-        "type": "edit_text",
-        "label": "If others, please specify",
+        "openmrs_entity_id": "group_modality_types",
+        "type": "check_box",
+        "label": "If Group, select type(s)",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "groups_vicoba_upatu",
+            "text": "Groups (VICOBA, upatu, n.k.)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "groups_vicoba_upatu"
+          },
+          {
+            "key": "religious_congregation_jumuia",
+            "text": "Religious congregation (Jumuia)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "religious_congregation_jumuia"
+          },
+          {
+            "key": "community_meetings",
+            "text": "Community meetings",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "community_meetings"
+          },
+          {
+            "key": "traditional_initiation_practices",
+            "text": "Traditional (initiation) practices",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "traditional_initiation_practices"
+          },
+          {
+            "key": "church_mosque",
+            "text": "Church/Mosque",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "church_mosque"
+          },
+          {
+            "key": "household",
+            "text": "Household",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "household"
+          },
+          {
+            "key": "school",
+            "text": "School",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "school"
+          },
+          {
+            "key": "clusters",
+            "text": "Clusters",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "clusters"
+          }
+        ],
         "v_required": {
           "value": true,
-          "err": "Please specify other referral"
+          "err": "Please select at least one type"
+        },
+        "relevance": {
+          "step1:service_delivery_modality": {
+            "type": "string",
+            "ex": "equalTo(., \"group\")"
+          }
         }
       }
     ]
