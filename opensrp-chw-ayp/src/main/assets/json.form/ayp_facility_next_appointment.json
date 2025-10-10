@@ -52,7 +52,7 @@
     }
   },
   "step1": {
-    "title": "Next Appointment Date and Referral to other services",
+    "title": "Next Appointment and Referrals",
     "display_back_button": "true",
     "fields": [
       {
@@ -106,4 +106,3 @@
     ]
   }
 }
-

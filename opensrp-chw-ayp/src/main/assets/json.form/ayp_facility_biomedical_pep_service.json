@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "ayp_facility_biomedical_pep_service",
+    "title": "PEP Services",
     "fields": [
       {
         "key": "pep_service",

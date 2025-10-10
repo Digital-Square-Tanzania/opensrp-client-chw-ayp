@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "ayp_facility_biomedical_condom_distribution",
+    "title": "Condom Distribution",
     "fields": [
       {
         "key": "condoms_distributed",

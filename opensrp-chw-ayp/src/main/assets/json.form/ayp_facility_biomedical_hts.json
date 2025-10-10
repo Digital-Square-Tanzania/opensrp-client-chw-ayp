@@ -48,7 +48,7 @@
   },
   "rules_file": "ayp_facility_biomedical_intervention_hts_rules.yml",
   "step1": {
-    "title": "AYP Facility Biomedical Intervention HTS",
+    "title": "HIV Testing Services",
     "fields": [
       {
         "key": "hiv_testing_services",
@@ -73,6 +73,22 @@
             "openmrs_entity_id": "no"
           }
         ]
+      },
+      {
+        "key": "prompt_for_linkage_to_hts_module",
+        "type": "toaster_notes",
+        "text": "Use the HTS Module to record the HTS services provided to the client",
+        "openmrs_entity_id": "prompt_for_linkage_to_hts_module",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_intervention_hts_rules.yml"
+            }
+          }
+        }
       },
       {
         "key": "hiv_status",
@@ -104,6 +120,38 @@
             "openmrs_entity_id": "known_positive_ctc"
           }
         ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_biomedical_intervention_hts_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ctc_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ctc_number",
+        "type": "mask_edit_text",
+        "mask": "##-##-####-######",
+        "mask_hint": "12345678912345",
+        "allowed_chars": "0123456789",
+        "hint": "CTC Number e.g 12-34-5678-912345",
+        "edit_type": "number",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "v_regex": {
+          "value": "(\\d{2}-\\d{2}-\\d{4}-\\d{6})?",
+          "err": "CTC Number should be of the format (XX-XX-XXXX-XXXXXX)"
+        },
+        "v_max_length": {
+          "value": "17",
+          "is_fixed_size": "true",
+          "err": "Please enter a valid ctc Number"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {

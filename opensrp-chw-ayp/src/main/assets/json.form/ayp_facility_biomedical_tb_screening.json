@@ -49,7 +49,7 @@
     }
   },
   "step1": {
-    "title": "ayp_facility_biomedical_tb_screening",
+    "title": "TB Screening",
     "fields": [
       {
         "key": "tb_screening",
