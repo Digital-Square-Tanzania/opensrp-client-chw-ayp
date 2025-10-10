@@ -511,7 +511,13 @@
         "openmrs_entity_id": "ayp_eligibility",
         "type": "calculation",
         "label": "Does the client meet the AYP enrollment eligibility criteria?",
-        "calculation": "if(\n        selected(${parents_alive}, 'no') or\n        selected(${parents_alive}, 'one_alive') or\n        selected(${caregiving_situation}, 'self_cared') or\n        selected(${consume_alcohol}, 'yes') or\n        selected(${use_drugs}, 'yes') or\n        selected(${ever_had_sex}, 'yes') or\n        selected(${transactional_sex}, 'yes') or\n        selected(${condom_use}, 'no') or\n        any_selected(${pregnancy_status}, ['currently_pregnant','has_been_pregnant','parent']) or\n        selected(${multiple_partners}, 'yes') or\n        selected(${early_marriage}, 'yes') or\n        selected(${sti_infection}, 'yes') or\n        selected(${experienced_violence}, 'yes'),\n        \"Eligible for AYP enrollment\",\n        \"Not eligible\"\n      )"
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_calculation.yml"
+            }
+          }
+        }
       }
     ]
   },
