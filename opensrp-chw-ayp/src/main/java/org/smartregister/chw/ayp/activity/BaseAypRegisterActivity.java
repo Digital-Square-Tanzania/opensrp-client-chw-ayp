@@ -1,5 +1,7 @@
 package org.smartregister.chw.ayp.activity;
 
+import static org.smartregister.chw.ayp.util.Constants.ENCOUNTER_TYPE;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -86,9 +88,11 @@ public class BaseAypRegisterActivity extends BaseRegisterActivity implements Ayp
     @Override
     public void startFormActivity(JSONObject jsonForm) {
         try {
-            JSONObject genderObject = new JSONObject();
-            genderObject.put("gender", AypDao.getFacilityMember(BASE_ENTITY_ID).getGender());
-            jsonForm.put("global", genderObject);
+            if (jsonForm.getString(ENCOUNTER_TYPE).equals(Constants.EVENT_TYPE.AYP_SCREENING_FACILITY)){
+                JSONObject genderObject = new JSONObject();
+                genderObject.put("gender", AypDao.getFacilityMember(BASE_ENTITY_ID).getGender());
+                jsonForm.put("global", genderObject);
+            }
         } catch (Exception e) {
             Timber.e(e);
         }

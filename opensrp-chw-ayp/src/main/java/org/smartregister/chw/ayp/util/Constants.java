@@ -30,6 +30,7 @@ public interface Constants {
         String AYP_GROUP_DETAILS = "group_details";
         String AYP_GROUP_MEMBERSHIP = "ayp_group_membership";
         String AYP_FACILITY_SERVICES = "Ayp Facility Services";
+        String AYP_SCREENING_FACILITY = "AYP Facility Screening";
 
     }
 
