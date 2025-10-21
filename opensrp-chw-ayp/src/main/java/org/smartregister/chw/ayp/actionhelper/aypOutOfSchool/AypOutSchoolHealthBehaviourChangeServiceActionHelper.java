@@ -42,7 +42,7 @@ public class AypOutSchoolHealthBehaviourChangeServiceActionHelper implements Bas
 
     @Override
     public String postProcess(String jsonPayload) {
-        return "";
+        return jsonPayload;
     }
 
     @Override

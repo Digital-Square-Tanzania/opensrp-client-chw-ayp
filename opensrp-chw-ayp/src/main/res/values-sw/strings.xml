@@ -23,6 +23,8 @@
 
     <string name="graduate">Hitimu</string>
 
+    <string name="ayp_screening">Uchunguzi wa AYP</string>
+
     <string name="optional">Sio lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuitunza hii visit</string>
     <string name="return_to_previous_page">Rudi kwenye wateja wote wa ayp</string>
@@ -42,6 +44,7 @@
     <string name="call_ayp_client">Mteja wa Ayp</string>
     <string name="head_of_family">Mkuu wa kaya</string>
     <string name="ayp_client">Mteja wa ayp</string>
+    <string name="ayp_out_school_service_conducted">Huduma imefanyika</string>
     <string name="copy_to_clipboard">Nakili namba ya simu</string>
     <string name="copied_phone_number">Namba ya simu imenakiliwa</string>
     <string name="call">Piga simu</string>

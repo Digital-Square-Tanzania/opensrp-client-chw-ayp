@@ -42,7 +42,7 @@ public class AypOutSchoolStructuralServiceActionHelper implements BaseAypVisitAc
 
     @Override
     public String postProcess(String jsonPayload) {
-        return "";
+        return jsonPayload;
     }
 
     @Override

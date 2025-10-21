@@ -19,7 +19,7 @@ public interface Constants {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
         String AYP_PARENTAL_ENROLLMENT = "AYP Parental Service Enrollment";
-        String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out-school Enrollment";
+        String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out of School Screening";
         String AYP_SERVICES = "Ayp Services";
         String AYP_PARENTAL_SERVICES = "Ayp Parental Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
@@ -65,7 +65,7 @@ public interface Constants {
         String AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES= "ayp_out_school_health_and_behaviour_change_services";
         String AYP_OUT_SCHOOL_NEXT_APPOINTMENT = "ayp_out_school_next_appointment";
 
-        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_attendance";
+        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_members_attendance";
         String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
         String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
         String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";

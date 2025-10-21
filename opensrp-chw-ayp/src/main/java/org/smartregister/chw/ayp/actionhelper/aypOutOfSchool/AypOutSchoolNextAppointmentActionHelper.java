@@ -42,7 +42,7 @@ public class AypOutSchoolNextAppointmentActionHelper implements BaseAypVisitActi
 
     @Override
     public String postProcess(String jsonPayload) {
-        return "";
+        return jsonPayload;
     }
 
     @Override

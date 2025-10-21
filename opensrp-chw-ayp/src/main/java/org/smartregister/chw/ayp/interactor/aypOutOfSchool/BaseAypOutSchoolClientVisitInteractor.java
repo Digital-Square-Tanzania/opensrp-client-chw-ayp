@@ -3,6 +3,7 @@ package org.smartregister.chw.ayp.interactor.aypOutOfSchool;
 import androidx.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolHealthBehaviourChangeServiceActionHelper;
@@ -18,6 +19,7 @@ import org.smartregister.chw.ayp.interactor.BaseAypVisitInteractor;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.AppExecutors;
 import org.smartregister.chw.ayp.util.Constants;
+import org.smartregister.chw.ayp.util.JsonFormUtils;
 import org.smartregister.sync.helper.ECSyncHelper;
 
 import java.util.LinkedHashMap;
@@ -47,11 +49,12 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     }
 
 
+    @Override
     protected String getCurrentVisitType() {
         if (StringUtils.isNotBlank(visitType)) {
             return visitType;
         }
-        return Constants.EVENT_TYPE.ayp_ENROLLMENT;
+        return super.getCurrentVisitType();
     }
 
     protected void populateActionList(BaseAypVisitContract.InteractorCallBack callBack) {
@@ -89,9 +92,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         AypOutSchoolStructuralServiceActionHelper actionHelper = new AypOutSchoolStructuralServiceActionHelper(context, memberObject);
 
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_structural_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_STRUCTURAL_SERVICE)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_structural_services), action);
@@ -100,9 +104,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateMedicalServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolMedicalServiceActionHelper actionHelper = new AypOutSchoolMedicalServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_medical_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_MEDICAL_SERVICE)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_medical_services), action);
@@ -111,9 +116,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateHealthAndBehaviourChangeService(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolHealthBehaviourChangeServiceActionHelper actionHelper = new AypOutSchoolHealthBehaviourChangeServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services), action);
@@ -122,9 +128,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void fillNextAppointment(Map<String, List<VisitDetail>> visitDetails) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolNextAppointmentActionHelper actionHelper = new AypOutSchoolNextAppointmentActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_next_appointment))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(visitDetails)
                 .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_NEXT_APPOINTMENT)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_next_appointment), action);
@@ -142,5 +149,47 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     @Override
     public MemberObject getMemberClient(String memberID, String profileType) {
         return AypDao.getOutSchoolMember(memberID);
+    }
+
+    private BaseAypVisitAction.Validator getClientStatusGatingValidator() {
+        return new BaseAypVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                // Client status action is always visible
+                String clientStatusTitle = context.getString(R.string.ayp_out_school_service_status);
+                if (clientStatusTitle.equals(key)) return true;
+                // Other actions only visible when client status == continuing
+                return isContinuingSelected();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                // Mirror visibility for enabled state
+                return isValid(key);
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // No-op; UI layer should re-query isValid/isEnabled when actions change
+            }
+        };
+    }
+
+    private boolean isContinuingSelected() {
+        try {
+            String clientStatusTitle = context.getString(R.string.ayp_out_school_service_status);
+            BaseAypVisitAction statusAction = actionList.get(clientStatusTitle);
+            if (statusAction != null) {
+                String payload = statusAction.getJsonPayload();
+                if (StringUtils.isNotBlank(payload)) {
+                    JSONObject json = new JSONObject(payload);
+                    String value = JsonFormUtils.getValue(json, "service_status");
+                    return "in_service".equalsIgnoreCase(value != null ? value.trim() : null);
+                }
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+        return false;
     }
 }

@@ -192,12 +192,38 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
 
     protected void setupButtons() {
 //        Timber.tag("testing").d(getAypOutSchoolVisit().toString());
-        if (getAypOutSchoolVisit() != null) {
-            if (AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
-                textViewGraduate.setVisibility(View.VISIBLE);
+//        if (getAypOutSchoolVisit() != null) {
+//            if (AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
+//                textViewGraduate.setVisibility(View.VISIBLE);
+//            } else {
+//                textViewGraduate.setVisibility(View.GONE);
+//            }
+//        }
+        if(getAypOutSchoolVisit() != null){
+            if (!getAypOutSchoolVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
+                manualProcessVisit.setVisibility(View.VISIBLE);
+                textViewContinueaypService.setText(R.string.edit_visit);
+                manualProcessVisit.setOnClickListener(view -> {
+                    try {
+                        AypVisitsUtil.manualProcessVisit(getAypOutSchoolVisit());
+                        displayToast(R.string.ayp_out_school_service_conducted);
+                        setupViews();
+                    } catch (Exception e) {
+                        Timber.d(e);
+                    }
+                });
             } else {
-                textViewGraduate.setVisibility(View.GONE);
+                manualProcessVisit.setVisibility(View.GONE);
+                textViewGraduate.setVisibility(View.VISIBLE);
             }
+        }
+
+        if (isVisitOnProgress(getAypOutSchoolVisit())) {
+//            textViewProcedureVmmc.setVisibility(View.GONE);
+            aypServiceInProgress.setVisibility(View.VISIBLE);
+        } else {
+//            textViewProcedureVmmc.setVisibility(View.VISIBLE);
+            aypServiceInProgress.setVisibility(View.GONE);
         }
     }
 
@@ -387,7 +413,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
             profilePresenter.saveForm(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
-            finish();
+//            finish();
         }
     }
 

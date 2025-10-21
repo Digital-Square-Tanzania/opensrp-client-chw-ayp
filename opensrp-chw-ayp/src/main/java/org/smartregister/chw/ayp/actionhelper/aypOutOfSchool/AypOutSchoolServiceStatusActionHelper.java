@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
@@ -24,6 +25,7 @@ public class AypOutSchoolServiceStatusActionHelper implements BaseAypVisitAction
     protected String jsonPayload;
     private Context context;
     private HashMap<String, Boolean> checkObject = new HashMap<>();
+    private String submittedPayload;
 
 
     public AypOutSchoolServiceStatusActionHelper(Context context, MemberObject memberObject) {
@@ -48,32 +50,38 @@ public class AypOutSchoolServiceStatusActionHelper implements BaseAypVisitAction
 
     @Override
     public String postProcess(String jsonPayload) {
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = new JSONObject(jsonPayload);
-            JSONArray fields = JsonFormUtils.fields(jsonObject);
-            JSONObject firstVitalCompletionStatus = JsonFormUtils.getFieldJSONObject(fields, "service_status");
-            assert firstVitalCompletionStatus != null;
-            firstVitalCompletionStatus.put(com.vijay.jsonwizard.constants.JsonFormConstants.VALUE, VisitUtils.getActionStatus(checkObject));
-        } catch (JSONException e) {
-            Timber.e(e);
-        }
-
-        if (jsonObject != null) {
-            return jsonObject.toString();
-        }
-        return null;
+        return jsonPayload;
     }
+
+//    @Override
+//    public String postProcess(String jsonPayload) {
+//        JSONObject jsonObject = null;
+//        try {
+//            jsonObject = new JSONObject(jsonPayload);
+//            JSONArray fields = JsonFormUtils.fields(jsonObject);
+//            JSONObject firstVitalCompletionStatus = JsonFormUtils.getFieldJSONObject(fields, "service_status");
+//            assert firstVitalCompletionStatus != null;
+//            firstVitalCompletionStatus.put(com.vijay.jsonwizard.constants.JsonFormConstants.VALUE, VisitUtils.getActionStatus(checkObject));
+//        } catch (JSONException e) {
+//            Timber.e(e);
+//        }
+//
+//        if (jsonObject != null) {
+//            return jsonObject.toString();
+//        }
+//        return null;
+//    }
 
     @Override
     public void onPayloadReceived(String jsonPayload) {
         try {
+//            JSONObject jsonObject = new JSONObject(jsonPayload);
+//            checkObject.clear();
+//
+//            checkObject.put("service_status", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "service_status")));
+            this.submittedPayload = jsonPayload;
             JSONObject jsonObject = new JSONObject(jsonPayload);
-            checkObject.clear();
-
-            checkObject.put("service_status", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "service_status")));
-
-            this.serviceStatus = JsonFormUtils.getValue(jsonObject, "service_status");
+            serviceStatus = JsonFormUtils.getValue(jsonObject, "service_status");
         } catch (Exception e) {
             Timber.e(e);
         }
