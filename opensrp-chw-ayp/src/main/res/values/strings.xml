@@ -51,6 +51,7 @@
     <string name="call_ayp_client">Ayp Client</string>
     <string name="head_of_family">Head of family</string>
     <string name="ayp_client">Ayp Client</string>
+    <string name="ayp_out_school_service_conducted">Ayp out school service conducted</string>
     <string name="ayp_contraindication">Clear Contraindication first, to proceed with MC procedure</string>
     <string name="copy_to_clipboard">Copy to clipboard</string>
     <string name="copied_phone_number">PhoneNumber copied to clipboard</string>
@@ -102,6 +103,9 @@
     <string name="ayp_out_school_group_attendance">Group Attendance</string>
     <string name="ayp_out_school_sbc_services">SBC Services</string>
 
+    <string name="ayp_screening">AYP Screening</string>
+
+
     <!-- Generated for In-School Group Visit actions -->
     <string name="ayp_group_attendance">Group Members Attendance</string>
     <string name="return_to_ayp_groups">Return to AYP Groups</string>
@@ -109,6 +113,7 @@
     <string name="add_group_member">Add Group Member</string>
     <string name="group_members">Group Members</string>
     <string name="group_members_count">Members: %1$d</string>
+    <string name="group_few_members_count">Less Than Five Members: %1$d</string>
     <string name="group_type_title">Type:</string>
     <string name="group_age_band_title">Age-band:</string>
     <string name="unknown_location">Unknown location</string>

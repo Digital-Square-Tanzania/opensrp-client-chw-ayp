@@ -170,7 +170,8 @@ public class BaseAypVisitInteractor implements BaseAypVisitContract.Interactor {
 
     protected String submitVisit(final boolean editMode,
                                  final String memberID,
-                                 final Map<String, BaseAypVisitAction> map,
+                                 final Map<String,
+                                         BaseAypVisitAction> map,
                                  String parentEventType) throws Exception {
         // create a map of the different types
 
