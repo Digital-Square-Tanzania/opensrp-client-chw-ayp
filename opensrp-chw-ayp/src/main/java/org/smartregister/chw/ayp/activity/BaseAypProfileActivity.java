@@ -191,14 +191,6 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
-//        Timber.tag("testing").d(getAypOutSchoolVisit().toString());
-//        if (getAypOutSchoolVisit() != null) {
-//            if (AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
-//                textViewGraduate.setVisibility(View.VISIBLE);
-//            } else {
-//                textViewGraduate.setVisibility(View.GONE);
-//            }
-//        }
         if(getAypOutSchoolVisit() != null){
             if (!getAypOutSchoolVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
                 manualProcessVisit.setVisibility(View.VISIBLE);

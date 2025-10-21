@@ -40,6 +40,12 @@ public class AypOutSchoolServiceStatusActionHelper implements BaseAypVisitAction
 
     @Override
     public String getPreProcessed() {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
         return null;
     }
 
@@ -54,34 +60,25 @@ public class AypOutSchoolServiceStatusActionHelper implements BaseAypVisitAction
     }
 
 //    @Override
-//    public String postProcess(String jsonPayload) {
-//        JSONObject jsonObject = null;
+//    public void onPayloadReceived(String jsonPayload) {
 //        try {
-//            jsonObject = new JSONObject(jsonPayload);
-//            JSONArray fields = JsonFormUtils.fields(jsonObject);
-//            JSONObject firstVitalCompletionStatus = JsonFormUtils.getFieldJSONObject(fields, "service_status");
-//            assert firstVitalCompletionStatus != null;
-//            firstVitalCompletionStatus.put(com.vijay.jsonwizard.constants.JsonFormConstants.VALUE, VisitUtils.getActionStatus(checkObject));
-//        } catch (JSONException e) {
+////            JSONObject jsonObject = new JSONObject(jsonPayload);
+////            checkObject.clear();
+////
+////            checkObject.put("service_status", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "service_status")));
+//            this.submittedPayload = jsonPayload;
+//            JSONObject jsonObject = new JSONObject(jsonPayload);
+//            serviceStatus = JsonFormUtils.getValue(jsonObject, "service_status");
+//        } catch (Exception e) {
 //            Timber.e(e);
 //        }
-//
-//        if (jsonObject != null) {
-//            return jsonObject.toString();
-//        }
-//        return null;
 //    }
 
     @Override
     public void onPayloadReceived(String jsonPayload) {
         try {
-//            JSONObject jsonObject = new JSONObject(jsonPayload);
-//            checkObject.clear();
-//
-//            checkObject.put("service_status", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "service_status")));
-            this.submittedPayload = jsonPayload;
-            JSONObject jsonObject = new JSONObject(jsonPayload);
-            serviceStatus = JsonFormUtils.getValue(jsonObject, "service_status");
+            JSONObject payload = new JSONObject(jsonPayload);
+            this.serviceStatus = JsonFormUtils.getValue(payload, "service_status");
         } catch (Exception e) {
             Timber.e(e);
         }

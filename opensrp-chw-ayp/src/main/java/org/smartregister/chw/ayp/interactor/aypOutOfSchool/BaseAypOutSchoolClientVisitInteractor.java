@@ -30,24 +30,29 @@ import timber.log.Timber;
 
 public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteractor {
 
-    protected final LinkedHashMap<String, BaseAypVisitAction> actionList = new LinkedHashMap<>();
+    protected BaseAypVisitContract.InteractorCallBack callBack;
+
+    protected LinkedHashMap<String, BaseAypVisitAction> actionList = new LinkedHashMap<>();
     private final ECSyncHelper syncHelper;
     protected AppExecutors appExecutors;
-    protected Map<String, List<VisitDetail>> details = null;
+//    protected Map<String, List<VisitDetail>> details = null;
     protected String visitType;
     protected MemberObject memberObject;
+    private final AypLibrary aypLibrary;
+
 
     @VisibleForTesting
-    public BaseAypOutSchoolClientVisitInteractor(AppExecutors appExecutors, ECSyncHelper syncHelper) {
+    public BaseAypOutSchoolClientVisitInteractor(AppExecutors appExecutors, AypLibrary aypLibrary, ECSyncHelper syncHelper) {
         this.appExecutors = appExecutors;
+        this.aypLibrary = aypLibrary;
         this.syncHelper = syncHelper;
-
+        this.actionList = new LinkedHashMap<>();
     }
 
-    public BaseAypOutSchoolClientVisitInteractor() {
-        this(new AppExecutors(), AypLibrary.getInstance().getEcSyncHelper());
+    public BaseAypOutSchoolClientVisitInteractor(String visitType) {
+        this(new AppExecutors(), AypLibrary.getInstance(), AypLibrary.getInstance().getEcSyncHelper());
+        this.visitType = visitType;
     }
-
 
     @Override
     protected String getCurrentVisitType() {
@@ -57,7 +62,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         return super.getCurrentVisitType();
     }
 
+
+    @Override
     protected void populateActionList(BaseAypVisitContract.InteractorCallBack callBack) {
+        this.callBack = callBack;
         final Runnable runnable = () -> {
             try {
                 evaluateServiceStatus(details);
@@ -92,7 +100,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         AypOutSchoolStructuralServiceActionHelper actionHelper = new AypOutSchoolStructuralServiceActionHelper(context, memberObject);
 
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_structural_services))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withValidator(getClientStatusGatingValidator())
@@ -104,7 +112,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateMedicalServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolMedicalServiceActionHelper actionHelper = new AypOutSchoolMedicalServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_medical_services))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withValidator(getClientStatusGatingValidator())
@@ -116,7 +124,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateHealthAndBehaviourChangeService(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolHealthBehaviourChangeServiceActionHelper actionHelper = new AypOutSchoolHealthBehaviourChangeServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withValidator(getClientStatusGatingValidator())
@@ -128,7 +136,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void fillNextAppointment(Map<String, List<VisitDetail>> visitDetails) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolNextAppointmentActionHelper actionHelper = new AypOutSchoolNextAppointmentActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_next_appointment))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(visitDetails)
                 .withHelper(actionHelper)
                 .withValidator(getClientStatusGatingValidator())
