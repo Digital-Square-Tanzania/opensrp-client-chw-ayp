@@ -8,6 +8,9 @@ public interface Constants {
     String STEP_TWO = "step2";
     String ayp_VISIT_GROUP = "ayp_visit_group";
 
+    String MALE = "male";
+    String FEMALE = "female";
+
 
     interface JSON_FORM_EXTRA {
         String JSON = "json";
@@ -80,6 +83,7 @@ public interface Constants {
     }
 
     interface TABLES {
+        String FAMILY_MEMBER_TABLE = "ec_family_member";
         String AYP_ENROLLMENT = "ec_ayp_enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "ec_ayp_in_school_enrollment";
         String AYP_OUT_SCHOOL_ENROLLMENT = "ec_ayp_out_school_enrollment";
@@ -116,6 +120,12 @@ public interface Constants {
 
     interface ayp_MEMBER_OBJECT {
         String MEMBER_OBJECT = "memberObject";
+    }
+
+    interface JSON_FORM_KEY {
+        String FACILITY_NAME = "facility_name";
+        String UIC_ID = "uic_id";
+        String CLIENT_GROUP = "client_group";
     }
 
     interface PROFILE_TYPES {

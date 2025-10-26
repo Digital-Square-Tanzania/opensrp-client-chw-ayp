@@ -29,8 +29,8 @@
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
                 android:background="@drawable/record_btn_selector"
                 android:gravity="center"
@@ -43,9 +43,9 @@
                 android:id="@+id/textview_record_anc_not_done"
                 style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:background="@drawable/record_btn_selector_above_twentyfr"
                 android:gravity="center"
                 android:padding="8dp"
@@ -54,12 +54,13 @@
                 android:visibility="gone" />
 
         </LinearLayout>
+
         <RelativeLayout
             android:id="@+id/record_visit_not_done_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_margin="8dp"
+            android:background="@color/white"
             android:visibility="gone">
 
             <ImageView
@@ -99,10 +100,10 @@
             android:id="@+id/record_visit_in_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_margin="8dp"
-            tools:visibility="visible"
-            android:visibility="gone">
+            android:background="@color/white"
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/on_progress_image"
@@ -131,11 +132,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:gravity="center"
                 android:layout_centerVertical="true"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/continue_visit"
+                android:textAlignment="center"
                 android:textColor="@color/primary" />
 
         </RelativeLayout>
@@ -144,10 +145,10 @@
             android:id="@+id/record_ayp_service_visit_in_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_margin="8dp"
-            tools:visibility="visible"
-            android:visibility="gone">
+            android:background="@color/white"
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/on_service_visit_in_progress_image"
@@ -176,11 +177,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:gravity="center"
                 android:layout_centerVertical="true"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/continue_visit"
+                android:textAlignment="center"
                 android:textColor="@color/primary" />
 
         </RelativeLayout>
@@ -261,8 +262,7 @@
             android:paddingBottom="10dp"
             android:text="@string/graduate"
             android:textColor="#009688"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
             android:id="@+id/textview_manual_process"
@@ -279,9 +279,9 @@
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
             android:text="@string/manual_process_visit"
+            android:textColor="@color/white"
             android:visibility="gone"
-            tools:visibility="visible"
-            android:textColor="@color/white" />
+            tools:visibility="visible" />
 
 
     </LinearLayout>

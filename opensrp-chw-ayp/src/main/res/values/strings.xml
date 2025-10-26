@@ -18,6 +18,7 @@
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
+    <string name="uic_id">UIC ID: %s</string>
     <string name="ayp_visit_in_progress">Visit In Progress</string>
     <string name="ayp_service_visit_in_progress">Ayp Service In Progress</string>
     <string name="ayp_procedure_visit_in_progress">Ayp Procedure In Progress</string>
