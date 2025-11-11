@@ -6,6 +6,10 @@ public interface Constants {
     String ENCOUNTER_TYPE = "encounter_type";
     String STEP_ONE = "step1";
     String STEP_TWO = "step2";
+    String STEP_THREE = "step3";
+    String STEP_FOUR = "step4";
+    String STEP_FIVE = "step5";
+    String STEP_SIX= "step6";
     String ayp_VISIT_GROUP = "ayp_visit_group";
 
     String MALE = "male";
@@ -22,7 +26,7 @@ public interface Constants {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
         String AYP_PARENTAL_ENROLLMENT = "AYP Parental Service Enrollment";
-        String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out of School Screening";
+        String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out-school Enrollment";
         String AYP_SERVICES = "Ayp Services";
         String AYP_PARENTAL_SERVICES = "Ayp Parental Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";

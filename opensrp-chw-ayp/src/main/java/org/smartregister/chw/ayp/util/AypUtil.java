@@ -137,8 +137,7 @@ public class AypUtil {
         //add guard clause to break processing if client doesn't belong to any kvp group
         if (baseEvent != null && baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.AYP_OUT_SCHOOL_ENROLLMENT) && !isClientToBeRegistered(jsonString)) {
             return;
-        }
-        if (baseEvent != null && baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.AYP_OUT_SCHOOL_ENROLLMENT)) {
+        } else if (baseEvent != null && baseEvent.getEventType().equalsIgnoreCase(Constants.EVENT_TYPE.AYP_OUT_SCHOOL_ENROLLMENT)) {
             baseEvent.addObs(new Obs().withFormSubmissionField(Constants.JSON_FORM_KEY.UIC_ID).withValue(generateUICID(baseEvent.getBaseEntityId(), jsonString))
                     .withFieldCode(Constants.JSON_FORM_KEY.UIC_ID).withFieldType("formsubmissionField").withFieldDataType("text").withParentCode("").withHumanReadableValues(new ArrayList<>()));
         }

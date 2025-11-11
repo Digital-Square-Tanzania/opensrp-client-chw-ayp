@@ -485,6 +485,19 @@ public class AypDao extends AbstractDao {
         return "";
     }
 
+    public static String getScore(String baseEntityId, String tableName) {
+        String sql = "SELECT score FROM " + tableName + " p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' AND p.is_closed = 0 ";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "score");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
     public static MemberObject getParentalMember(String baseEntityID) {
         String sql = "select " +
                 "m.base_entity_id , " +
