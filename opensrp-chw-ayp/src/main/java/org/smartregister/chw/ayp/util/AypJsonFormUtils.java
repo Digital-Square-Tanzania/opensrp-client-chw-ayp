@@ -1,7 +1,11 @@
 package org.smartregister.chw.ayp.util;
 
 import static org.smartregister.chw.ayp.util.Constants.ENCOUNTER_TYPE;
+import static org.smartregister.chw.ayp.util.Constants.STEP_FIVE;
+import static org.smartregister.chw.ayp.util.Constants.STEP_FOUR;
 import static org.smartregister.chw.ayp.util.Constants.STEP_ONE;
+import static org.smartregister.chw.ayp.util.Constants.STEP_SIX;
+import static org.smartregister.chw.ayp.util.Constants.STEP_THREE;
 import static org.smartregister.chw.ayp.util.Constants.STEP_TWO;
 import static org.smartregister.chw.ayp.util.Constants.ayp_VISIT_GROUP;
 
@@ -44,20 +48,37 @@ public class AypJsonFormUtils extends org.smartregister.util.JsonFormUtils {
     }
 
     public static JSONArray aypFormFields(JSONObject jsonForm) {
+        //TODO: refactor this implementation with a O(logN) complexity
         try {
+            JSONArray fields = new JSONArray();
             JSONArray fieldsOne = fields(jsonForm, STEP_ONE);
             JSONArray fieldsTwo = fields(jsonForm, STEP_TWO);
-            if (fieldsTwo != null) {
-                for (int i = 0; i < fieldsTwo.length(); i++) {
-                    fieldsOne.put(fieldsTwo.get(i));
-                }
-            }
-            return fieldsOne;
+            JSONArray fieldsThree = fields(jsonForm, STEP_THREE);
+            JSONArray fieldsFour = fields(jsonForm, STEP_FOUR);
+            JSONArray fieldsFive = fields(jsonForm, STEP_FIVE);
+            JSONArray fieldsSix = fields(jsonForm, STEP_SIX);
+
+            compileFields(fields, fieldsOne);
+            compileFields(fields, fieldsTwo);
+            compileFields(fields, fieldsThree);
+            compileFields(fields, fieldsFour);
+            compileFields(fields, fieldsFive);
+            compileFields(fields, fieldsSix);
+
+            return fields;
 
         } catch (JSONException e) {
             Log.e(TAG, "", e);
         }
         return null;
+    }
+
+    private static void compileFields(JSONArray compiledFields, JSONArray addedField) throws JSONException {
+        if (addedField != null) {
+            for (int i = 0; i < addedField.length(); i++) {
+                compiledFields.put(addedField.get(i));
+            }
+        }
     }
 
     public static JSONArray fields(JSONObject jsonForm, String step) {

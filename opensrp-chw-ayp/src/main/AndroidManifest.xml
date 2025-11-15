@@ -10,6 +10,9 @@
             android:name="org.smartregister.chw.ayp.activity.BaseAypInSchoolGroupVisitActivity"
             android:exported="false" />
         <activity
+            android:name="org.smartregister.chw.ayp.activity.BaseAypOutSchoolGroupVisitActivity"
+            android:exported="false" />
+        <activity
             android:name="org.smartregister.chw.ayp.activity.BaseAypGroupProfileActivity"
             android:exported="false" />
         <activity

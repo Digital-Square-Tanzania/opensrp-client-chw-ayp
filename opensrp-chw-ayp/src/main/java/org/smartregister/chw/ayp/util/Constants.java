@@ -6,7 +6,14 @@ public interface Constants {
     String ENCOUNTER_TYPE = "encounter_type";
     String STEP_ONE = "step1";
     String STEP_TWO = "step2";
+    String STEP_THREE = "step3";
+    String STEP_FOUR = "step4";
+    String STEP_FIVE = "step5";
+    String STEP_SIX= "step6";
     String ayp_VISIT_GROUP = "ayp_visit_group";
+
+    String MALE = "male";
+    String FEMALE = "female";
 
 
     interface JSON_FORM_EXTRA {
@@ -19,6 +26,7 @@ public interface Constants {
         String ayp_ENROLLMENT = "Ayp Enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "AYP In-school Enrollment";
         String AYP_PARENTAL_ENROLLMENT = "AYP Parental Service Enrollment";
+        String AYP_OUT_SCHOOL_ENROLLMENT = "AYP Out-school Enrollment";
         String AYP_SERVICES = "Ayp Services";
         String AYP_PARENTAL_SERVICES = "Ayp Parental Services";
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
@@ -32,6 +40,8 @@ public interface Constants {
         String AYP_FACILITY_SERVICES = "Ayp Facility Services";
         String AYP_SCREENING_FACILITY = "AYP Facility Screening";
 
+        String AYP_OUT_GROUP_DETAILS = "group_out_details";
+        String AYP_OUT_GROUP_MEMBERSHIP = "ayp_group_out_membership";
     }
 
     interface FORMS {
@@ -47,6 +57,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_GBV_SCREENING = "ayp_in_school_gbv_screening";
         String AYP_GROUP_ATTENDANCE = "ayp_in_school_group_members_attendance";
 
+        String AYP_OUT_SCHOOL_ENROLLMENT = "ayp_out_school_enrollment";
         String AYP_PARENTING_CLIENT_STATUS = "ayp_parenting_services_client_status";
         String AYP_PARENTING_DELIVERY_MODALITY = "ayp_parenting_services_delivery_modality";
         String AYP_PARENTING_TRAINING_PARENTS = "ayp_parenting_services_parenting_training_for_parents_and_guardians";
@@ -64,11 +75,11 @@ public interface Constants {
         String AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES= "ayp_out_school_health_and_behaviour_change_services";
         String AYP_OUT_SCHOOL_NEXT_APPOINTMENT = "ayp_out_school_next_appointment";
 
-        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_attendance";
+        String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_members_attendance";
         String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
         String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
         String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
-
+        String AYP_OUT_SCHOOL_GRADUATION = "ayp_out_school_graduate";
         String AYP_FACILITY_BIOMEDICAL_HTS = "ayp_facility_biomedical_hts";
         String AYP_FACILITY_BIOMEDICAL_HIVST = "ayp_facility_biomedical_hivst";
         String AYP_FACILITY_BIOMEDICAL_CONDOM_DISTRIBUTION = "ayp_facility_biomedical_condom_distribution";
@@ -93,16 +104,20 @@ public interface Constants {
     }
 
     interface TABLES {
+        String FAMILY_MEMBER_TABLE = "ec_family_member";
         String AYP_ENROLLMENT = "ec_ayp_enrollment";
         String AYP_IN_SCHOOL_ENROLLMENT = "ec_ayp_in_school_enrollment";
+        String AYP_OUT_SCHOOL_ENROLLMENT = "ec_ayp_out_school_enrollment";
         String AYP_IN_SCHOOL_GROUP_DETAILS = "ec_ayp_in_school_group_details";
         String AYP_IN_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_in_school_client_followup_visits";
         String AYP_PARENTAL_ENROLLMENT = "ec_ayp_parental_enrollment";
         String AYP_IN_SCHOOL_GROUP_MEMBERS = "ec_ayp_in_school_group_members";
+        String AYP_OUT_SCHOOL_GROUP_MEMBERS = "ec_ayp_out_school_group_members";
         String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
         String AYP_FACILITY_SCREENING = "ec_ayp_facility_screening";
         String AYP_FACILITY_SERVICES = "ec_ayp_facility_services";
+        String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
     }
 
     interface ACTIVITY_PAYLOAD {
@@ -128,6 +143,12 @@ public interface Constants {
 
     interface ayp_MEMBER_OBJECT {
         String MEMBER_OBJECT = "memberObject";
+    }
+
+    interface JSON_FORM_KEY {
+        String FACILITY_NAME = "facility_name";
+        String UIC_ID = "uic_id";
+        String CLIENT_GROUP = "client_group";
     }
 
     interface PROFILE_TYPES {

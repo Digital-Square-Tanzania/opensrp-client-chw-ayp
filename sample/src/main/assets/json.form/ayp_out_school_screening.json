@@ -1,0 +1,490 @@
+{
+  "count": "5",
+  "skip_blank_steps": true,
+  "encounter_type": "AYP Screening",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "start"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "end"
+    },
+    "today": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "encounter",
+      "openmrs_entity_id": "encounter_date"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "deviceid"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "subscriberid"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "simserial"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "phonenumber"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Elimu",
+    "next": "step2",
+    "fields": [
+      {
+        "key": "at_school_currently",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "at_school_currently",
+        "type": "native_radio",
+        "label": "Je, uko shule kwa sasa",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "type": "native_radio",
+        "label": "Uko ngazi gani ya elimu",
+        "options": [
+          {
+            "key": "primary",
+            "text": "Msingi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "primary"
+          },
+          {
+            "key": "secondary",
+            "text": "Sekondari",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "secondary"
+          },
+          {
+            "key": "university",
+            "text": "Chuo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "university"
+          },
+          {
+            "key": "others",
+            "text": "Nyingineyo(Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "others"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        },
+        "relevance": {
+          "step1:at_school_currently": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      }
+    ]
+  },
+  "step2": {
+    "title": "Malezi",
+    "next": "step3",
+    "fields": [
+      {
+        "key": "guidance_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "guidance_status",
+        "type": "native_radio",
+        "label": "Wazazi wako wote wapo hai",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "parenting_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "parenting_status",
+        "type": "native_radio",
+        "label": "Hali ya malezi",
+        "options": [
+          {
+            "key": "raised_by_parent",
+            "text": "Analelewa na Mzazi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "raised_by_parent"
+          },
+          {
+            "key": "raised_by_self",
+            "text": "Anajilea mwenyewe",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "raised_by_self"
+          },
+          {
+            "key": "raised_by_guardian",
+            "text": "Analelewa na mlezi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "raised_by_guardian"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      }
+    ]
+  },
+  "step3": {
+    "title": "Ngono hatarishi",
+    "next": "step4",
+    "fields": [
+      {
+        "key": "had_sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "had_sex",
+        "type": "native_radio",
+        "label": "Je, umewahi kufanya ngono?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "reasons_for_having_Sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reasons_for_having_Sex",
+        "type": "native_radio",
+        "label": "Je unafanya ngono kwa ajili ya kujipatia vitu, kipato au zawadi? ",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "use_condom_at_sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "use_condom_at_sex",
+        "type": "native_radio",
+        "label": "Unatumia kondomu wakati wa ngono? ",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "pregnancy_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "pregnancy_status",
+        "type": "check_box",
+        "label": "Hali ya uzazi (Kwa AGYW tu)",
+        "combine_checkbox_option_values": "true",
+        "label_text_style": "normal",
+        "text_color": "#C0C0C0",
+        "options": [
+          {
+            "key": "pregnant",
+            "text": "Mjamzito sasa",
+            "openmrs_entity": "person_attribute",
+            "openmrs_entity_id": "pregnant"
+          },
+          {
+            "key": "had_pregnancy",
+            "text": "Amewahi kuwa mjamzito",
+            "openmrs_entity": "person_attribute",
+            "openmrs_entity_id": "had_pregnancy"
+          },
+          {
+            "key": "parent",
+            "text": "Mzazi",
+            "openmrs_entity": "person_attribute",
+            "openmrs_entity_id": "parent"
+          },
+          {
+            "key": "not_applicable",
+            "text": "Haihusiki",
+            "openmrs_entity": "person_attribute",
+            "openmrs_entity_id": "not_applicable"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "relationship_more_than_one_person",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship_more_than_one_person",
+        "type": "native_radio",
+        "label": "Una mahusiano ya kimapenzi na wanaume/ wanawake zaidi ya mmoja?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "married_at_young_age",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "married_at_young_age",
+        "type": "native_radio",
+        "label": "Umeolewa/ Umeoa katika umri mdogo (Chini ya Miaka 18)?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      }
+    ]
+  },
+  "step4": {
+    "title": "Magonjwa ya zinaa",
+    "display_back_button": "true",
+    "fields": [
+      {
+        "key": "had_sti_disease",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "had_sti_disease",
+        "type": "native_radio",
+        "label": "Umewahi kupata ugonjwa wa zinaa ?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      }
+    ]
+  },
+  "step5": {
+    "title": "Ukatili",
+    "display_back_button": "true",
+    "fields": [
+      {
+        "key": "know_violence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "know_violence",
+        "type": "native_radio",
+        "label": "Unafahamu kuhusu ukatili ?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      },
+      {
+        "key": "done_violence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "done_violence",
+        "type": "native_radio",
+        "label": "Umeshawahi kufanyiwa ukatili ?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": true,
+          "err": "Tafadhali jaza"
+        }
+      }
+    ]
+  }
+}
+

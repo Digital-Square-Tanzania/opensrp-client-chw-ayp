@@ -3,6 +3,7 @@ package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
@@ -32,6 +33,12 @@ public class AypOutSchoolStructuralServiceActionHelper implements BaseAypVisitAc
 
     @Override
     public String getPreProcessed() {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            return jsonObject.toString();
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
         return null;
     }
 
@@ -42,7 +49,7 @@ public class AypOutSchoolStructuralServiceActionHelper implements BaseAypVisitAc
 
     @Override
     public String postProcess(String jsonPayload) {
-        return "";
+        return jsonPayload;
     }
 
     @Override

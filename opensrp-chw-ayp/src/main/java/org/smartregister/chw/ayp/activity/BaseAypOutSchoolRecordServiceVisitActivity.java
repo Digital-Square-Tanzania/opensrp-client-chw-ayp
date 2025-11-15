@@ -1,11 +1,14 @@
 package org.smartregister.chw.ayp.activity;
 
+import static org.smartregister.chw.ayp.util.Constants.EVENT_TYPE.AYP_OUT_SCHOOL_FOLLOW_UP_VISIT;
+
 import android.app.Activity;
 import android.content.Intent;
 
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.interactor.BaseAypInSchoolClientVisitInteractor;
+import org.smartregister.chw.ayp.interactor.aypOutOfSchool.BaseAypOutSchoolClientVisitInteractor;
 import org.smartregister.chw.ayp.presenter.BaseAypVisitPresenter;
 import org.smartregister.chw.ayp.util.Constants;
 
@@ -27,6 +30,6 @@ public class BaseAypOutSchoolRecordServiceVisitActivity extends BaseAypVisitActi
 
     @Override
     protected void registerPresenter() {
-        presenter = new BaseAypVisitPresenter(memberObject, this, new BaseAypInSchoolClientVisitInteractor());
+        presenter = new BaseAypVisitPresenter(memberObject, this, new BaseAypOutSchoolClientVisitInteractor(AYP_OUT_SCHOOL_FOLLOW_UP_VISIT));
     }
 }
