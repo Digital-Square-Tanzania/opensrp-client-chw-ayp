@@ -150,11 +150,11 @@
             "openmrs_entity_id": "rchs"
           },
           {
-            "key": "radio",
+            "key": "native_radio",
             "text": "Radio",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "radio"
+            "openmrs_entity_id": "native_radio"
           },
           {
             "key": "others",

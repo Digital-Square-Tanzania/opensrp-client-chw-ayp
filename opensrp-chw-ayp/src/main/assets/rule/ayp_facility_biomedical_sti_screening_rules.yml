@@ -1,0 +1,7 @@
+---
+name: step1_sti_screening_result
+description: Show STI screening result when screening conducted
+priority: 1
+condition: "step1_sti_screening_conducted != null && step1_sti_screening_conducted == 'yes'"
+actions:
+  - "isRelevant = true"
