@@ -146,4 +146,18 @@
     <string name="ayp_gbv_not_encountered">Did not encounter GBV</string>
     <string name="ayp_gbv_not_screened">Not Screened</string>
     <string name="ayp_in_school_register_title">AYP In-School Clients</string>
+    <string name="ayp_facility_biomedical_hts">HIV Testing Services</string>
+    <string name="ayp_facility_biomedical_hivst">Provision of HIVST Kits</string>
+    <string name="ayp_facility_biomedical_condom_distribution">Condom Distribution</string>
+    <string name="ayp_facility_biomedical_gbv">GBV Screening</string>
+    <string name="ayp_facility_biomedical_sti_screening">STI Screening</string>
+    <string name="ayp_facility_biomedical_sti_treatment_client">Client STI Treatment</string>
+    <string name="ayp_facility_biomedical_sti_treatment_partner">Partner STI Treatment</string>
+    <string name="ayp_facility_biomedical_tb_screening">TB Screening</string>
+    <string name="ayp_facility_biomedical_pep_service">PEP Service</string>
+    <string name="ayp_facility_biomedical_hepatitis">Hepatitis Screening and Management</string>
+    <string name="ayp_parenting_services_next_appointment_and_referral">Next Appointment and Referral Action</string>
+    <string name="ayp_facility_biomedical_family_planning">Provision of Family Planning methods</string>
+    <string name="ayp_facility_referral_to_other_services">Referral to Other Services</string>
+    <string name="ayp_facility_next_appointment">Next Appointment Date</string>
 </resources>
