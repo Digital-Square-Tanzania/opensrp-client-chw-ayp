@@ -76,8 +76,6 @@
                         style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="65dp"
-                        android:layout_weight="1"
                         android:background="@drawable/risk_label"
                         android:paddingStart="15dp"
                         android:paddingTop="6dp"
@@ -86,12 +84,16 @@
                         android:text="HIGH RISK"
                         android:textColor="@color/default_risk_text_black"
                         android:textSize="14sp"
-                        android:visibility="gone"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:visibility="visible"
+
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/imageview_profile"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintVertical_bias="0.5" />
+
 
                     <org.smartregister.view.customcontrols.CustomFontTextView
                         android:id="@+id/textview_name"
