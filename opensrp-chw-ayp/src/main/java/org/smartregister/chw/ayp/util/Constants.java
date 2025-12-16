@@ -10,6 +10,8 @@ public interface Constants {
     String STEP_FOUR = "step4";
     String STEP_FIVE = "step5";
     String STEP_SIX= "step6";
+    String STEP_SEVEN= "step7";
+    String STEP_EIGHT= "step8";
     String ayp_VISIT_GROUP = "ayp_visit_group";
 
     String MALE = "male";
