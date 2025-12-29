@@ -5,6 +5,8 @@ import static org.smartregister.chw.ayp.util.Constants.STEP_FIVE;
 import static org.smartregister.chw.ayp.util.Constants.STEP_FOUR;
 import static org.smartregister.chw.ayp.util.Constants.STEP_ONE;
 import static org.smartregister.chw.ayp.util.Constants.STEP_SIX;
+import static org.smartregister.chw.ayp.util.Constants.STEP_SEVEN;
+import static org.smartregister.chw.ayp.util.Constants.STEP_EIGHT;
 import static org.smartregister.chw.ayp.util.Constants.STEP_THREE;
 import static org.smartregister.chw.ayp.util.Constants.STEP_TWO;
 import static org.smartregister.chw.ayp.util.Constants.ayp_VISIT_GROUP;
@@ -57,6 +59,9 @@ public class AypJsonFormUtils extends org.smartregister.util.JsonFormUtils {
             JSONArray fieldsFour = fields(jsonForm, STEP_FOUR);
             JSONArray fieldsFive = fields(jsonForm, STEP_FIVE);
             JSONArray fieldsSix = fields(jsonForm, STEP_SIX);
+            JSONArray fieldsSeven = fields(jsonForm, STEP_SEVEN);
+            JSONArray fieldsEight = fields(jsonForm, STEP_EIGHT);
+
 
             compileFields(fields, fieldsOne);
             compileFields(fields, fieldsTwo);
@@ -64,6 +69,8 @@ public class AypJsonFormUtils extends org.smartregister.util.JsonFormUtils {
             compileFields(fields, fieldsFour);
             compileFields(fields, fieldsFive);
             compileFields(fields, fieldsSix);
+            compileFields(fields, fieldsSeven);
+            compileFields(fields, fieldsEight);
 
             return fields;
 

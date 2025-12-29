@@ -37,4 +37,5 @@
     <color name="high_risk_text_red">#D0021B</color>
     <color name="high_risk_background_red">#20D0021B</color>
 
+    <color name="grey_tranparent_50">#803B404D</color>
 </resources>

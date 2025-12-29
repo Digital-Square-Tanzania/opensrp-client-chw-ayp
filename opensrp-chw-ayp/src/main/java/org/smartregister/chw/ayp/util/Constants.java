@@ -10,6 +10,8 @@ public interface Constants {
     String STEP_FOUR = "step4";
     String STEP_FIVE = "step5";
     String STEP_SIX= "step6";
+    String STEP_SEVEN= "step7";
+    String STEP_EIGHT= "step8";
     String ayp_VISIT_GROUP = "ayp_visit_group";
 
     String MALE = "male";
@@ -73,12 +75,14 @@ public interface Constants {
         String AYP_OUT_SCHOOL_STRUCTURAL_SERVICE = "ayp_out_school_structural_services";
         String AYP_OUT_SCHOOL_MEDICAL_SERVICE = "ayp_out_school_medical_services";
         String AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES= "ayp_out_school_health_and_behaviour_change_services";
+        String AYP_OUT_SCHOOL_REFER_TO_OTHER_SERVICES= "ayp_out_school_refer_to_other_services";
         String AYP_OUT_SCHOOL_NEXT_APPOINTMENT = "ayp_out_school_next_appointment";
 
         String AYP_OUT_SCHOOL_GROUP_ATTENDANCE = "ayp_out_school_group_members_attendance";
         String AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE = "ayp_out_school_group_structural_services";
         String AYP_OUT_SCHOOL_SBC_SERVICE = "ayp_out_school_sbc_services";
         String AYP_OUT_SCHOOL_GROUP_NEXT_APPOINTMENT = "ayp_out_school_group_next_appointment";
+
         String AYP_OUT_SCHOOL_GRADUATION = "ayp_out_school_graduate";
         String AYP_FACILITY_BIOMEDICAL_HTS = "ayp_facility_biomedical_hts";
         String AYP_FACILITY_BIOMEDICAL_HIVST = "ayp_facility_biomedical_hivst";
@@ -115,9 +119,9 @@ public interface Constants {
         String AYP_OUT_SCHOOL_GROUP_MEMBERS = "ec_ayp_out_school_group_members";
         String AYP_SERVICE = "ec_ayp_services";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
+        String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
         String AYP_FACILITY_SCREENING = "ec_ayp_facility_screening";
         String AYP_FACILITY_SERVICES = "ec_ayp_facility_services";
-        String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
     }
 
     interface ACTIVITY_PAYLOAD {

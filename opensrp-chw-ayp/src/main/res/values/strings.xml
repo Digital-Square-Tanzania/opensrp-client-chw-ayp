@@ -99,6 +99,7 @@
     <string name="ayp_out_school_structural_services">Structural Services</string>
     <string name="ayp_out_school_medical_services">Medical Services</string>
     <string name="ayp_out_school_health_and_behaviour_change_services">Health and Behavior Change Services</string>
+    <string name="ayp_out_school_refer_to_other_services">Refer to Other services</string>
     <string name="ayp_out_school_next_appointment">Next Appointment</string>
 
     <string name="ayp_out_school_group_attendance">Group Attendance</string>
