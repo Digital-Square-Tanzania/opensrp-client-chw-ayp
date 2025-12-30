@@ -1,0 +1,132 @@
+{
+  "count": "1",
+  "encounter_type": "ayp_facility_biomedical_hepatitis",
+  "entity_id": "",
+  "relational_id": "",
+  "form_name": "ayp_facility_biomedical_hepatitis",
+  "rules_file": "ayp_facility_biomedical_hepatitis_rules.yml",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "step1": {
+    "title": "Hepatitis Services",
+    "fields": [
+      {
+        "key": "hepatitis_b",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_b",
+        "type": "native_radio",
+        "label": "What was the client's Hepatitis B (HBV) screening and management outcome?",
+        "options": [
+          {
+            "key": "not_screened",
+            "text": "Not Screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "screened",
+            "text": "Screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screened"
+          },
+          {
+            "key": "screened_positive_treated",
+            "text": "Screened Positive and treated",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screened_positive_treated"
+          },
+          {
+            "key": "screen_negative_vaccinated",
+            "text": "Screen Negative and Vaccinated",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screen_negative_vaccinated"
+          }
+        ]
+      },
+      {
+        "key": "hepatitis_c",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hepatitis_c",
+        "type": "native_radio",
+        "label": "What was the client's Hepatitis C (HCV) screening and management outcome?",
+        "options": [
+          {
+            "key": "not_screened",
+            "text": "Not Screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_screened"
+          },
+          {
+            "key": "screened",
+            "text": "Screened",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screened"
+          },
+          {
+            "key": "screened_positive_treated",
+            "text": "Screened Positive and treated",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screened_positive_treated"
+          },
+          {
+            "key": "screen_negative",
+            "text": "Screen Negative",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screen_negative"
+          }
+        ]
+      }
+    ]
+  }
+}

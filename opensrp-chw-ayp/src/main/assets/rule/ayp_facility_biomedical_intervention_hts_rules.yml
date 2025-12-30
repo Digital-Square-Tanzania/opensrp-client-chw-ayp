@@ -1,0 +1,21 @@
+---
+name: step1_hiv_status
+description: Show hiv_status when HIV testing services is yes
+priority: 1
+condition: "step1_hiv_testing_services != null && step1_hiv_testing_services == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_prompt_for_linkage_to_hts_module
+description: Show linkage prompt when HIV testing services is yes
+priority: 1
+condition: "step1_hiv_testing_services != null && step1_hiv_testing_services == 'yes'"
+actions:
+  - "isRelevant = true"
+---
+name: step1_ctc_number
+description: Show ctc_number when client HIV status is positive
+priority: 1
+condition: "step1_hiv_status != null && (step1_hiv_status == 'positive_ctc' || step1_hiv_status == 'known_positive_ctc')"
+actions:
+  - "isRelevant = true"

@@ -1,0 +1,7 @@
+---
+name: step1_service_delivery_point_other_specify
+description: Show service_delivery_point_other_specify when Other is selected
+priority: 1
+condition: "step1_service_delivery_point == 'other'"
+actions:
+    - "isRelevant = true"
