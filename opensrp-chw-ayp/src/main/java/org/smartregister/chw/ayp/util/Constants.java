@@ -137,6 +137,7 @@ public interface Constants {
 
     interface PROFILE_TYPES {
         String ayp_PROFILE = "ayp_profile";
+        String AYP_OUT_SCHOOL_PROFILE = "ayp_out_of_school_profile";
     }
 
     interface VALUES {

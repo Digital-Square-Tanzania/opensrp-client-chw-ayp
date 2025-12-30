@@ -200,23 +200,25 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void showUICID(String baseEntityId) {
-        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+
+            if (Constants.PROFILE_TYPES.AYP_OUT_SCHOOL_PROFILE.equalsIgnoreCase(profileType)) {
 //            String tableName = profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE) ? Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT : Constants.TABLES.AYP_ENROLLMENT;
-            String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
-            String UIC_ID = AypDao.getUIC_ID(baseEntityId, tableName);
-            if (StringUtils.isNotBlank(UIC_ID)) {
-                textViewId.setVisibility(View.VISIBLE);
-                textViewId.setText(getString(R.string.uic_id, UIC_ID.toUpperCase(Locale.ROOT)));
+                String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
+                String UIC_ID = AypDao.getUIC_ID(baseEntityId, tableName);
+                if (StringUtils.isNotBlank(UIC_ID)) {
+                    textViewId.setVisibility(View.VISIBLE);
+                    textViewId.setText(getString(R.string.uic_id, UIC_ID.toUpperCase(Locale.ROOT)));
+                } else {
+                    textViewId.setVisibility(View.GONE);
+                }
             } else {
                 textViewId.setVisibility(View.GONE);
             }
-        } else {
-            textViewId.setVisibility(View.GONE);
-        }
+
     }
 
     protected void showLabel(String baseEntityId) {
-        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+        if (Constants.PROFILE_TYPES.AYP_OUT_SCHOOL_PROFILE.equalsIgnoreCase(profileType)) {
             String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
             String score = AypDao.getScore(baseEntityId, tableName);
 
