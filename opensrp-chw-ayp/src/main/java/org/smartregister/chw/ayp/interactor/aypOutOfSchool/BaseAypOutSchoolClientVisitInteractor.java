@@ -9,6 +9,7 @@ import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolHealthBehaviourChangeServiceActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolMedicalServiceActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolNextAppointmentActionHelper;
+import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolReferalOtherServActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolServiceStatusActionHelper;
 import org.smartregister.chw.ayp.actionhelper.aypOutOfSchool.AypOutSchoolStructuralServiceActionHelper;
 import org.smartregister.chw.ayp.contract.BaseAypVisitContract;
@@ -72,6 +73,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
                 evaluateStructuralServices(details);
                 evaluateMedicalServices(details);
                 evaluateHealthAndBehaviourChangeService(details);
+                evaluateReferalToOtherService(details);
                 fillNextAppointment(details);
             } catch (BaseAypVisitAction.ValidationException e) {
                 Timber.e(e);
@@ -131,6 +133,18 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services), action);
+    }
+
+    private void evaluateReferalToOtherService(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
+        AypOutSchoolReferalOtherServActionHelper actionHelper = new AypOutSchoolReferalOtherServActionHelper(context, memberObject);
+        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_refer_to_other_services))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withValidator(getClientStatusGatingValidator())
+                .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_REFER_TO_OTHER_SERVICES)
+                .build();
+        actionList.put(context.getString(R.string.ayp_out_school_refer_to_other_services), action);
     }
 
     private void fillNextAppointment(Map<String, List<VisitDetail>> visitDetails) throws BaseAypVisitAction.ValidationException {

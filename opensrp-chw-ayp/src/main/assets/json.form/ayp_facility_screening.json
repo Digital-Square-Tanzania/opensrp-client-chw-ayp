@@ -1,0 +1,898 @@
+{
+  "count": "2",
+  "encounter_type": "AYP Facility Screening",
+  "entity_id": "",
+  "relational_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "165000AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "165001AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "165003AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "165004AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "165005AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "165006AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "rules_file": "ayp_facility_screening_rules.yml",
+  "global": {},
+  "step1": {
+    "title": "AYP Screening and Enrollment",
+    "next": "step2",
+    "fields": [
+      {
+        "key": "currently_in_school",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "currently_in_school",
+        "type": "native_radio",
+        "label": "Is the client in school?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "education_level",
+        "type": "native_radio",
+        "label": "What is the client's level of education?",
+        "options": [
+          {
+            "key": "primary",
+            "text": "Primary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "primary"
+          },
+          {
+            "key": "secondary",
+            "text": "Secondary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "secondary"
+          },
+          {
+            "key": "college",
+            "text": "College",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "college"
+          },
+          {
+            "key": "other",
+            "text": "Other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "other_education_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_education_specify",
+        "type": "edit_text",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        },
+        "hint": "Please specify the other education level."
+      },
+      {
+        "key": "parents_alive",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "parents_alive",
+        "type": "native_radio",
+        "label": "Are both of the client's parents alive?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          },
+          {
+            "key": "one_alive",
+            "text": "One parent is alive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "one_alive"
+          }
+        ]
+      },
+      {
+        "key": "caregiving_situation",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "caregiving_situation",
+        "type": "native_radio",
+        "label": "What is the client's current caregiving situation?",
+        "options": [
+          {
+            "key": "raised_by_parent",
+            "text": "Raised by a parent",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "raised_by_parent"
+          },
+          {
+            "key": "raised_by_caregiver",
+            "text": "Raised by a caregiver",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "raised_by_caregiver"
+          },
+          {
+            "key": "self_cared",
+            "text": "Self-cared (Head of household)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "self_cared"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "consume_alcohol",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "consume_alcohol",
+        "type": "native_radio",
+        "label": "Does the client consume alcohol?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "use_drugs",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "use_drugs",
+        "type": "native_radio",
+        "label": "Does the client use drugs?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "ever_had_sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ever_had_sex",
+        "type": "native_radio",
+        "label": "Has the client ever had sex?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "transactional_sex",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "transactional_sex",
+        "type": "native_radio",
+        "label": "Does the client engage in sex to obtain money, gifts, or other necessities?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "condom_use",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "condom_use",
+        "type": "native_radio",
+        "label": "Does the client use condoms during sex?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "pregnancy_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "pregnancy_status",
+        "type": "check_box",
+        "label": "What is the client's pregnancy status?",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "currently_pregnant",
+            "text": "Currently pregnant",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "currently_pregnant"
+          },
+          {
+            "key": "has_been_pregnant",
+            "text": "Has been pregnant before",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "has_been_pregnant"
+          },
+          {
+            "key": "parent",
+            "text": "Parent",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "parent"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "multiple_partners",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "multiple_partners",
+        "type": "native_radio",
+        "label": "Does the client have relationships with multiple partners?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "early_marriage",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "early_marriage",
+        "type": "native_radio",
+        "label": "Has the client ever been married under the age of 18?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "sti_infection",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sti_infection",
+        "type": "native_radio",
+        "label": "Has the client ever had a sexually transmitted infection?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "understand_violence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "understand_violence",
+        "type": "native_radio",
+        "label": "Does the client understand what violence is?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "experienced_violence",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "experienced_violence",
+        "type": "native_radio",
+        "label": "Has the client experienced violence?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "ayp_eligibility",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ayp_eligibility",
+        "type": "hidden",
+        "label": "Does the client meet the AYP enrollment eligibility criteria?",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_calculation.yml"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "step2": {
+    "title": "Enrollment/Linkage to Other Services",
+    "fields": [
+      {
+        "key": "eligible_for_ayp_services",
+        "type": "toaster_notes",
+        "text": "The client is eligible for AYP Services",
+        "openmrs_entity_id": "eligible_for_ayp_services",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "not_eligible_for_ayp_services",
+        "type": "toaster_notes",
+        "text": "The client is not eligible for AYP Services, Link to client to other services",
+        "openmrs_entity_id": "not_eligible_for_ayp_services",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "date_of_enrollment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "date_of_enrollment",
+        "type": "date_picker",
+        "hint": "What is the client's enrollment date?",
+        "expanded": false,
+        "max_date": "today",
+        "min_date": "today - 1m",
+        "v_required": {
+          "value": "true",
+          "err": "Please enter the enrollment date"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "enrollment_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrollment_status",
+        "type": "native_radio",
+        "label": "What is the client's enrollment status?",
+        "options": [
+          {
+            "key": "new_client",
+            "text": "New client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "new_client"
+          },
+          {
+            "key": "referred_client",
+            "text": "Referred client",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "referred_client"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "uic_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uic_number",
+        "type": "edit_text",
+        "constraints": [
+          {
+            "type": "v_numeric",
+            "err": "Please enter a valid number"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        },
+        "hint": "What is the client's UIC number?"
+      },
+      {
+        "key": "enrollment_education_level",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "enrollment_education_level",
+        "type": "native_radio",
+        "label": "What is the client's education level at enrollment?",
+        "options": [
+          {
+            "key": "primary",
+            "text": "Primary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "primary"
+          },
+          {
+            "key": "secondary",
+            "text": "Secondary",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "secondary"
+          },
+          {
+            "key": "college",
+            "text": "College",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "college"
+          },
+          {
+            "key": "vocational",
+            "text": "Vocational",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vocational"
+          },
+          {
+            "key": "illiterate",
+            "text": "Illiterate",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "illiterate"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "ayp_beneficiary",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ayp_beneficiary",
+        "type": "native_radio",
+        "label": "Is the client an AYP beneficiary?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "program_name",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "program_name",
+        "type": "native_radio",
+        "label": "Which program is the client enrolled in?",
+        "options": [
+          {
+            "key": "dreams",
+            "text": "DREAMS",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dreams"
+          },
+          {
+            "key": "timiza_malengo",
+            "text": "Timiza malengo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "timiza_malengo"
+          },
+          {
+            "key": "other",
+            "text": "Other (specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "program_name_other_specify",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "program_name_other_specify",
+        "type": "edit_text",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        },
+        "hint": "Please specify the other program name."
+      },
+      {
+        "key": "linkage_economic_strengthening",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "linkage_economic_strengthening",
+        "type": "native_radio",
+        "hint": "Has the client been linked to an economic strengthening opportunity?",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "economic_strengthening_options",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "economic_strengthening_options",
+        "type": "check_box",
+        "label": "Which economic strengthening opportunities were offered to the client?",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "entrepreneurial_skills",
+            "text": "Entrepreneurial skills within a group",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "entrepreneurial_skills"
+          },
+          {
+            "key": "practical_training",
+            "text": "Practical training for job skills",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "practical_training"
+          },
+          {
+            "key": "entrepreneurship_equipment",
+            "text": "Entrepreneurship equipment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "entrepreneurship_equipment"
+          },
+          {
+            "key": "employment_preparation",
+            "text": "Employment preparation",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "employment_preparation"
+          },
+          {
+            "key": "employment",
+            "text": "Employment",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "employment"
+          },
+          {
+            "key": "savings_loan_group",
+            "text": "Joining a savings and loan group",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "savings_loan_group"
+          },
+          {
+            "key": "market_research",
+            "text": "Market research",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "market_research"
+          },
+          {
+            "key": "vocational_training",
+            "text": "Connected with a vocational training center (e.g., VETA)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "vocational_training"
+          },
+          {
+            "key": "health_insurance",
+            "text": "Linked with a health insurance fund",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_insurance"
+          },
+          {
+            "key": "national_identifications",
+            "text": "Linked to acquire national identifications (e.g., Birth Certificate, NIDA, etc.)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "national_identifications"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "ayp_facility_screening_rules.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

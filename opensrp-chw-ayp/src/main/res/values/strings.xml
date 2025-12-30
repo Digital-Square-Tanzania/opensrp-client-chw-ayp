@@ -18,6 +18,7 @@
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
+    <string name="uic_id">UIC ID: %s</string>
     <string name="ayp_visit_in_progress">Visit In Progress</string>
     <string name="ayp_service_visit_in_progress">Ayp Service In Progress</string>
     <string name="ayp_procedure_visit_in_progress">Ayp Procedure In Progress</string>
@@ -98,6 +99,7 @@
     <string name="ayp_out_school_structural_services">Structural Services</string>
     <string name="ayp_out_school_medical_services">Medical Services</string>
     <string name="ayp_out_school_health_and_behaviour_change_services">Health and Behavior Change Services</string>
+    <string name="ayp_out_school_refer_to_other_services">Refer to Other services</string>
     <string name="ayp_out_school_next_appointment">Next Appointment</string>
 
     <string name="ayp_out_school_group_attendance">Group Attendance</string>
@@ -152,4 +154,18 @@
     <string name="ayp_gbv_not_screened">Not Screened</string>
     <string name="ayp_in_school_register_title">AYP In-School Clients</string>
     <string name="ayp_out_school_register_title">AYP Out-School Clients</string>
+    <string name="ayp_facility_biomedical_hts">HIV Testing Services</string>
+    <string name="ayp_facility_biomedical_hivst">Provision of HIVST Kits</string>
+    <string name="ayp_facility_biomedical_condom_distribution">Condom Distribution</string>
+    <string name="ayp_facility_biomedical_gbv">GBV Screening</string>
+    <string name="ayp_facility_biomedical_sti_screening">STI Screening</string>
+    <string name="ayp_facility_biomedical_sti_treatment_client">Client STI Treatment</string>
+    <string name="ayp_facility_biomedical_sti_treatment_partner">Partner STI Treatment</string>
+    <string name="ayp_facility_biomedical_tb_screening">TB Screening</string>
+    <string name="ayp_facility_biomedical_pep_service">PEP Service</string>
+    <string name="ayp_facility_biomedical_hepatitis">Hepatitis Screening and Management</string>
+    <string name="ayp_parenting_services_next_appointment_and_referral">Next Appointment and Referral Action</string>
+    <string name="ayp_facility_biomedical_family_planning">Provision of Family Planning methods</string>
+    <string name="ayp_facility_referral_to_other_services">Referral to Other Services</string>
+    <string name="ayp_facility_next_appointment">Next Appointment Date</string>
 </resources>

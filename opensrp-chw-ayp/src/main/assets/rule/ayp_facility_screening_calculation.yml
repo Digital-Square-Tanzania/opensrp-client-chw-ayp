@@ -1,0 +1,7 @@
+---
+name: step1_ayp_eligibility
+description: Determine AYP enrollment eligibility outcome
+priority: 1
+condition: "true"
+actions:
+  - "calculation = ((step1_parents_alive != null && (step1_parents_alive.equalsIgnoreCase(\"no\") || step1_parents_alive.equalsIgnoreCase(\"one_alive\"))) || (step1_caregiving_situation != null && step1_caregiving_situation.equalsIgnoreCase(\"self_cared\")) || (step1_consume_alcohol != null && step1_consume_alcohol.equalsIgnoreCase(\"yes\")) || (step1_use_drugs != null && step1_use_drugs.equalsIgnoreCase(\"yes\")) || (step1_ever_had_sex != null && step1_ever_had_sex.equalsIgnoreCase(\"yes\")) || (step1_transactional_sex != null && step1_transactional_sex.equalsIgnoreCase(\"yes\")) || (step1_condom_use != null && step1_condom_use.equalsIgnoreCase(\"no\")) || (step1_pregnancy_status != null && (step1_pregnancy_status.contains(\"currently_pregnant\") || step1_pregnancy_status.contains(\"has_been_pregnant\") || step1_pregnancy_status.contains(\"parent\"))) || (step1_multiple_partners != null && step1_multiple_partners.equalsIgnoreCase(\"yes\")) || (step1_early_marriage != null && step1_early_marriage.equalsIgnoreCase(\"yes\")) || (step1_sti_infection != null && step1_sti_infection.equalsIgnoreCase(\"yes\")) || (step1_experienced_violence != null && step1_experienced_violence.equalsIgnoreCase(\"yes\"))) ? \"Eligible for AYP enrollment\" : \"Not eligible\""

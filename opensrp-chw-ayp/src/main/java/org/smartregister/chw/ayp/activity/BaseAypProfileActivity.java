@@ -3,10 +3,10 @@ package org.smartregister.chw.ayp.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,6 +31,7 @@ import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.Visit;
 import org.smartregister.chw.ayp.interactor.BaseAypProfileInteractor;
+import org.smartregister.chw.ayp.listener.OnClickFloatingMenu;
 import org.smartregister.chw.ayp.presenter.BaseAypProfilePresenter;
 import org.smartregister.chw.ayp.util.AypUtil;
 import org.smartregister.chw.ayp.util.AypVisitsUtil;
@@ -77,6 +78,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected TextView textViewUndo;
     protected RelativeLayout rlaypPositiveDate;
     protected TextView textViewVisitDone;
+    protected TextView textViewId;
     protected RelativeLayout visitDone;
     protected LinearLayout recordVisits;
     protected TextView textViewVisitDoneEdit;
@@ -87,6 +89,8 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     private TextView tvFamilyStatus;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
+    protected TextView aypRiskLabel;
+
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseAypProfileActivity.class);
@@ -133,6 +137,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         rlFamilyServicesDue = findViewById(R.id.rlFamilyServicesDue);
         rlaypPositiveDate = findViewById(R.id.rlaypPositiveDate);
         textViewVisitDone = findViewById(R.id.textview_visit_done);
+        textViewId = findViewById(R.id.textview_uic_id);
         visitStatus = findViewById(R.id.record_visit_not_done_bar);
         visitDone = findViewById(R.id.visit_done_bar);
         visitInProgress = findViewById(R.id.record_visit_in_progress);
@@ -163,6 +168,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         manualProcessVisit.setOnClickListener(this);
         textViewRecordAnc.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
+        aypRiskLabel = findViewById(R.id.risk_label);
 
         imageRenderHelper = new ImageRenderHelper(this);
         memberObject = getMemberObject(baseEntityId);
@@ -188,6 +194,74 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected void setupViews() {
         initializeFloatingMenu();
         setupButtons();
+        showUICID(memberObject.getBaseEntityId());
+        showLabel(memberObject.getBaseEntityId());
+    }
+
+    protected void showUICID(String baseEntityId) {
+        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+//            String tableName = profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE) ? Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT : Constants.TABLES.AYP_ENROLLMENT;
+            String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
+            String UIC_ID = AypDao.getUIC_ID(baseEntityId, tableName);
+            if (StringUtils.isNotBlank(UIC_ID)) {
+                textViewId.setVisibility(View.VISIBLE);
+                textViewId.setText(getString(R.string.uic_id, UIC_ID.toUpperCase(Locale.ROOT)));
+            } else {
+                textViewId.setVisibility(View.GONE);
+            }
+        } else {
+            textViewId.setVisibility(View.GONE);
+        }
+    }
+
+    protected void showLabel(String baseEntityId) {
+        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+            String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
+            String score = AypDao.getScore(baseEntityId, tableName);
+
+            int scoreValue = StringUtils.isNotEmpty(score) ? Integer.parseInt(score) : 0;
+
+            int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
+            String gender = memberObject.getGender();
+
+            boolean high_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 10 && scoreValue < 16);
+            boolean high_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 9 && scoreValue < 14);
+            boolean high_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age > 18 && scoreValue > 8 && scoreValue < 12);
+            boolean high_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 18 && scoreValue > 7 && scoreValue < 11);
+
+            boolean medium_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 5 && scoreValue < 10);
+            boolean medium_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 4 && scoreValue < 9);
+            boolean medium_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age >= 19 && scoreValue > 4 && scoreValue < 8);
+            boolean medium_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 19 && scoreValue > 3 && scoreValue < 7);
+
+            boolean low_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 0 && scoreValue < 5);
+            boolean low_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 0 && scoreValue < 4);
+            boolean low_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age >= 19 && scoreValue > 0 && scoreValue < 4);
+            boolean low_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 19 && scoreValue > 0 && scoreValue < 3);
+
+            if (StringUtils.isNotBlank(score)) {
+                aypRiskLabel.setVisibility(View.VISIBLE);
+                if(high_agyw_less_than_19 || high_abym_less_than_19 || high_agyw_less_than_19_24 || high_abym_less_than_19_24){
+                    aypRiskLabel.setText("HIGH RISK");
+                    aypRiskLabel.setTextColor(Color.WHITE);
+                    aypRiskLabel.setBackgroundColor(Color.RED);
+                }
+                if(medium_agyw_less_than_19 || medium_abym_less_than_19 || medium_agyw_less_than_19_24 || medium_abym_less_than_19_24) {
+                    aypRiskLabel.setText("MODERATE RISK");
+                    aypRiskLabel.setTextColor(Color.WHITE);
+                    aypRiskLabel.setBackgroundColor(Color.parseColor("#FFA500")); // Standard orange
+                }
+                if(low_agyw_less_than_19 || low_abym_less_than_19 || low_agyw_less_than_19_24 || low_abym_less_than_19_24){
+                    aypRiskLabel.setText("LOW RISK");
+                    aypRiskLabel.setTextColor(Color.WHITE);
+                    aypRiskLabel.setBackgroundColor(Color.GRAY);
+                }
+            } else {
+                aypRiskLabel.setVisibility(View.GONE);
+            }
+        } else {
+            aypRiskLabel.setVisibility(View.GONE);
+        }
     }
 
     protected void setupButtons() {
@@ -206,7 +280,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
                 });
             } else {
                 manualProcessVisit.setVisibility(View.GONE);
-                textViewGraduate.setVisibility(View.VISIBLE);
+                textViewGraduate.setVisibility(View.GONE);
             }
         }
 
@@ -269,12 +343,44 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     public void initializeFloatingMenu() {
-        if (StringUtils.isNotBlank(memberObject.getPhoneNumber())) {
-            baseaypFloatingMenu = new BaseAypFloatingMenu(this, memberObject);
-            baseaypFloatingMenu.setGravity(Gravity.BOTTOM | Gravity.RIGHT);
-            LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            addContentView(baseaypFloatingMenu, linearLayoutParams);
+        baseaypFloatingMenu = new BaseAypFloatingMenu(this, memberObject);
+        checkPhoneNumberProvided(StringUtils.isNotBlank(memberObject.getPhoneNumber()));
+        if (showReferralView()) {
+            baseaypFloatingMenu.findViewById(R.id.refer_to_facility_layout).setVisibility(View.VISIBLE);
+        } else {
+            baseaypFloatingMenu.findViewById(R.id.refer_to_facility_layout).setVisibility(View.GONE);
         }
+        OnClickFloatingMenu onClickFloatingMenu = viewId -> {
+            if (viewId == R.id.ayp_fab) {//Animates the actual FAB
+                baseaypFloatingMenu.animateFAB();
+            } else if (viewId == R.id.call_layout) {
+                baseaypFloatingMenu.launchCallWidget();
+                baseaypFloatingMenu.animateFAB();
+            } else if (viewId == R.id.refer_to_facility_layout) {
+                startReferralForm();
+            } else {
+                Timber.d("Unknown FAB action");
+            }
+        };
+
+        baseaypFloatingMenu.setFloatMenuClickListener(onClickFloatingMenu);
+        baseaypFloatingMenu.setGravity(Gravity.BOTTOM | Gravity.END);
+        LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        addContentView(baseaypFloatingMenu, linearLayoutParams);
+    }
+
+    private void checkPhoneNumberProvided(boolean hasPhoneNumber) {
+        BaseAypFloatingMenu.redrawWithOption(baseaypFloatingMenu, hasPhoneNumber);
+    }
+
+    protected boolean showReferralView() {
+        //in chw return true; in hf return false;
+        return false;
+    }
+
+    public void startReferralForm() {
+        //implement in chw
     }
 
     @Override
@@ -405,7 +511,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
             profilePresenter.saveForm(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
-//            finish();
+            finish();
         }
     }
 
