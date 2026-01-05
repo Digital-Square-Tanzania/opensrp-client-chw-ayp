@@ -1,5 +1,7 @@
 package org.smartregister.chw.ayp.interactor.aypOutOfSchool;
 
+import android.content.Context;
+
 import androidx.annotation.VisibleForTesting;
 
 import org.apache.commons.lang3.StringUtils;
@@ -70,11 +72,6 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         final Runnable runnable = () -> {
             try {
                 evaluateServiceStatus(details);
-                evaluateStructuralServices(details);
-                evaluateMedicalServices(details);
-                evaluateHealthAndBehaviourChangeService(details);
-//                evaluateReferalToOtherService(details);
-                fillNextAppointment(details);
             } catch (BaseAypVisitAction.ValidationException e) {
                 Timber.e(e);
             }
@@ -87,10 +84,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
 
 
     private void evaluateServiceStatus(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
-        AypOutSchoolServiceStatusActionHelper actionHelper = new AypOutSchoolServiceStatusActionHelper(context, memberObject);
+        AypOutSchoolServiceStatusActionHelper actionHelper = new AypServiceStatusActionHelper(context, memberObject);
 
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_service_status))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_SERVICE_STATUS)
@@ -102,10 +99,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         AypOutSchoolStructuralServiceActionHelper actionHelper = new AypOutSchoolStructuralServiceActionHelper(context, memberObject);
 
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_structural_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(getClientStatusGatingValidator())
+//                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_STRUCTURAL_SERVICE)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_structural_services), action);
@@ -114,10 +111,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateMedicalServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolMedicalServiceActionHelper actionHelper = new AypOutSchoolMedicalServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_medical_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(getClientStatusGatingValidator())
+//                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_MEDICAL_SERVICE)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_medical_services), action);
@@ -126,10 +123,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateHealthAndBehaviourChangeService(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolHealthBehaviourChangeServiceActionHelper actionHelper = new AypOutSchoolHealthBehaviourChangeServiceActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(getClientStatusGatingValidator())
+//                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_HEALTH_AND_BEHAVIOUR_CHANGE_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services), action);
@@ -138,10 +135,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void evaluateReferalToOtherService(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolReferalOtherServActionHelper actionHelper = new AypOutSchoolReferalOtherServActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_refer_to_other_services))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(getClientStatusGatingValidator())
+//                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_REFER_TO_OTHER_SERVICES)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_refer_to_other_services), action);
@@ -150,10 +147,10 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     private void fillNextAppointment(Map<String, List<VisitDetail>> visitDetails) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolNextAppointmentActionHelper actionHelper = new AypOutSchoolNextAppointmentActionHelper(context, memberObject);
         BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_next_appointment))
-                .withOptional(false)
+                .withOptional(true)
                 .withDetails(visitDetails)
                 .withHelper(actionHelper)
-                .withValidator(getClientStatusGatingValidator())
+//                .withValidator(getClientStatusGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_NEXT_APPOINTMENT)
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_next_appointment), action);
@@ -213,5 +210,36 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
             Timber.e(e);
         }
         return false;
+    }
+
+    private class AypServiceStatusActionHelper extends AypOutSchoolServiceStatusActionHelper {
+
+        public AypServiceStatusActionHelper(Context context, MemberObject memberObject) {
+            super(context, memberObject);
+        }
+
+        @Override
+        public String postProcess(String s) {
+            if (serviceStatus.equalsIgnoreCase("in_service")) {
+                try {
+                    evaluateStructuralServices(details);
+                    evaluateMedicalServices(details);
+                    evaluateHealthAndBehaviourChangeService(details);
+                    evaluateReferalToOtherService(details);
+                    fillNextAppointment(details);
+                } catch (BaseAypVisitAction.ValidationException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                actionList.remove(context.getString(R.string.ayp_out_school_structural_services));
+                actionList.remove(context.getString(R.string.ayp_out_school_medical_services));
+                actionList.remove(context.getString(R.string.ayp_out_school_health_and_behaviour_change_services));
+                actionList.remove(context.getString(R.string.ayp_out_school_refer_to_other_services));
+                actionList.remove(context.getString(R.string.ayp_out_school_next_appointment));
+            }
+            new AppExecutors().mainThread().execute(() -> callBack.preloadActions(actionList));
+            return super.postProcess(s);
+        }
+
     }
 }
