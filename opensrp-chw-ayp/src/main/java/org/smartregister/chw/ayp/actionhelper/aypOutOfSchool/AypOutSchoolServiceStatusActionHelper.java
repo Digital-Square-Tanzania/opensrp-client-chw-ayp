@@ -59,21 +59,6 @@ public class AypOutSchoolServiceStatusActionHelper implements BaseAypVisitAction
         return jsonPayload;
     }
 
-//    @Override
-//    public void onPayloadReceived(String jsonPayload) {
-//        try {
-////            JSONObject jsonObject = new JSONObject(jsonPayload);
-////            checkObject.clear();
-////
-////            checkObject.put("service_status", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "service_status")));
-//            this.submittedPayload = jsonPayload;
-//            JSONObject jsonObject = new JSONObject(jsonPayload);
-//            serviceStatus = JsonFormUtils.getValue(jsonObject, "service_status");
-//        } catch (Exception e) {
-//            Timber.e(e);
-//        }
-//    }
-
     @Override
     public void onPayloadReceived(String jsonPayload) {
         try {

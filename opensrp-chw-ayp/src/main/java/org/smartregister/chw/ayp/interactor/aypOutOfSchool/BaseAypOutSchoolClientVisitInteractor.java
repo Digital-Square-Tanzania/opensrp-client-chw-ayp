@@ -73,7 +73,7 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
                 evaluateStructuralServices(details);
                 evaluateMedicalServices(details);
                 evaluateHealthAndBehaviourChangeService(details);
-                evaluateReferalToOtherService(details);
+//                evaluateReferalToOtherService(details);
                 fillNextAppointment(details);
             } catch (BaseAypVisitAction.ValidationException e) {
                 Timber.e(e);
