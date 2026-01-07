@@ -40,7 +40,6 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
     protected AppExecutors appExecutors;
 //    protected Map<String, List<VisitDetail>> details = null;
     protected String visitType;
-    protected MemberObject memberObject;
     private final AypLibrary aypLibrary;
 
 
@@ -240,6 +239,5 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
             new AppExecutors().mainThread().execute(() -> callBack.preloadActions(actionList));
             return super.postProcess(s);
         }
-
     }
 }

@@ -3,8 +3,11 @@ package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.Period;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
@@ -12,6 +15,7 @@ import org.smartregister.chw.ayp.util.JsonFormUtils;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import timber.log.Timber;
 
@@ -35,6 +39,14 @@ public class AypOutSchoolStructuralServiceActionHelper implements BaseAypVisitAc
     public String getPreProcessed() {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
+            JSONObject global = jsonObject.getJSONObject("global");
+
+            int age = new Period(new DateTime(memberObject.getAge()),
+                    new DateTime()).getYears();
+
+            global.put("gender", memberObject.getGender());
+            global.put("age", age);
+
             return jsonObject.toString();
         } catch (JSONException e) {
             Timber.e(e);
