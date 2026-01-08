@@ -1,12 +1,16 @@
 package org.smartregister.chw.ayp.dao;
 
+import android.annotation.SuppressLint;
+
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Calendar;
 
 public class AypDao extends AbstractDao {
     private static final SimpleDateFormat df = new SimpleDateFormat(
@@ -148,6 +152,47 @@ public class AypDao extends AbstractDao {
         return res.get(0) > 0;
     }
 
+    public static boolean isAypOutSchoolServiceToday(String baseEntityID) {
+
+        String sql = "SELECT last_interacted_with FROM ec_ayp_out_school_client_followup_visits " +
+                "WHERE base_entity_id='" + baseEntityID + "' " +
+                "ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<Long> map = cursor -> {
+            int index = cursor.getColumnIndex("last_interacted_with");
+            if (index != -1 && !cursor.isNull(index)) {
+                return cursor.getLong(index); // must be Long
+            }
+            return null;
+        };
+
+        List<Long> res = readData(sql, map);
+
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+
+            // multiply by 1000 if your DB stores seconds
+            long epochMillis = res.get(0); // or res.get(0) * 1000L;
+
+            Date lastDate = new Date(epochMillis);
+
+            Calendar calToday = Calendar.getInstance();
+            calToday.set(Calendar.HOUR_OF_DAY, 0);
+            calToday.set(Calendar.MINUTE, 0);
+            calToday.set(Calendar.SECOND, 0);
+            calToday.set(Calendar.MILLISECOND, 0);
+
+            Calendar calLast = Calendar.getInstance();
+            calLast.setTime(lastDate);
+            calLast.set(Calendar.HOUR_OF_DAY, 0);
+            calLast.set(Calendar.MINUTE, 0);
+            calLast.set(Calendar.SECOND, 0);
+            calLast.set(Calendar.MILLISECOND, 0);
+
+            return calToday.getTime().equals(calLast.getTime());
+        }
+
+        return false;
+    }
 
     public static MemberObject getMember(String baseEntityID) {
         String sql = "select " +
@@ -327,6 +372,41 @@ public class AypDao extends AbstractDao {
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 AND mr.group_id ='" + groupId + "' ";
+
+        return readData(sql, memberObjectMap);
+    }
+
+    public static List<MemberObject> getOutSchoolGroupMembers() {
+        String sql = "select " +
+                "m.base_entity_id , " +
+                "m.unique_id , " +
+                "m.relational_id , " +
+                "m.dob , " +
+                "m.first_name , " +
+                "m.middle_name , " +
+                "m.last_name , " +
+                "m.gender , " +
+                "m.marital_status , " +
+                "m.phone_number , " +
+                "m.other_phone_number , " +
+                "f.first_name as family_name ," +
+                "f.primary_caregiver , " +
+                "f.family_head , " +
+                "f.village_town ," +
+                "fh.first_name as family_head_first_name , " +
+                "fh.middle_name as family_head_middle_name , " +
+                "fh.last_name as family_head_last_name, " +
+                "fh.phone_number as family_head_phone_number ,  " +
+                "pcg.first_name as pcg_first_name , " +
+                "pcg.last_name as pcg_last_name , " +
+                "pcg.middle_name as pcg_middle_name , " +
+                "pcg.phone_number as  pcg_phone_number " +
+                "from ec_family_member m " +
+                "inner join ec_family f on m.relational_id = f.base_entity_id " +
+                "inner join " + Constants.TABLES.AYP_OUT_SCHOOL_GROUP_MEMBERS + " mr on mr.member_base_entity_id = m.base_entity_id " +
+                "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
+                "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
+                "where mr.is_closed = 0";
 
         return readData(sql, memberObjectMap);
     }

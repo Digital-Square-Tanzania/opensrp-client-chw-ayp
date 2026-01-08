@@ -287,10 +287,9 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
         }
 
         if (isVisitOnProgress(getAypOutSchoolVisit())) {
-//            textViewProcedureVmmc.setVisibility(View.GONE);
             aypServiceInProgress.setVisibility(View.VISIBLE);
+            textViewRecordayp.setVisibility(View.GONE);
         } else {
-//            textViewProcedureVmmc.setVisibility(View.VISIBLE);
             aypServiceInProgress.setVisibility(View.GONE);
         }
     }

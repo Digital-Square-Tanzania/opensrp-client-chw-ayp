@@ -198,7 +198,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
 
                     // Count number of members present
                     int count = valueArray.length();
-                    return count >= 5;
+                    return count >= 2;
                 }
             }
         } catch (Exception e) {
