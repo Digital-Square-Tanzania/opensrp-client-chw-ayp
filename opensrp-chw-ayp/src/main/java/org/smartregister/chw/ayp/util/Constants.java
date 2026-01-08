@@ -134,6 +134,7 @@ public interface Constants {
         String PROFILE_TYPE = "profile_type";
         String GROUP_ID = "GROUP_ID";
         String GROUP_NAME = "GROUP_NAME";
+        String AGE_BAND = "AGE_BAND";
 
     }
 
