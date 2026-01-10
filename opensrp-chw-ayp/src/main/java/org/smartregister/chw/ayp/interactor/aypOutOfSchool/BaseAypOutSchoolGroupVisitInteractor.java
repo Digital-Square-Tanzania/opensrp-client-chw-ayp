@@ -18,7 +18,6 @@ import org.smartregister.chw.ayp.interactor.BaseAypVisitInteractor;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.AppExecutors;
 import org.smartregister.chw.ayp.util.Constants;
-import org.smartregister.chw.ayp.util.JsonFormUtils;
 import org.smartregister.sync.helper.ECSyncHelper;
 
 import java.util.LinkedHashMap;
@@ -29,23 +28,28 @@ import timber.log.Timber;
 
 public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor {
 
-    protected final LinkedHashMap<String, BaseAypVisitAction> actionList = new LinkedHashMap<>();
+    protected BaseAypVisitContract.InteractorCallBack callBack;
+
+    protected LinkedHashMap<String, BaseAypVisitAction> actionList = new LinkedHashMap<>();
     private final ECSyncHelper syncHelper;
     protected AppExecutors appExecutors;
-    protected Map<String, List<VisitDetail>> details = null;
+//    protected Map<String, List<VisitDetail>> details = null;
     protected String visitType;
-    protected MemberObject memberObject;
     protected String groupId;
+    private final AypLibrary aypLibrary;
+
 
     @VisibleForTesting
-    public BaseAypOutSchoolGroupVisitInteractor(AppExecutors appExecutors, ECSyncHelper syncHelper) {
+    public BaseAypOutSchoolGroupVisitInteractor(AppExecutors appExecutors, AypLibrary aypLibrary, ECSyncHelper syncHelper) {
         this.appExecutors = appExecutors;
+        this.aypLibrary = aypLibrary;
         this.syncHelper = syncHelper;
-
+        this.actionList = new LinkedHashMap<>();
     }
 
-    public BaseAypOutSchoolGroupVisitInteractor() {
-        this(new AppExecutors(), AypLibrary.getInstance().getEcSyncHelper());
+    public BaseAypOutSchoolGroupVisitInteractor(String visitType) {
+        this(new AppExecutors(), AypLibrary.getInstance(), AypLibrary.getInstance().getEcSyncHelper());
+        this.visitType = visitType;
     }
 
 
@@ -53,7 +57,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
         if (StringUtils.isNotBlank(visitType)) {
             return visitType;
         }
-        return Constants.EVENT_TYPE.ayp_ENROLLMENT;
+        return super.getCurrentVisitType();
     }
 
     @Override
@@ -135,18 +139,18 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
 
     @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.AYP_SERVICES;
+        return Constants.EVENT_TYPE.AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT;
     }
 
     @Override
     protected String getTableName() {
-        return Constants.TABLES.AYP_SERVICE;
+        return Constants.TABLES.AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT;
     }
 
     @Override
     public MemberObject getMemberClient(String memberID, String profileType) {
         MemberObject memberObject = new MemberObject();
-        memberObject.setBaseEntityId(memberID);
+        memberObject.setBaseEntityId(groupId);
 
         return memberObject;
     }
@@ -159,7 +163,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
                 String clientStatusTitle = context.getString(R.string.ayp_group_attendance);
                 if (clientStatusTitle.equals(key)) return true;
                 // Other actions only visible when client status == continuing
-                return isFiveOrMoreMemberSelected();
+                return isTwoOrMoreMemberSelected();
             }
 
             @Override
@@ -175,7 +179,7 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
         };
     }
 
-    private boolean isFiveOrMoreMemberSelected() {
+    private boolean isTwoOrMoreMemberSelected() {
         try {
             String clientStatusTitle = context.getString(R.string.ayp_group_attendance);
             BaseAypVisitAction statusAction = actionList.get(clientStatusTitle);

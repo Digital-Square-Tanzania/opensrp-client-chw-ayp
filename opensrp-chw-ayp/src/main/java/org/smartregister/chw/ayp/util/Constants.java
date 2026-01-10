@@ -34,6 +34,7 @@ public interface Constants {
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
         String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
+        String AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT = "Ayp Out School Group Followup Visit";
         String AYP_FACILITY_SCREENING = "AYP Screening Tool + Enrollment";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
@@ -119,6 +120,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_GROUP_MEMBERS = "ec_ayp_in_school_group_members";
         String AYP_OUT_SCHOOL_GROUP_MEMBERS = "ec_ayp_out_school_group_members";
         String AYP_SERVICE = "ec_ayp_services";
+        String AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT = "ec_ayp_out_school_group_followup_visits";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
         String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
         String AYP_FACILITY_SCREENING = "ec_ayp_facility_screening";

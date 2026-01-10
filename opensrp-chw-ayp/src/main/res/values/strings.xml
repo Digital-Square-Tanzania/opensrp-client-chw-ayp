@@ -112,6 +112,7 @@
     <string name="ayp_group_attendance">Group Members Attendance</string>
     <string name="return_to_ayp_groups">Return to AYP Groups</string>
     <string name="provide_group_details">Provide Group Services</string>
+    <string name="process_group_service">Process Group Services</string>
     <string name="add_group_member">Add Group Member</string>
     <string name="group_members">Group Members</string>
     <string name="group_members_count">Members: %1$d</string>

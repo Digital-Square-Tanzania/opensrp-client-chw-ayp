@@ -1,9 +1,13 @@
 package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 
 import android.content.Context;
+import android.text.TextUtils;
+
+import com.vijay.jsonwizard.constants.JsonFormConstants;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.dao.AypDao;
@@ -13,8 +17,10 @@ import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.JsonFormUtils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import timber.log.Timber;
 
@@ -66,12 +72,76 @@ public class AypOutGroupAttendanceActionHelper implements BaseAypVisitAction.ayp
 
     @Override
     public void onPayloadReceived(String jsonPayload) {
+
         this.submittedPayload = jsonPayload;
+    }
+    
+
+    public static List<String> getSelectedMemberNamesFromString(String jsonString) {
+        List<String> selectedNames = new ArrayList<>();
+
+        try {
+            JSONObject formJson = new JSONObject(jsonString);
+
+            JSONArray fields = formJson
+                    .getJSONObject("step1")
+                    .getJSONArray("fields");
+
+            JSONObject membersField = null;
+
+            // Find "members_present" field
+            for (int i = 0; i < fields.length(); i++) {
+                JSONObject field = fields.getJSONObject(i);
+                if ("members_present".equals(field.optString("key"))) {
+                    membersField = field;
+                    break;
+                }
+            }
+
+            if (membersField == null) return selectedNames;
+
+            JSONArray selectedValues = membersField.getJSONArray("value");
+            JSONArray options = membersField.getJSONArray("options");
+
+            // Put selected IDs into a Set
+            Set<String> selectedIds = new HashSet<>();
+            for (int i = 0; i < selectedValues.length(); i++) {
+                selectedIds.add(selectedValues.getString(i));
+            }
+
+            // Match selected IDs to option text
+            for (int i = 0; i < options.length(); i++) {
+                JSONObject option = options.getJSONObject(i);
+                String key = option.optString("key");
+
+                if (selectedIds.contains(key)) {
+                    selectedNames.add(option.optString("text"));
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return selectedNames;
     }
 
     @Override
     public String postProcess(String jsonPayload) {
-        return jsonPayload;
+         List<String> names = getSelectedMemberNamesFromString(jsonPayload);
+        String namesString = TextUtils.join(", ", names);
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(jsonPayload);
+            JSONArray fields = JsonFormUtils.fields(jsonObject);
+            JSONObject memberNames = JsonFormUtils.getFieldJSONObject(fields, "member_names");
+            assert memberNames != null;
+
+            memberNames.put(JsonFormConstants.VALUE, namesString);
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
+        return jsonObject.toString();
     }
 
     @Override
