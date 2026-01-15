@@ -200,7 +200,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void showUICID(String baseEntityId) {
-        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+        if (profileType != null && profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
 //            String tableName = profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE) ? Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT : Constants.TABLES.AYP_ENROLLMENT;
             String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
             String UIC_ID = AypDao.getUIC_ID(baseEntityId, tableName);
@@ -216,7 +216,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void showLabel(String baseEntityId) {
-        if (profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
+        if (profileType != null && profileType.equalsIgnoreCase(Constants.PROFILE_TYPES.ayp_PROFILE)) {
             String tableName = Constants.TABLES.AYP_OUT_SCHOOL_ENROLLMENT;
             String score = AypDao.getScore(baseEntityId, tableName);
 
