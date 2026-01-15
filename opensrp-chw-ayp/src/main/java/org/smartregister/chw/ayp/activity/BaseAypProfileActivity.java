@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -86,12 +85,11 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected TextView textViewRecordAncNotDone;
     protected String profileType;
     protected BaseAypFloatingMenu baseaypFloatingMenu;
+    protected TextView aypRiskLabel;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
-    protected TextView aypRiskLabel;
-
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseAypProfileActivity.class);
@@ -225,34 +223,34 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
             int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
             String gender = memberObject.getGender();
 
-            boolean high_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 10 && scoreValue < 16);
+            boolean high_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") && age < 19 && scoreValue > 10 && scoreValue < 16);
             boolean high_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 9 && scoreValue < 14);
             boolean high_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age > 18 && scoreValue > 8 && scoreValue < 12);
             boolean high_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 18 && scoreValue > 7 && scoreValue < 11);
 
-            boolean medium_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 5 && scoreValue < 10);
+            boolean medium_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") && age < 19 && scoreValue > 5 && scoreValue < 10);
             boolean medium_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 4 && scoreValue < 9);
             boolean medium_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age >= 19 && scoreValue > 4 && scoreValue < 8);
             boolean medium_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 19 && scoreValue > 3 && scoreValue < 7);
 
-            boolean low_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") &&  age < 19 && scoreValue > 0 && scoreValue < 5);
+            boolean low_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") && age < 19 && scoreValue > 0 && scoreValue < 5);
             boolean low_abym_less_than_19 = (gender.equalsIgnoreCase("Male") && age < 19 && scoreValue > 0 && scoreValue < 4);
             boolean low_agyw_less_than_19_24 = (gender.equalsIgnoreCase("Female") && age >= 19 && scoreValue > 0 && scoreValue < 4);
             boolean low_abym_less_than_19_24 = (gender.equalsIgnoreCase("Male") && age >= 19 && scoreValue > 0 && scoreValue < 3);
 
             if (StringUtils.isNotBlank(score)) {
                 aypRiskLabel.setVisibility(View.VISIBLE);
-                if(high_agyw_less_than_19 || high_abym_less_than_19 || high_agyw_less_than_19_24 || high_abym_less_than_19_24){
+                if (high_agyw_less_than_19 || high_abym_less_than_19 || high_agyw_less_than_19_24 || high_abym_less_than_19_24) {
                     aypRiskLabel.setText("HIGH RISK");
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.RED);
                 }
-                if(medium_agyw_less_than_19 || medium_abym_less_than_19 || medium_agyw_less_than_19_24 || medium_abym_less_than_19_24) {
+                if (medium_agyw_less_than_19 || medium_abym_less_than_19 || medium_agyw_less_than_19_24 || medium_abym_less_than_19_24) {
                     aypRiskLabel.setText("MODERATE RISK");
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.parseColor("#FFA500")); // Standard orange
                 }
-                if(low_agyw_less_than_19 || low_abym_less_than_19 || low_agyw_less_than_19_24 || low_abym_less_than_19_24){
+                if (low_agyw_less_than_19 || low_abym_less_than_19 || low_agyw_less_than_19_24 || low_abym_less_than_19_24) {
                     aypRiskLabel.setText("LOW RISK");
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.GRAY);
@@ -266,7 +264,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
-        if(getAypOutSchoolVisit() != null){
+        if (getAypOutSchoolVisit() != null) {
             if (!getAypOutSchoolVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
                 manualProcessVisit.setVisibility(View.VISIBLE);
                 textViewContinueaypService.setText(R.string.edit_visit);
