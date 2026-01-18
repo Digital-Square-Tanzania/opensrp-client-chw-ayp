@@ -65,8 +65,8 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
         final Runnable runnable = () -> {
             try {
                 evaluateGroupAttendance(details);
-                evaluateStructuralServices(details);
                 evaluateSBCServices(details);
+                evaluateStructuralServices(details);
                 fillNextAppointment(details);
             } catch (BaseAypVisitAction.ValidationException e) {
                 Timber.e(e);
@@ -102,14 +102,14 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
     private void evaluateStructuralServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
         AypOutSchoolGroupStructuralActionHelper actionHelper = new AypOutSchoolGroupStructuralActionHelper(context, memberObject);
 
-        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_structural_services))
+        BaseAypVisitAction action = getBuilder(context.getString(R.string.ayp_out_school_group_structural_services))
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withValidator(getClientAttendanceGatingValidator())
                 .withFormName(Constants.FORMS.AYP_OUT_SCHOOL_GROUP_STRUCTURAL_SERVICE)
                 .build();
-        actionList.put(context.getString(R.string.ayp_out_school_structural_services), action);
+        actionList.put(context.getString(R.string.ayp_out_school_group_structural_services), action);
     }
 
     private void evaluateSBCServices(Map<String, List<VisitDetail>> details) throws BaseAypVisitAction.ValidationException {
@@ -135,7 +135,6 @@ public class BaseAypOutSchoolGroupVisitInteractor extends BaseAypVisitInteractor
                 .build();
         actionList.put(context.getString(R.string.ayp_out_school_next_appointment), action);
     }
-
 
     @Override
     protected String getEncounterType() {

@@ -15,6 +15,7 @@ import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.model.BaseAypVisitAction;
 import org.smartregister.chw.ayp.util.JsonFormUtils;
+import org.smartregister.clientandeventmodel.Obs;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -57,7 +58,8 @@ public class AypOutGroupAttendanceActionHelper implements BaseAypVisitAction.ayp
                     break;
                 }
             }
-
+            JSONObject groupIdField = JsonFormUtils.getFieldJSONObject(fields, "group_id");
+            groupIdField.put(JsonFormConstants.VALUE, groupId);
             this.preProcessedJson = form.toString();
         } catch (Exception e) {
             Timber.e(e);

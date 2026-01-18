@@ -221,9 +221,9 @@ public class BaseAypOutSchoolClientVisitInteractor extends BaseAypVisitInteracto
         public String postProcess(String s) {
             if (serviceStatus.equalsIgnoreCase("in_service")) {
                 try {
-                    evaluateStructuralServices(details);
-                    evaluateMedicalServices(details);
                     evaluateHealthAndBehaviourChangeService(details);
+                    evaluateMedicalServices(details);
+                    evaluateStructuralServices(details);
                     evaluateReferalToOtherService(details);
                     fillNextAppointment(details);
                 } catch (BaseAypVisitAction.ValidationException e) {
