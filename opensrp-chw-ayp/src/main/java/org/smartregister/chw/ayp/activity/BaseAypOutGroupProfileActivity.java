@@ -8,7 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -17,29 +19,43 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.json.JSONObject;
+import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.adapter.AypGroupMembersAdapter;
 import org.smartregister.chw.ayp.contract.AypGroupProfileContract;
+import org.smartregister.chw.ayp.contract.AypProfileContract;
 import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.GroupObject;
 import org.smartregister.chw.ayp.domain.MemberObject;
-import org.smartregister.chw.ayp.interactor.BaseAypGroupProfileInteractor;
+import org.smartregister.chw.ayp.domain.Visit;
 import org.smartregister.chw.ayp.interactor.aypOutOfSchool.BaseAypOutGroupProfileInteractor;
 import org.smartregister.chw.ayp.presenter.BaseAypGroupProfilePresenter;
+import org.smartregister.chw.ayp.util.AypVisitsUtil;
 import org.smartregister.chw.ayp.util.Constants;
+import org.smartregister.domain.AlertStatus;
 
+import java.util.Date;
 import java.util.List;
 
-public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements AypGroupProfileContract.View, View.OnClickListener {
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import timber.log.Timber;
+
+public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements AypGroupProfileContract.View, View.OnClickListener, AypProfileContract.InteractorCallBack {
 
     protected TextView tvGroupName;
     protected TextView tvGroupType;
     protected TextView tvGroupAgeBand;
     protected TextView tvGroupMemberCount;
     protected TextView btnProvideDetails;
+    protected TextView textviewProcessServiceVisit;
     protected TextView btnAddMember;
     protected RecyclerView rvMembers;
     protected ProgressBar progressBar;
+    protected RelativeLayout rlLastVisit;
 
     protected AypGroupProfileContract.Presenter presenter;
     protected AypGroupMembersAdapter adapter;
@@ -78,12 +94,16 @@ public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements
         tvGroupAgeBand = findViewById(R.id.textview_group_age_band);
         tvGroupMemberCount = findViewById(R.id.textview_group_member_count);
         btnProvideDetails = findViewById(R.id.textview_provide_group_details);
+        rlLastVisit = findViewById(R.id.rlLastVisit);
+        textviewProcessServiceVisit = findViewById(R.id.textview_process_service_visit);
         btnAddMember = findViewById(R.id.textview_add_member);
         rvMembers = findViewById(R.id.recycler_members);
         progressBar = findViewById(R.id.progress_bar);
 
         btnProvideDetails.setOnClickListener(this);
+        textviewProcessServiceVisit.setOnClickListener(this);
         btnAddMember.setOnClickListener(this);
+        rlLastVisit.setOnClickListener(this);
 
         rvMembers.setLayoutManager(new LinearLayoutManager(this));
         adapter = new AypGroupMembersAdapter(this::openMemberProfile);
@@ -145,6 +165,86 @@ public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements
             openGroupDetailsForm();
         } else if (id == R.id.textview_add_member) {
             onAddMember();
+        } else if (id == R.id.rlLastVisit) {
+            this.openMedicalHistory();
+        }
+        else if (id == R.id.textview_process_service_visit) {
+            this.processGroupService();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshPage();
+    }
+
+    private void refreshPage() {
+        processGroupService();   // reload UI logic
+        // reload data from DB if needed
+        if(getAypOutSchoolGroupVisit() != null){
+            String date = getDateCreated(getAypOutSchoolGroupVisit().getJson());
+            boolean isToday = isDateToday(date);
+            if(isToday) {
+                btnProvideDetails.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    public static String getDateCreated(String jsonString) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonString);
+            return jsonObject.optString("dateCreated");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static boolean isDateToday(String isoDate) {
+        try {
+            SimpleDateFormat isoFormat =
+                    new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+            isoFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+
+            Date createdDate = isoFormat.parse(isoDate);
+
+            SimpleDateFormat dayFormat =
+                    new SimpleDateFormat("yyyyMMdd", Locale.getDefault());
+
+            String createdDay = dayFormat.format(createdDate);
+            String todayDay = dayFormat.format(new Date());
+
+            return createdDay.equals(todayDay);
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
+    public void processGroupService() {
+        if(getAypOutSchoolGroupVisit() != null){
+            if (!getAypOutSchoolGroupVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolGroupVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
+                textviewProcessServiceVisit.setVisibility(View.VISIBLE);
+                btnProvideDetails.setVisibility(View.GONE);
+
+//                textViewContinueaypService.setText(R.string.edit_visit);
+                textviewProcessServiceVisit.setOnClickListener(view -> {
+                    try {
+                        AypVisitsUtil.manualProcessVisit(getAypOutSchoolGroupVisit());
+                        Toast.makeText(this, R.string.ayp_out_school_service_conducted, Toast.LENGTH_SHORT).show();
+
+                        // Refresh page
+                        recreate();
+                    } catch (Exception e) {
+                        Timber.d(e);
+                    }
+                });
+            } else {
+                textviewProcessServiceVisit.setVisibility(View.GONE);
+                rlLastVisit.setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -161,5 +261,49 @@ public class BaseAypOutGroupProfileActivity extends AppCompatActivity implements
     @Override
     public void onError(Throwable throwable) {
 
+    }
+
+    @Override
+    public void refreshMedicalHistory(boolean hasHistory) {
+        showProgressBar(false);
+        rlLastVisit.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
+    }
+
+    public void openMedicalHistory() {
+        //implement
+    }
+
+    @Override
+    public void refreshUpComingServicesStatus(String service, AlertStatus status, Date date) {
+
+    }
+
+    @Override
+    public void refreshFamilyStatus(AlertStatus status) {
+
+    }
+
+    @Override
+    public void startServiceForm() {
+
+    }
+
+    @Override
+    public void graduateForm() {
+
+    }
+
+    @Override
+    public void continueService() {
+
+    }
+
+    @Override
+    public void continueDischarge() {
+
+    }
+
+    protected Visit getAypOutSchoolGroupVisit() {
+        return  null;
     }
 }

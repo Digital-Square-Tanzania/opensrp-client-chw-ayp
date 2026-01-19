@@ -17,10 +17,11 @@
 
     <string name="ayp_out_school_service_status">Hali ya huduma</string>
     <string name="ayp_out_school_structural_services">Huduma za kimuundo</string>
-    <string name="ayp_out_school_medical_services">Huduma za kitibabu</string>
+    <string name="ayp_out_school_medical_services">Huduma za kitabibu</string>
     <string name="ayp_out_school_health_and_behaviour_change_services">Huduma za afya na mabadiliko ya tabia</string>
     <string name="ayp_out_school_refer_to_other_services">Rufaa kwenda Huduma Nyinginezo</string>
     <string name="ayp_out_school_next_appointment">Hudhurio lijalo</string>
+    <string name="ayp_out_school_group_structural_services">Huduma za kimuundo</string>
 
     <string name="graduate">Hitimu</string>
 
@@ -75,18 +76,18 @@
     <string name="edit_visit">Hariri</string>
     <string name="uic_id">UIC ID: %s</string>
     <string name="ayp_visit_in_progress">Hudhurio linaendelea</string>
-    <string name="ayp_service_visit_in_progress">Huduma ya tohara inaendelea</string>
-    <string name="ayp_procedure_visit_in_progress">Huduma ya upasuaji wa tohara inaendelea</string>
-    <string name="ayp_visit_conducted">Hudhurio la tohara limefanyika</string>
+    <string name="ayp_service_visit_in_progress">Huduma ya AYP Inaendelea</string>
+    <string name="ayp_procedure_visit_in_progress">Huduma ya AYP inaendelea</string>
+    <string name="ayp_visit_conducted">Hudhurio la AYP limefanyika</string>
 
-    <string name="ayp_profile">Profile la tohara</string>
+    <string name="ayp_profile">Profile la AYP</string>
 
     <string name="ayp_medical_history">Historia ya kitibabu</string>
     <string name="ayp_physical_examination">Uchunguzi wa kimwili</string>
     <string name="ayp_hts">Huduma za upimaji wa VVU</string>
     <string name="ayp_contraindication">Tatua vizuizi kwanza , kuendelea na upasuaji wa tohara</string>
     <string name="no_phone_number">Hakuna nambari ya simu</string>
-    <string name="return_to_ayp_clients">Rudi kwenye wateja wote wa tohara</string>
+    <string name="return_to_ayp_clients">Rudi kwenye wateja wote wa AYP</string>
     <string name="number_not_filled">Nambari ya simu ya mteja, haijajazwa</string>
     <string name="ayp_parental_register_title">Wateja wa AYP wazazi</string>
     <string name="ayp_parental_medical_history_title">Historia ya huduma za wazazi za AYP kwa %1$s</string>

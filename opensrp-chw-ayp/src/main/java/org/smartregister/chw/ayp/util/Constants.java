@@ -34,6 +34,7 @@ public interface Constants {
         String AYP_FOLLOW_UP_VISIT = "Ayp Follow-up Visit";
         String AYP_IN_SCHOOL_FOLLOW_UP_VISIT = "Ayp In School Client Followup Visit";
         String AYP_OUT_SCHOOL_FOLLOW_UP_VISIT = "Ayp Out School Client Followup Visit";
+        String AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT = "Ayp Out School Group Followup Visit";
         String AYP_FACILITY_SCREENING = "AYP Screening Tool + Enrollment";
         String VOID_EVENT = "Void Event";
         String CLOSE_ayp_SERVICE = "Close Ayp Service";
@@ -99,6 +100,7 @@ public interface Constants {
         String AYP_FACILITY_REFERRAL_TO_OTHER_SERVICES = "ayp_facility_referral_to_other_services";
         String AYP_FACILITY_NEXT_APPOINTMENT = "ayp_facility_next_appointment";
         String AYP_FACILITY_SCREENING = "ayp_facility_screening";
+
     }
 
     interface ayp_FOLLOWUP_FORMS {
@@ -118,6 +120,7 @@ public interface Constants {
         String AYP_IN_SCHOOL_GROUP_MEMBERS = "ec_ayp_in_school_group_members";
         String AYP_OUT_SCHOOL_GROUP_MEMBERS = "ec_ayp_out_school_group_members";
         String AYP_SERVICE = "ec_ayp_services";
+        String AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT = "ec_ayp_out_school_group_followup_visits";
         String AYP_OUT_SCHOOL_CLIENT_FOLLOW_UP_VISIT = "ec_ayp_out_school_client_followup_visits";
         String AYP_OUT_SCHOOL_GROUP_DETAILS = "ec_ayp_out_school_group_details";
         String AYP_FACILITY_SCREENING = "ec_ayp_facility_screening";
@@ -133,6 +136,7 @@ public interface Constants {
         String PROFILE_TYPE = "profile_type";
         String GROUP_ID = "GROUP_ID";
         String GROUP_NAME = "GROUP_NAME";
+        String AGE_BAND = "AGE_BAND";
 
     }
 
@@ -157,6 +161,7 @@ public interface Constants {
 
     interface PROFILE_TYPES {
         String ayp_PROFILE = "ayp_profile";
+        String AYP_OUT_SCHOOL_PROFILE = "ayp_out_of_school_profile";
     }
 
     interface VALUES {

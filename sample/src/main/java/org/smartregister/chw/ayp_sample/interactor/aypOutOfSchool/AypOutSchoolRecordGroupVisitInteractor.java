@@ -7,6 +7,10 @@ import org.smartregister.chw.ayp_sample.activity.EntryActivity;
 
 
 public class AypOutSchoolRecordGroupVisitInteractor extends BaseAypOutSchoolGroupVisitInteractor {
+    public AypOutSchoolRecordGroupVisitInteractor(String visitType) {
+        super(visitType);
+    }
+
     @Override
     public MemberObject getMemberClient(String memberID, String profileType) {
         return EntryActivity.getSampleMember();

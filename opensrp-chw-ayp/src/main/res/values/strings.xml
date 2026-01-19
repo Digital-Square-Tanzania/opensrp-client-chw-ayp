@@ -104,6 +104,7 @@
 
     <string name="ayp_out_school_group_attendance">Group Attendance</string>
     <string name="ayp_out_school_sbc_services">SBC Services</string>
+    <string name="ayp_out_school_group_structural_services">Structural Services</string>
 
     <string name="ayp_screening">AYP Screening</string>
 
@@ -112,6 +113,7 @@
     <string name="ayp_group_attendance">Group Members Attendance</string>
     <string name="return_to_ayp_groups">Return to AYP Groups</string>
     <string name="provide_group_details">Provide Group Services</string>
+    <string name="process_group_service">Process Group Services</string>
     <string name="add_group_member">Add Group Member</string>
     <string name="group_members">Group Members</string>
     <string name="group_members_count">Members: %1$d</string>

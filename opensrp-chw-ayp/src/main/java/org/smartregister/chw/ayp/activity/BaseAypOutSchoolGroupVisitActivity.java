@@ -1,5 +1,8 @@
 package org.smartregister.chw.ayp.activity;
 
+import static org.smartregister.chw.ayp.util.Constants.EVENT_TYPE.AYP_OUT_SCHOOL_FOLLOW_UP_VISIT;
+import static org.smartregister.chw.ayp.util.Constants.EVENT_TYPE.AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT;
+
 import android.app.Activity;
 import android.content.Intent;
 
@@ -22,7 +25,13 @@ public class BaseAypOutSchoolGroupVisitActivity extends BaseAypVisitActivity {
 
     @Override
     protected void registerPresenter() {
-        presenter = new AypInSchoolGroupVisitPresenter(memberObject, this, new BaseAypOutSchoolGroupVisitInteractor());
+        presenter = new AypInSchoolGroupVisitPresenter(memberObject, this, new BaseAypOutSchoolGroupVisitInteractor(AYP_OUT_SCHOOL_GROUP_FOLLOW_UP_VISIT));
+    }
+
+    public void submittedAndClose() {
+        Intent returnIntent = new Intent();
+        setResult(Activity.RESULT_OK, returnIntent);
+        close();
     }
 
     @Override
