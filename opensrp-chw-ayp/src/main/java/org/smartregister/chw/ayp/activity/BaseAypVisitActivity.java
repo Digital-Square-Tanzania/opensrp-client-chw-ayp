@@ -233,13 +233,13 @@ public class BaseAypVisitActivity extends SecuredActivity implements BaseAypVisi
 
     @Override
     public void redrawVisitUI() {
-        boolean valid = actionList.size() > 0;
+        boolean valid = !actionList.isEmpty();
         for (Map.Entry<String, BaseAypVisitAction> entry : actionList.entrySet()) {
             BaseAypVisitAction action = entry.getValue();
-            if (
-                    (!action.isOptional() && (action.getActionStatus() == BaseAypVisitAction.Status.PENDING && action.isValid()))
-                            || !action.isEnabled()
-            ) {
+            if (action.isEnabled()
+                    && !action.isOptional()
+                    && action.getActionStatus() == BaseAypVisitAction.Status.PENDING
+                    && action.isValid()) {
                 valid = false;
                 break;
             }

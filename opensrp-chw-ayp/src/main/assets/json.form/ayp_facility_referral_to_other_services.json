@@ -59,6 +59,9 @@
         "label": "Which additional services is the client being referred to?",
         "required": "false",
         "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
         "options": [
           {
             "key": "vmmc",
@@ -80,6 +83,12 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hbv_hcv"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
           }
         ]
       }
