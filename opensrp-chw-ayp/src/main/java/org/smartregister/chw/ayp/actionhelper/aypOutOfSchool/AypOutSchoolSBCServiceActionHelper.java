@@ -55,7 +55,7 @@ public class AypOutSchoolSBCServiceActionHelper implements BaseAypVisitAction.ay
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject payload = new JSONObject(jsonPayload);
-            this.serviceStatus = JsonFormUtils.getValue(payload, "choose_sbc_service_provided");
+            this.serviceStatus = JsonFormUtils.getValue(payload, "choose_sbc_health_behavior_change_services_provided");
         } catch (Exception e) {
             Timber.e(e);
         }

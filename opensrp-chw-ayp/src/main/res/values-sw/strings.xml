@@ -23,6 +23,11 @@
     <string name="ayp_out_school_next_appointment">Hudhurio lijalo</string>
     <string name="ayp_out_school_group_structural_services">Huduma za kimuundo</string>
 
+    <string name="ayp_group_attendance">Mahudhulio ya wanakikundi</string>
+    <string name="ayp_out_school_sbc_services">Mabadiliko ya Kijamii na Tabia</string>
+    <string name="provide_group_details">Toa Huduma Ya Kikundi</string>
+    <string name="add_group_member">Ongeza Mwanakikundi</string>
+
     <string name="graduate">Hitimu</string>
 
     <string name="ayp_screening">Uchunguzi wa AYP</string>
@@ -50,7 +55,7 @@
     <string name="copy_to_clipboard">Nakili namba ya simu</string>
     <string name="copied_phone_number">Namba ya simu imenakiliwa</string>
     <string name="call">Piga simu</string>
-    <string name="refer_to_facility">Rufaa kwenda kituo cha kutolea huduma</string>
+    <string name="refer_to_facility">Rufaa kwenda kituo cha kutolea huduma za Afya</string>
     <string name="record_anc">Rekodi tembeleo la ujauzito</string>
     <string name="record_anc_visit_not_done">Tembeleo ujauzito halijafanyika</string>
     <string name="not_visiting_this_month">Hakuna tembeleo mwezi huu</string>
@@ -93,5 +98,7 @@
     <string name="ayp_parental_medical_history_title">Historia ya huduma za wazazi za AYP kwa %1$s</string>
     <string name="ayp_no_visit_history">Hakuna huduma za wazazi zilizorekodiwa</string>
     <string name="ayp_visit_date_unknown">Tarehe ya huduma haijulikani</string>
+
+    <string name="ayp_facility_next_appointment">Tarehe ya Miadi ijayo</string>
 
 </resources>

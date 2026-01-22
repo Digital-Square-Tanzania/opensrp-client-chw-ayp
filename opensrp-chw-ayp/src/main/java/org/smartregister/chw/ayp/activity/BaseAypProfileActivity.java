@@ -23,6 +23,9 @@ import androidx.viewpager.widget.ViewPager;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.contract.AypProfileContract;
@@ -41,8 +44,11 @@ import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import timber.log.Timber;
@@ -269,7 +275,64 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     protected void setupButtons() {
         if(getAypOutSchoolVisit() != null){
             if (!getAypOutSchoolVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
-                manualProcessVisit.setVisibility(View.VISIBLE);
+
+                boolean exists = false;
+
+                try {
+                    // 1. JSON stored here
+                    String json = getAypOutSchoolVisit().getJson();
+                    JSONObject root = new JSONObject(json);
+
+                    // 2. Get obs array
+                    JSONArray obsArray = root.optJSONArray("obs");
+                    if (obsArray == null || obsArray.length() == 0) {
+                        exists = false;
+                    } else {
+
+                        // 3. REQUIRED fieldCodes (ALL must exist)
+                        Set<String> requiredFieldCodes = new HashSet<>(Arrays.asList(
+                                "service_status",
+                                "self_testing_service_provided",
+                                "choose_sbc_health_behavior_change_services_provided",
+                                "condoms_given",
+                                "choose_economic_empowerment_services",
+                                "is_client_refered_to_the_facility",
+                                "next_appointment_date"
+                        ));
+
+                        // 4. Loop through obs and REMOVE found codes
+                        for (int i = 0; i < obsArray.length(); i++) {
+                            JSONObject obs = obsArray.optJSONObject(i);
+                            if (obs == null) continue;
+
+                            String fieldCode = obs.optString("fieldCode", "")
+                                    .trim()
+                                    .toLowerCase();
+
+                            requiredFieldCodes.remove(fieldCode);
+
+                            // 🚀 Stop early when all found
+                            if (requiredFieldCodes.isEmpty()) {
+                                exists = true;
+                                break;
+                            }
+                        }
+
+                        // 5. Final check (in case loop ended naturally)
+                        exists = requiredFieldCodes.isEmpty();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+                if (exists) {
+                    manualProcessVisit.setVisibility(View.VISIBLE);
+                } else {
+                    manualProcessVisit.setVisibility(View.GONE);
+                }
+
                 textViewContinueaypService.setText(R.string.edit_visit);
                 manualProcessVisit.setOnClickListener(view -> {
                     try {
