@@ -400,8 +400,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     @SuppressLint("DefaultLocale")
     @Override
     public void setProfileViewWithData() {
-        int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
-        textViewName.setText(String.format("%s %s %s, %d", memberObject.getFirstName(), memberObject.getMiddleName(), memberObject.getLastName(), age));
+        textViewName.setText(String.format("%s %s %s, %d", memberObject.getFirstName(), memberObject.getMiddleName(), memberObject.getLastName(), memberObject.getAge()));
         textViewGender.setText(AypUtil.getGenderTranslated(this, memberObject.getGender()));
         textViewLocation.setText(memberObject.getAddress());
         textViewUniqueID.setText(memberObject.getUniqueId());
