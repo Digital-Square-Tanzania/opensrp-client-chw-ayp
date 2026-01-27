@@ -78,11 +78,6 @@ public class MemberObject implements Serializable {
         return new Period(new DateTime(dob), new DateTime()).getYears();
     }
 
-    @Deprecated
-    public void setAge(String dob) {
-        this.dob = dob;
-    }
-
     public int getVisitAge() {
         return new Period(new DateTime(dob), new DateTime()).getYears();
     }
