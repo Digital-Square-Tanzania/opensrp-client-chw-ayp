@@ -3,8 +3,6 @@ package org.smartregister.chw.ayp.actionhelper.aypOutOfSchool;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.ayp.dao.AypDao;
@@ -41,8 +39,7 @@ public class AypOutSchoolStructuralServiceActionHelper implements BaseAypVisitAc
             JSONObject jsonObject = new JSONObject(jsonPayload);
             JSONObject global = jsonObject.getJSONObject("global");
 
-            int age = new Period(new DateTime(memberObject.getAge()),
-                    new DateTime()).getYears();
+            int age = memberObject.getAge();
 
             global.put("gender", memberObject.getGender());
             global.put("age", age);

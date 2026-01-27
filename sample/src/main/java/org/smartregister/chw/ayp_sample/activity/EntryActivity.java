@@ -54,7 +54,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             aypMemberObject.setGender("Female");
             aypMemberObject.setMartialStatus("Married");
             aypMemberObject.setDob("1982-01-18T03:00:00.000+03:00");
-            aypMemberObject.setAge("30");
             aypMemberObject.setUniqueId("3503504");
             aypMemberObject.setBaseEntityId("3503504");
             aypMemberObject.setFamilyBaseEntityId("3503504");
