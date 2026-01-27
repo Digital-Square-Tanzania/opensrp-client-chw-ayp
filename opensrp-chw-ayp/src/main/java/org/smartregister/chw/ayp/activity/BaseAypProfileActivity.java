@@ -21,8 +21,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.contract.AypProfileContract;
@@ -221,7 +219,7 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
 
             int scoreValue = StringUtils.isNotEmpty(score) ? Integer.parseInt(score) : 0;
 
-            int age = new Period(new DateTime(memberObject.getAge()), new DateTime()).getYears();
+            int age = memberObject.getAge();
             String gender = memberObject.getGender();
 
             boolean high_agyw_less_than_19 = (gender.equalsIgnoreCase("Female") && age < 19 && scoreValue > 10 && scoreValue < 16);

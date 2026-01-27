@@ -18,7 +18,6 @@ public class MemberObject implements Serializable {
     private String gender;
     private String martialStatus;
     private String uniqueId;
-    private String age;
     private String dob;
     private String relationalid;
     private String details;
@@ -75,12 +74,13 @@ public class MemberObject implements Serializable {
         return Utils.getName(getFirstName(), getLastName());
     }
 
-    public String getAge() {
-        return age;
+    public int getAge() {
+        return new Period(new DateTime(dob), new DateTime()).getYears();
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    @Deprecated
+    public void setAge(String dob) {
+        this.dob = dob;
     }
 
     public int getVisitAge() {

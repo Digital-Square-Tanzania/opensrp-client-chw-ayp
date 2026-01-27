@@ -19,8 +19,6 @@ import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.chw.ayp.AypLibrary;
@@ -224,8 +222,7 @@ public class BaseAypVisitActivity extends SecuredActivity implements BaseAypVisi
 
     @Override
     public void redrawHeader(MemberObject memberObject) {
-        int age = new Period(new DateTime(memberObject.getAge()),
-                new DateTime()).getYears();
+        int age = memberObject.getAge();
         tvTitle.setText(MessageFormat.format("{0}, {1}",
                 memberObject.getFullName(),
                 String.valueOf(age)));
