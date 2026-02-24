@@ -22,6 +22,10 @@ public interface Constants {
         String JSON = "json";
         String ENCOUNTER_TYPE = "encounter_type";
         String EVENT_TYPE = "eventType";
+
+        String DELETE_EVENT_ID = "deleted_event_id";
+
+        String DELETE_FORM_SUBMISSION_ID = "deleted_form_submission_id";
     }
 
     interface EVENT_TYPE {
@@ -45,6 +49,9 @@ public interface Constants {
 
         String AYP_OUT_GROUP_DETAILS = "group_out_details";
         String AYP_OUT_GROUP_MEMBERSHIP = "ayp_group_out_membership";
+
+        String DELETE_EVENT = "Delete Event";
+
     }
 
     interface FORMS {

@@ -2,8 +2,12 @@ package org.smartregister.chw.ayp.dao;
 
 import android.annotation.SuppressLint;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.domain.MemberObject;
 import org.smartregister.chw.ayp.util.Constants;
+import org.smartregister.clientandeventmodel.Event;
 import org.smartregister.dao.AbstractDao;
 
 import java.text.SimpleDateFormat;
@@ -11,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Calendar;
+
+import timber.log.Timber;
 
 public class AypDao extends AbstractDao {
     private static final SimpleDateFormat df = new SimpleDateFormat(
@@ -342,7 +348,7 @@ public class AypDao extends AbstractDao {
     }
 
     public static List<MemberObject> getOutSchoolGroupMembers(String groupId) {
-        String sql = "select " +
+        String sql = "SELECT DISTINCT " +
                 "m.base_entity_id , " +
                 "m.unique_id , " +
                 "m.relational_id , " +
@@ -354,30 +360,31 @@ public class AypDao extends AbstractDao {
                 "m.marital_status , " +
                 "m.phone_number , " +
                 "m.other_phone_number , " +
-                "f.first_name as family_name ," +
+                "f.first_name AS family_name , " +
                 "f.primary_caregiver , " +
                 "f.family_head , " +
-                "f.village_town ," +
-                "fh.first_name as family_head_first_name , " +
-                "fh.middle_name as family_head_middle_name , " +
-                "fh.last_name as family_head_last_name, " +
-                "fh.phone_number as family_head_phone_number ,  " +
-                "pcg.first_name as pcg_first_name , " +
-                "pcg.last_name as pcg_last_name , " +
-                "pcg.middle_name as pcg_middle_name , " +
-                "pcg.phone_number as  pcg_phone_number " +
-                "from ec_family_member m " +
-                "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join " + Constants.TABLES.AYP_OUT_SCHOOL_GROUP_MEMBERS + " mr on mr.member_base_entity_id = m.base_entity_id " +
-                "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
-                "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where mr.is_closed = 0 AND mr.group_id ='" + groupId + "' ";
-
+                "f.village_town , " +
+                "fh.first_name AS family_head_first_name , " +
+                "fh.middle_name AS family_head_middle_name , " +
+                "fh.last_name AS family_head_last_name , " +
+                "fh.phone_number AS family_head_phone_number , " +
+                "pcg.first_name AS pcg_first_name , " +
+                "pcg.last_name AS pcg_last_name , " +
+                "pcg.middle_name AS pcg_middle_name , " +
+                "pcg.phone_number AS pcg_phone_number " +
+                "FROM ec_family_member m " +
+                "INNER JOIN ec_family f ON m.relational_id = f.base_entity_id " +
+                "INNER JOIN " + Constants.TABLES.AYP_OUT_SCHOOL_GROUP_MEMBERS + " mr " +
+                "   ON mr.member_base_entity_id = m.base_entity_id " +
+                "LEFT JOIN ec_family_member fh ON fh.base_entity_id = f.family_head " +
+                "LEFT JOIN ec_family_member pcg ON pcg.base_entity_id = f.primary_caregiver " +
+                "WHERE mr.is_closed = 0 " +
+                "AND mr.group_id = '" + groupId + "'";
         return readData(sql, memberObjectMap);
     }
 
     public static List<MemberObject> getOutSchoolGroupMembers() {
-        String sql = "select " +
+        String sql = "SELECT DISTINCT " +
                 "m.base_entity_id , " +
                 "m.unique_id , " +
                 "m.relational_id , " +
@@ -745,6 +752,22 @@ public class AypDao extends AbstractDao {
             return null;
 
         return res.get(0);
+    }
+
+    public static Event getEventByFormSubmissionId(String formSubmissionId) {
+        String sql = "select json from event where formSubmissionId = '" + formSubmissionId + "'";
+        DataMap<Event> dataMap = (c) -> {
+            Event event;
+            try {
+                event = (Event) AypLibrary.getInstance().getEcSyncHelper().convert(new JSONObject(getCursorValue(c, "json")), Event.class);
+            } catch (JSONException e) {
+                Timber.e(e);
+                return null;
+            }
+
+            return event;
+        };
+        return (Event) AbstractDao.readSingleValue(sql, dataMap);
     }
 
 }

@@ -1,5 +1,9 @@
 package org.smartregister.chw.ayp.util;
 
+import static org.smartregister.chw.ayp.util.Constants.EVENT_TYPE.DELETE_EVENT;
+import static org.smartregister.chw.ayp.util.Constants.JSON_FORM_EXTRA.DELETE_EVENT_ID;
+import static org.smartregister.chw.ayp.util.Constants.JSON_FORM_EXTRA.DELETE_FORM_SUBMISSION_ID;
+
 import android.content.Context;
 
 import com.google.gson.Gson;
@@ -7,7 +11,9 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
+import org.smartregister.chw.ayp.dao.AypDao;
 import org.smartregister.chw.ayp.domain.Visit;
 import org.smartregister.chw.ayp.domain.VisitDetail;
 import org.smartregister.chw.ayp.repository.VisitDetailsRepository;
@@ -23,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+
+import timber.log.Timber;
 
 public class VisitUtils {
 
@@ -147,5 +155,37 @@ public class VisitUtils {
             }
         }
         return Pending;
+    }
+
+    public static void deleteSavedEvent(AllSharedPreferences allSharedPreferences, String baseEntityId, String eventId, String formSubmissionId, String type) {
+        Event event = (Event) new Event()
+                .withBaseEntityId(baseEntityId)
+                .withEventDate(new Date())
+                .withEventType(DELETE_EVENT)
+                .withLocationId(JsonFormUtils.locationId(allSharedPreferences))
+                .withProviderId(allSharedPreferences.fetchRegisteredANM())
+                .withEntityType(type)
+                .withFormSubmissionId(UUID.randomUUID().toString())
+                .withDateCreated(new Date());
+
+        event.addDetails(DELETE_EVENT_ID, eventId);
+        event.addDetails(DELETE_FORM_SUBMISSION_ID, formSubmissionId);
+
+        try {
+            NCUtils.processEvent(event.getBaseEntityId(), new JSONObject(JsonFormUtils.gson.toJson(event)));
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+    }
+
+    public static void deleteProcessedVisit(String visitID, String baseEntityId) {
+        // check if the event
+        AllSharedPreferences allSharedPreferences = AypLibrary.getInstance().context().allSharedPreferences();
+        Visit visit = AypLibrary.getInstance().visitRepository().getVisitByVisitId(visitID);
+        if (visit == null || !visit.getProcessed()) return;
+
+        Event processedEvent = AypDao.getEventByFormSubmissionId(visit.getFormSubmissionId());
+        if (processedEvent == null) return;
+        deleteSavedEvent(allSharedPreferences, baseEntityId, processedEvent.getEventId(), processedEvent.getFormSubmissionId(), "event");
     }
 }
