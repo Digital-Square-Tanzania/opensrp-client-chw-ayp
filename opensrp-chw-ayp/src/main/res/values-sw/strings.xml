@@ -80,7 +80,12 @@
     <string name="ayp_procedure_visit_in_progress">Huduma ya AYP inaendelea</string>
     <string name="ayp_visit_conducted">Hudhurio la AYP limefanyika</string>
 
+    <string name="ayp_in_school_register_title">Wateja wa rika balehe (Ndani ya Shule)</string>
+    <string name="ayp_out_school_register_title">Wateja wa rika balehe (Nje ya Shule)</string>
     <string name="ayp_profile">Profile la AYP</string>
+    <string name="ayp_high_risk">Hatari Kubwa</string>
+    <string name="ayp_moderate_risk">Hatari ya Kati</string>
+    <string name="ayp_low_risk">"Hatari Ndogo</string>
 
     <string name="ayp_medical_history">Historia ya kitibabu</string>
     <string name="ayp_physical_examination">Uchunguzi wa kimwili</string>

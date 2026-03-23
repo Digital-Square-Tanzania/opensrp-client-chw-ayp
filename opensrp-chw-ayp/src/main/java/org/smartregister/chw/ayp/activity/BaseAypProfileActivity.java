@@ -240,17 +240,17 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
             if (StringUtils.isNotBlank(score)) {
                 aypRiskLabel.setVisibility(View.VISIBLE);
                 if (high_agyw_less_than_19 || high_abym_less_than_19 || high_agyw_less_than_19_24 || high_abym_less_than_19_24) {
-                    aypRiskLabel.setText("HIGH RISK");
+                    aypRiskLabel.setText(R.string.ayp_high_risk);
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.RED);
                 }
                 if (medium_agyw_less_than_19 || medium_abym_less_than_19 || medium_agyw_less_than_19_24 || medium_abym_less_than_19_24) {
-                    aypRiskLabel.setText("MODERATE RISK");
+                    aypRiskLabel.setText(R.string.ayp_moderate_risk);
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.parseColor("#FFA500")); // Standard orange
                 }
                 if (low_agyw_less_than_19 || low_abym_less_than_19 || low_agyw_less_than_19_24 || low_abym_less_than_19_24) {
-                    aypRiskLabel.setText("LOW RISK");
+                    aypRiskLabel.setText(R.string.ayp_low_risk);
                     aypRiskLabel.setTextColor(Color.WHITE);
                     aypRiskLabel.setBackgroundColor(Color.GRAY);
                 }
