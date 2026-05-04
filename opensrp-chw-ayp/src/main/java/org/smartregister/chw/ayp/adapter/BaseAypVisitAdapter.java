@@ -77,10 +77,7 @@ public class BaseAypVisitAdapter extends RecyclerView.Adapter<BaseAypVisitAdapte
             holder.titleText.setTextColor(context.getResources().getColor(R.color.black));
         }
 
-        String title = MessageFormat.format("{0}<i>{1}</i>",
-                aypVisitAction.getTitle(),
-                aypVisitAction.isOptional() ? " - " + context.getString(R.string.optional) : ""
-        );
+        String title = aypVisitAction.getTitle();
         holder.titleText.setText(Html.fromHtml(title));
         if (StringUtils.isNotBlank(aypVisitAction.getSubTitle())) {
 
