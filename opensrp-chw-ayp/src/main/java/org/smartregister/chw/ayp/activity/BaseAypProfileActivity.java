@@ -21,6 +21,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.smartregister.chw.ayp.AypLibrary;
 import org.smartregister.chw.ayp.R;
 import org.smartregister.chw.ayp.contract.AypProfileContract;
@@ -263,10 +265,11 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
     }
 
     protected void setupButtons() {
-        if (getAypOutSchoolVisit() != null) {
-            if (!getAypOutSchoolVisit().getProcessed() && AypVisitsUtil.getaypVisitStatus(getAypOutSchoolVisit()).equalsIgnoreCase(AypVisitsUtil.Pending)) {
+        Visit latestOutSchoolVisit = getAypOutSchoolVisit();
+        if (latestOutSchoolVisit != null) {
+            if (!latestOutSchoolVisit.getProcessed() && hasCompletedOutSchoolServiceSections(latestOutSchoolVisit)) {
                 manualProcessVisit.setVisibility(View.VISIBLE);
-                textViewContinueaypService.setText(R.string.edit_visit);
+                textViewContinueaypService.setText(R.string.continue_visit);
                 manualProcessVisit.setOnClickListener(view -> {
                     try {
                         AypVisitsUtil.manualProcessVisit(getAypOutSchoolVisit());
@@ -282,12 +285,73 @@ public abstract class BaseAypProfileActivity extends BaseProfileActivity impleme
             }
         }
 
-        if (isVisitOnProgress(getAypOutSchoolVisit())) {
+        if (isVisitOnProgress(latestOutSchoolVisit)) {
             aypServiceInProgress.setVisibility(View.VISIBLE);
             textViewRecordayp.setVisibility(View.GONE);
         } else {
             aypServiceInProgress.setVisibility(View.GONE);
         }
+    }
+
+    private boolean hasCompletedOutSchoolServiceSections(Visit visit) {
+        if (visit == null || StringUtils.isBlank(visit.getJson())) {
+            return false;
+        }
+
+        boolean hasServiceStatus = false;
+        boolean hasSbcHealthBehaviour = false;
+        boolean hasMedicalServices = false;
+        boolean hasStructuralServices = false;
+        boolean hasReferralServices = false;
+        boolean hasNextAppointment = false;
+
+        try {
+            JSONObject visitJson = new JSONObject(visit.getJson());
+            JSONArray obsArray = visitJson.optJSONArray("obs");
+            if (obsArray == null) {
+                return false;
+            }
+
+            for (int i = 0; i < obsArray.length(); i++) {
+                JSONObject obs = obsArray.optJSONObject(i);
+                if (obs == null) {
+                    continue;
+                }
+
+                String fieldCode = obs.optString("fieldCode");
+                JSONArray values = obs.optJSONArray("values");
+                boolean hasValue = values != null && values.length() > 0
+                        && !StringUtils.isBlank(values.optString(0));
+
+                if (!hasValue) {
+                    continue;
+                }
+
+                if ("service_status".equalsIgnoreCase(fieldCode)) {
+                    hasServiceStatus = true;
+                } else if ("provided_sbc_service".equalsIgnoreCase(fieldCode)) {
+                    hasSbcHealthBehaviour = true;
+                } else if ("self_testing_service_provided".equalsIgnoreCase(fieldCode)) {
+                    hasMedicalServices = true;
+                } else if ("choose_economic_empowerment_services".equalsIgnoreCase(fieldCode)) {
+                    hasStructuralServices = true;
+                } else if ("is_client_refered_to_the_facility".equalsIgnoreCase(fieldCode)) {
+                    hasReferralServices = true;
+                } else if ("next_appointment_date".equalsIgnoreCase(fieldCode)) {
+                    hasNextAppointment = true;
+                }
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+            return false;
+        }
+
+        return hasServiceStatus
+                && hasSbcHealthBehaviour
+                && hasMedicalServices
+                && hasStructuralServices
+                && hasReferralServices
+                && hasNextAppointment;
     }
 
     protected Visit getAypOutSchoolVisit() {
